@@ -1,0 +1,854 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FUMINO MIDORIKAWA — Design Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Noto+Serif+JP:wght@300;400&family=Space+Mono&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --teal: #6aada8;
+    --green: #7aaa4a;
+    --orange: #e8952a;
+    --black: #1a1a1a;
+    --gray: #888;
+    --light: #f7f5f0;
+    --border: #d8d4cc;
+    --serif: 'Cormorant Garamond', 'Noto Serif JP', serif;
+    --mono: 'Space Mono', monospace;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: var(--serif);
+    background: #faf8f4;
+    color: var(--black);
+    overflow-x: hidden;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.25rem 3rem;
+    background: rgba(250,248,244,0.92);
+    backdrop-filter: blur(6px);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .nav-logo {
+    font-family: var(--mono);
+    font-size: 13px;
+    letter-spacing: 0.2em;
+    color: var(--black);
+    text-decoration: none;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 2.5rem;
+    list-style: none;
+  }
+
+  .nav-links a {
+    font-family: var(--serif);
+    font-size: 13px;
+    letter-spacing: 0.1em;
+    color: var(--gray);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover { color: var(--black); }
+
+  /* ── HERO ── */
+  .hero {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 60px 1fr 60px;
+    align-items: center;
+    padding-top: 80px;
+    position: relative;
+  }
+
+  .hero-side-left {
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+    font-size: 13px;
+    letter-spacing: 0.25em;
+    color: var(--gray);
+    padding: 2rem 0 2rem 2rem;
+    line-height: 2;
+  }
+
+  .hero-center {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 4rem 2rem;
+    text-align: center;
+    position: relative;
+  }
+
+  .hero-eyebrow {
+    font-family: var(--mono);
+    font-size: 12px;
+    letter-spacing: 0.3em;
+    color: var(--gray);
+    margin-bottom: 2.5rem;
+  }
+
+  /* Logo circle */
+  .logo-circle {
+    position: relative;
+    width: 340px;
+    height: 340px;
+    margin: 0 auto 2.5rem;
+  }
+
+  .logo-circle svg {
+    width: 100%;
+    height: 100%;
+  }
+
+  .hero-title {
+    font-family: var(--serif);
+    font-size: clamp(36px, 5vw, 64px);
+    font-weight: 300;
+    letter-spacing: 0.15em;
+    color: var(--teal);
+    line-height: 1;
+    margin-bottom: 1.5rem;
+  }
+
+  .hero-title em {
+    font-style: italic;
+    color: var(--black);
+    font-size: 0.65em;
+    display: block;
+    letter-spacing: 0.3em;
+    margin-top: 0.4em;
+  }
+
+  .hero-tagline {
+    font-size: 13px;
+    color: var(--gray);
+    letter-spacing: 0.05em;
+    line-height: 2;
+    max-width: 360px;
+  }
+
+  .hero-side-right {
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+    font-size: 13px;
+    letter-spacing: 0.25em;
+    color: var(--gray);
+    padding: 2rem 2rem 2rem 0;
+    line-height: 2;
+    text-align: right;
+  }
+
+  .hero-scroll {
+    position: absolute;
+    bottom: 2.5rem;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    font-family: var(--mono);
+    font-size: 12px;
+    letter-spacing: 0.2em;
+    color: var(--gray);
+  }
+
+  .hero-scroll::after {
+    content: '';
+    display: block;
+    width: 1px;
+    height: 48px;
+    background: var(--border);
+    animation: scrollLine 1.8s ease-in-out infinite;
+  }
+
+  @keyframes scrollLine {
+    0%, 100% { opacity: 0.3; transform: scaleY(1); }
+    50% { opacity: 1; transform: scaleY(0.6); }
+  }
+
+  /* ── SECTIONS common ── */
+  section {
+    padding: 6rem 0;
+    border-top: 1px solid var(--border);
+  }
+
+  .section-inner {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 0 3rem;
+  }
+
+  .section-label {
+    font-family: var(--mono);
+    font-size: 12px;
+    letter-spacing: 0.3em;
+    color: var(--gray);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 3rem;
+  }
+
+  .section-label::before {
+    content: '';
+    display: block;
+    width: 24px;
+    height: 1px;
+    background: var(--gray);
+  }
+
+  /* ── ABOUT ── */
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: start;
+  }
+
+  .about-heading {
+    font-size: clamp(22px, 3vw, 32px);
+    font-weight: 300;
+    line-height: 1.6;
+    letter-spacing: 0.05em;
+    margin-bottom: 2rem;
+  }
+
+  .about-body {
+    font-size: 14px;
+    line-height: 2.2;
+    color: #444;
+    margin-bottom: 1.5rem;
+  }
+
+  .about-wa {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    padding-top: 1rem;
+  }
+
+  .wa-item {
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+  }
+
+  .wa-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    margin-top: 4px;
+    flex-shrink: 0;
+  }
+
+  .wa-dot.teal { background: var(--teal); }
+  .wa-dot.green { background: var(--green); }
+  .wa-dot.orange { background: var(--orange); }
+
+  .wa-text strong {
+    display: block;
+    font-size: 13px;
+    letter-spacing: 0.1em;
+    margin-bottom: 4px;
+  }
+
+  .wa-text p {
+    font-size: 12px;
+    color: var(--gray);
+    line-height: 1.9;
+  }
+
+  .about-more {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    font-family: var(--mono);
+    font-size: 12px;
+    letter-spacing: 0.2em;
+    color: var(--black);
+    text-decoration: none;
+    margin-top: 2rem;
+    padding-bottom: 4px;
+    border-bottom: 1px solid var(--black);
+    transition: opacity 0.2s;
+  }
+
+  .about-more:hover { opacity: 0.5; }
+
+  /* ── WORKS ── */
+  .works-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
+
+  .work-card {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+  }
+
+  .work-thumb {
+    aspect-ratio: 4/3;
+    background: var(--light);
+    border: 1px solid var(--border);
+    margin-bottom: 0.75rem;
+    overflow: hidden;
+    position: relative;
+  }
+
+  .work-thumb-inner {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--mono);
+    font-size: 12px;
+    letter-spacing: 0.2em;
+    color: var(--border);
+    transition: transform 0.4s ease;
+  }
+
+  .work-card:hover .work-thumb-inner {
+    transform: scale(1.03);
+  }
+
+  .work-tag {
+    font-family: var(--mono);
+    font-size: 12px;
+    letter-spacing: 0.15em;
+    color: var(--gray);
+    border: 1px solid var(--border);
+    display: inline-block;
+    padding: 2px 8px;
+    margin-bottom: 6px;
+  }
+
+  .work-title {
+    font-size: 14px;
+    font-weight: 300;
+    letter-spacing: 0.05em;
+  }
+
+  .works-more {
+    text-align: right;
+    margin-top: 2.5rem;
+  }
+
+  .works-more a {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    font-family: var(--mono);
+    font-size: 12px;
+    letter-spacing: 0.2em;
+    color: var(--black);
+    text-decoration: none;
+    padding-bottom: 4px;
+    border-bottom: 1px solid var(--black);
+    transition: opacity 0.2s;
+  }
+
+  .works-more a:hover { opacity: 0.5; }
+
+  /* ── SERVICES ── */
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
+  }
+
+  .service-item {
+    background: #faf8f4;
+    padding: 2rem;
+  }
+
+  .service-num {
+    font-family: var(--mono);
+    font-size: 12px;
+    letter-spacing: 0.2em;
+    color: var(--border);
+    margin-bottom: 1rem;
+  }
+
+  .service-title {
+    font-size: 18px;
+    font-weight: 300;
+    letter-spacing: 0.1em;
+    margin-bottom: 0.75rem;
+  }
+
+  .service-desc {
+    font-size: 12px;
+    color: var(--gray);
+    line-height: 2;
+  }
+
+  .service-accent {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    margin-right: 6px;
+    vertical-align: middle;
+  }
+
+  /* ── CONTACT ── */
+  .contact-section {
+    text-align: center;
+    padding: 6rem 0;
+  }
+
+  .contact-heading {
+    font-size: clamp(28px, 4vw, 48px);
+    font-weight: 300;
+    font-style: italic;
+    letter-spacing: 0.1em;
+    margin-bottom: 1.5rem;
+  }
+
+  .contact-sub {
+    font-size: 13px;
+    color: var(--gray);
+    letter-spacing: 0.1em;
+    margin-bottom: 3rem;
+    line-height: 2;
+  }
+
+  .contact-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 16px;
+    font-family: var(--mono);
+    font-size: 13px;
+    letter-spacing: 0.25em;
+    color: var(--black);
+    text-decoration: none;
+    border: 1px solid var(--black);
+    padding: 1rem 2.5rem;
+    transition: background 0.2s, color 0.2s;
+  }
+
+  .contact-btn:hover {
+    background: var(--black);
+    color: #faf8f4;
+  }
+
+  /* ── CONTACT TABS ── */
+  .contact-tabs {
+    display: flex;
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 2rem;
+  }
+  .contact-tab-btn {
+    flex: 1;
+    background: none;
+    border: none;
+    padding: 14px 8px;
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    color: var(--gray);
+    cursor: pointer;
+    border-bottom: 2px solid transparent;
+    margin-bottom: -1px;
+    transition: all 0.2s;
+  }
+  .contact-tab-btn.active {
+    color: var(--black);
+    border-bottom-color: var(--teal);
+  }
+  .contact-tab-content { display: none; }
+  .contact-tab-content.active { display: block; }
+
+  /* ── HAMBURGER ── */
+  .nav-hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    background: none;
+    border: none;
+    padding: 4px;
+  }
+  .nav-hamburger span {
+    display: block;
+    width: 22px;
+    height: 1px;
+    background: var(--black);
+    transition: all 0.3s;
+  }
+  .nav-hamburger.open span:nth-child(1) { transform: translateY(6px) rotate(45deg); }
+  .nav-hamburger.open span:nth-child(2) { opacity: 0; }
+  .nav-hamburger.open span:nth-child(3) { transform: translateY(-6px) rotate(-45deg); }
+
+  /* ── HERO MOBILE TEXT ── */
+  .hero-tagline-mobile { display: none; }
+
+  /* ── FOOTER ── */
+  footer {
+    border-top: 1px solid var(--border);
+    padding: 2rem 3rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .footer-logo {
+    font-family: var(--mono);
+    font-size: 12px;
+    letter-spacing: 0.2em;
+    color: var(--gray);
+  }
+
+  .footer-copy {
+    font-family: var(--mono);
+    font-size: 12px;
+    letter-spacing: 0.1em;
+    color: var(--border);
+  }
+
+  .send-btn {
+    font-family: var(--mono);
+    font-size: 12px;
+    letter-spacing: 0.25em;
+    color: var(--black);
+    background: transparent;
+    border: 1px solid var(--black);
+    padding: 0.9rem 2rem;
+    cursor: pointer;
+    transition: background 0.25s, color 0.25s;
+  }
+  .send-btn:hover {
+    background: var(--black);
+    color: #faf8f4;
+  }
+
+  /* ── FADE IN ── */
+  .fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+
+  .fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 768px) {
+    nav { padding: 1rem 1.5rem; }
+    .nav-hamburger { display: flex; }
+    .nav-links {
+      display: none;
+      position: fixed;
+      top: 57px; left: 0; right: 0;
+      background: rgba(250,248,244,0.97);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--border);
+      flex-direction: column;
+      align-items: center;
+      gap: 0;
+      padding: 0;
+      list-style: none;
+      z-index: 99;
+    }
+    .nav-links.open { display: flex; }
+    .nav-links li { width: 100%; text-align: center; }
+    .nav-links a { display: block; padding: 1.1rem 0; border-bottom: 1px solid var(--border); font-size: 13px; }
+    .hero {
+      grid-template-columns: 1fr;
+      overflow: hidden;
+    }
+    .hero-side-left { display: none !important; }
+    .hero-side-right { display: none !important; }
+    .hero-tagline-mobile { display: block; }
+    .logo-circle { width: 240px; height: 240px; }
+    .section-inner { padding: 0 1.5rem; }
+    .about-grid { grid-template-columns: 1fr; gap: 2rem; }
+    .works-grid { grid-template-columns: 1fr 1fr; }
+    .services-grid { grid-template-columns: 1fr; }
+    footer { flex-direction: column; gap: 1rem; text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">FUMINO MIDORIKAWA</a>
+  <ul class="nav-links" id="nav-links">
+    <li><a href="#about" onclick="closeMenu()">ご挨拶</a></li>
+    <li><a href="#works" onclick="closeMenu()">制作実績</a></li>
+    <li><a href="#services" onclick="closeMenu()">仕事内容</a></li>
+    <li><a href="#contact" onclick="closeMenu()">お問い合わせ</a></li>
+  </ul>
+  <button class="nav-hamburger" id="hamburger" onclick="toggleMenu()" aria-label="メニュー">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-side-left">医療現場で培った&thinsp;"寄り添う力"を活かし、伝わるデザインを制作します</div>
+
+  <div class="hero-center">
+    <p class="hero-eyebrow">WEB DESIGNER / 作業療法士</p>
+    <p class="hero-tagline-mobile" style="font-size:13px; color:var(--gray); letter-spacing:0.04em; line-height:1.9; margin-bottom:1.5rem;">医療現場で培った&thinsp;"寄り添う力"を活かし、<br>伝わるデザインを制作します</p>
+
+    <!-- ロゴ -->
+    <div class="logo-circle">
+      <img src="logo.svg" alt="FUMINOWA DESIGN ロゴ" style="width:100%; height:100%; object-fit:contain;">
+    </div>
+
+    <h1 class="hero-title">FUMINOWA DESIGN</h1>
+
+  </div>
+
+  <div class="hero-side-right">想いを汲み取り信頼に変えるデザイン。</div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="section-inner">
+    <p class="section-label fade-in">GREETING</p>
+    <div class="about-grid">
+      <div class="fade-in">
+        <h2 class="about-heading">三つの「わ」で、<br>想いを形に。</h2>
+        <p class="about-body">患者さんの人生に寄り添ってきた視点で、<span style="white-space:nowrap">信頼されるデザインを。</span></p>
+        <p class="about-body">私のロゴにある3つの丸には、作業療法士としての経験から<span style="white-space:nowrap">学んだ、デザインにおける3つの信念を込めています。</span></p>
+      </div>
+      <div class="about-wa fade-in">
+        <div class="wa-item">
+          <div class="wa-dot teal"></div>
+          <div class="wa-text">
+            <strong>話（わ）：丁寧に、深く聴く。</strong>
+            <p>リハビリの現場で何より大切だったのは、言葉にならない患者様の不安や希望を「聴く」ことでした。デザインにおいても、まずはあなたの想いを丁寧に紐解く「対話」から始めます。</p>
+          </div>
+        </div>
+        <div class="wa-item">
+          <div class="wa-dot green"></div>
+          <div class="wa-text">
+            <strong>和（わ）：心地よい調和を。</strong>
+            <p>見る人の心にすっと馴染み、信頼を感じさせる「調和」の取れたデザインを追求します。</p>
+          </div>
+        </div>
+        <div class="wa-item">
+          <div class="wa-dot orange"></div>
+          <div class="wa-text">
+            <strong>輪（わ）：つながりを広げる。</strong>
+            <p>「作って終わり」にせず、想いが届き、成果や集客へとつながるデザインを大切にしています。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="works-more fade-in">
+      <a href="about.html">MORE →</a>
+    </div>
+  </div>
+</section>
+
+<!-- WORKS -->
+<section id="works">
+  <div class="section-inner">
+    <p class="section-label fade-in">SELECTED WORKS</p>
+    <div class="works-grid">
+      <a href="works.html" class="work-card fade-in">
+        <div class="work-thumb">
+          <div class="work-thumb-inner">
+            <img src="work-mebuki.png" alt="Webサイト制作" style="width:100%; height:100%; object-fit:cover; display:block;">
+          </div>
+        </div>
+        <span class="work-tag">WEB DESIGN</span>
+        <p class="work-title">Webサイト制作</p>
+      </a>
+      <a href="works.html" class="work-card fade-in">
+        <div class="work-thumb">
+          <div class="work-thumb-inner">
+            <img src="work-logtrack.jpg" alt="ランディングページ" style="width:100%; height:100%; object-fit:cover; display:block;">
+          </div>
+        </div>
+        <span class="work-tag">LP DESIGN</span>
+        <p class="work-title">ランディングページ</p>
+      </a>
+      <a href="works.html" class="work-card fade-in">
+        <div class="work-thumb">
+          <div class="work-thumb-inner">
+            <img src="work-asahidake.jpg" alt="ロゴ・ブランディング" style="width:100%; height:100%; object-fit:cover; display:block;">
+          </div>
+        </div>
+        <span class="work-tag">LOGO / BRAND</span>
+        <p class="work-title">ロゴ・ブランディング</p>
+      </a>
+    </div>
+    <div class="works-more fade-in">
+      <a href="works.html">ALL WORKS →</a>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="section-inner">
+    <p class="section-label fade-in">SERVICES</p>
+    <div class="services-grid fade-in">
+      <div class="service-item">
+        <p class="service-num">01</p>
+        <h3 class="service-title"><span class="service-accent" style="background:#6aada8"></span>Webデザイン</h3>
+        <p class="service-desc">ホームページ・コーポレートサイトの設計・デザイン。ブランドの世界観を丁寧に表現します。</p>
+      </div>
+      <div class="service-item">
+        <p class="service-num">02</p>
+        <h3 class="service-title"><span class="service-accent" style="background:#7aaa4a"></span>LP制作</h3>
+        <p class="service-desc">成果につながるランディングページ。ターゲットの心に届くコピーとデザインで訴求力を高めます。</p>
+      </div>
+      <div class="service-item">
+        <p class="service-num">03</p>
+        <h3 class="service-title"><span class="service-accent" style="background:#e8952a"></span>ロゴ・グラフィック</h3>
+        <p class="service-desc">ブランドの第一印象を形にするロゴ制作。想いをシンプルかつ印象的なビジュアルに落とし込みます。</p>
+      </div>
+      <div class="service-item">
+        <p class="service-num">04</p>
+        <h3 class="service-title"><span class="service-accent" style="background:#1a1a1a"></span>商品画像制作</h3>
+        <p class="service-desc">ECサイト・SNS向けの商品画像。魅力が伝わるビジュアルで購買意欲を引き出します。</p>
+      </div>
+    </div>
+    <div class="works-more fade-in" style="text-align:right; margin-top:1.5rem;">
+      <a href="services.html">DETAIL →</a>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" style="border-top: 1px solid var(--border); padding: 6rem 0;">
+  <div class="section-inner">
+    <p class="section-label fade-in">CONTACT</p>
+    <div class="fade-in" style="max-width: 600px; margin: 0 auto;">
+      <h2 style="font-size: clamp(24px,3vw,36px); font-weight:300; font-style:italic; letter-spacing:0.08em; line-height:1.5; margin-bottom:2.5rem;">お気軽に<br>ご相談ください。</h2>
+
+      <div class="contact-tabs">
+        <button class="contact-tab-btn active" onclick="switchContactTab('form', this)">CONTACT FORM</button>
+        <button class="contact-tab-btn" onclick="switchContactTab('hearing', this)">HEARING SHEET</button>
+      </div>
+
+      <div id="ctab-form" class="contact-tab-content active">
+        <form onsubmit="handleSubmit(event)" style="display:flex; flex-direction:column; gap:1.25rem;">
+          <div>
+            <label style="font-family:var(--mono); font-size:12px; letter-spacing:0.2em; color:var(--gray); display:block; margin-bottom:6px;">NAME</label>
+            <input type="text" name="name" placeholder="お名前" required style="width:100%; background:transparent; border:none; border-bottom:1px solid var(--border); padding:8px 0; font-family:var(--serif); font-size:15px; color:var(--black); outline:none; transition:border-color 0.2s;">
+          </div>
+          <div>
+            <label style="font-family:var(--mono); font-size:12px; letter-spacing:0.2em; color:var(--gray); display:block; margin-bottom:6px;">EMAIL</label>
+            <input type="email" name="email" placeholder="メールアドレス" required style="width:100%; background:transparent; border:none; border-bottom:1px solid var(--border); padding:8px 0; font-family:var(--serif); font-size:15px; color:var(--black); outline:none; transition:border-color 0.2s;">
+          </div>
+          <div>
+            <label style="font-family:var(--mono); font-size:12px; letter-spacing:0.2em; color:var(--gray); display:block; margin-bottom:6px;">MESSAGE</label>
+            <textarea name="message" placeholder="ご相談内容をお気軽にどうぞ" rows="5" required style="width:100%; background:transparent; border:none; border-bottom:1px solid var(--border); padding:8px 0; font-family:var(--serif); font-size:15px; color:var(--black); outline:none; resize:none; transition:border-color 0.2s;"></textarea>
+          </div>
+          <div style="text-align:right; margin-top:0.5rem;">
+            <button type="submit" class="send-btn">SEND →</button>
+          </div>
+          <p id="form-msg" style="font-family:var(--mono); font-size:12px; letter-spacing:0.1em; color:var(--teal); display:none; text-align:right;">送信しました。ありがとうございます。</p>
+        </form>
+      </div>
+
+      <div id="ctab-hearing" class="contact-tab-content">
+        <p style="font-size:15px; color:var(--gray); line-height:2; margin-bottom:2rem;">依頼内容・納品形式・予算などをまとめてお伝えいただくことで、より具体的なご提案とお見積もりをスムーズにご案内できます。</p>
+        <ul style="list-style:none; display:flex; flex-direction:column; gap:0.75rem; margin-bottom:2.5rem;">
+          <li style="font-size:15px; color:#444; display:flex; align-items:flex-start; gap:10px;"><span style="color:var(--teal); font-family:var(--mono); font-size:12px; margin-top:3px; flex-shrink:0;">—</span>依頼内容がある程度決まっている</li>
+          <li style="font-size:15px; color:#444; display:flex; align-items:flex-start; gap:10px;"><span style="color:var(--teal); font-family:var(--mono); font-size:12px; margin-top:3px; flex-shrink:0;">—</span>すぐにお見積もりがほしい</li>
+          <li style="font-size:15px; color:#444; display:flex; align-items:flex-start; gap:10px;"><span style="color:var(--teal); font-family:var(--mono); font-size:12px; margin-top:3px; flex-shrink:0;">—</span>スムーズにプロジェクトを進めたい</li>
+        </ul>
+        <div style="text-align:right;">
+          <a href="hearing.html"
+            style="display:inline-flex; align-items:center; gap:12px; font-family:var(--mono); font-size:12px; letter-spacing:0.2em; color:#faf8f4; background:var(--black); border:1px solid var(--black); padding:0.9rem 2rem; text-decoration:none; transition:background 0.2s, color 0.2s;"
+            onmouseover="this.style.background='var(--teal)'; this.style.borderColor='var(--teal)';"
+            onmouseout="this.style.background='var(--black)'; this.style.borderColor='var(--black)';">
+            ヒアリングシートへ →
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <span class="footer-logo">FUMINO MIDORIKAWA</span>
+  <span class="footer-copy">© 2026 Fuminowa Design.</span>
+</footer>
+
+<script>
+  function switchContactTab(name, btn) {
+    document.querySelectorAll('.contact-tab-content').forEach(el => el.classList.remove('active'));
+    document.querySelectorAll('.contact-tab-btn').forEach(el => el.classList.remove('active'));
+    document.getElementById('ctab-' + name).classList.add('active');
+    btn.classList.add('active');
+  }
+
+  async function handleSubmit(e) {
+    e.preventDefault();
+    const form = e.target;
+    const btn = form.querySelector('button[type="submit"]');
+    btn.disabled = true;
+    btn.textContent = 'SENDING...';
+    try {
+      const res = await fetch('https://formspree.io/f/xaqadjqy', {
+        method: 'POST',
+        body: new FormData(form),
+        headers: { 'Accept': 'application/json' }
+      });
+      if (res.ok) {
+        form.reset();
+        document.getElementById('form-msg').style.display = 'block';
+        btn.textContent = 'SEND →';
+      } else {
+        alert('送信に失敗しました。時間をおいてもう一度お試しください。');
+        btn.textContent = 'SEND →';
+      }
+    } catch (err) {
+      alert('送信に失敗しました。通信状況をご確認ください。');
+      btn.textContent = 'SEND →';
+    }
+    btn.disabled = false;
+  }
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => entry.target.classList.add('visible'), i * 80);
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>

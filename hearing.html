@@ -1,0 +1,1009 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>初回ヒアリングシート — FUMINO MIDORIKAWA</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Noto+Serif+JP:wght@300;400&family=Space+Mono&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --teal:   #6aada8;
+    --green:  #7aaa4a;
+    --orange: #e8952a;
+    --black:  #1a1a1a;
+    --gray:   #888;
+    --light:  #f7f5f0;
+    --border: #d8d4cc;
+    --serif:  'Cormorant Garamond', 'Noto Serif JP', serif;
+    --mono:   'Space Mono', monospace;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: var(--serif);
+    background: #faf8f4;
+    color: var(--black);
+    overflow-x: hidden;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.25rem 3rem;
+    background: rgba(250,248,244,0.92);
+    backdrop-filter: blur(6px);
+    border-bottom: 1px solid var(--border);
+  }
+  .nav-logo {
+    font-family: var(--mono);
+    font-size: 13px;
+    letter-spacing: 0.2em;
+    color: var(--black);
+    text-decoration: none;
+  }
+  .nav-links {
+    display: flex;
+    gap: 2.5rem;
+    list-style: none;
+  }
+  .nav-links a {
+    font-family: var(--serif);
+    font-size: 13px;
+    letter-spacing: 0.1em;
+    color: var(--gray);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--black); }
+
+  /* ── PAGE HEADER ── */
+  .page-header {
+    padding-top: 120px;
+    padding-bottom: 4rem;
+    border-bottom: 1px solid var(--border);
+  }
+  .page-header-inner {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 3rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+  }
+  .page-title {
+    font-size: clamp(22px, 3.2vw, 44px);
+    font-weight: 300;
+    font-style: italic;
+    letter-spacing: 0.1em;
+    line-height: 1;
+    white-space: nowrap;
+  }
+  .page-title-sub {
+    font-family: var(--mono);
+    font-size: 12px;
+    letter-spacing: 0.25em;
+    color: var(--gray);
+    margin-bottom: 0.75rem;
+  }
+  .breadcrumb {
+    font-family: var(--mono);
+    font-size: 12px;
+    letter-spacing: 0.15em;
+    color: var(--gray);
+  }
+  .breadcrumb a {
+    color: var(--gray);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .breadcrumb a:hover { color: var(--black); }
+
+  /* ── LEAD ── */
+  .lead-wrap {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 3rem 3rem 0;
+  }
+  .lead-text {
+    font-size: 14px;
+    line-height: 2.4;
+    color: #555;
+    margin-bottom: 0.5rem;
+  }
+  .lead-note {
+    font-family: var(--mono);
+    font-size: 12px;
+    letter-spacing: 0.1em;
+    color: var(--gray);
+    border-left: 2px solid var(--border);
+    padding-left: 1rem;
+    line-height: 2;
+    margin-top: 1.5rem;
+  }
+
+  /* ── FORM WRAP ── */
+  .form-wrap {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 3rem;
+  }
+
+  /* ── SECTION BLOCK ── */
+  .form-section {
+    margin-bottom: 4rem;
+  }
+
+  .form-section-label {
+    font-family: var(--mono);
+    font-size: 12px;
+    letter-spacing: 0.3em;
+    color: var(--gray);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--border);
+  }
+  .form-section-label::before {
+    content: '';
+    display: block;
+    width: 24px;
+    height: 1px;
+    background: var(--gray);
+  }
+  .form-section-num {
+    font-size: 18px;
+    font-weight: 300;
+    color: var(--border);
+    margin-right: 4px;
+    font-family: var(--mono);
+  }
+
+  /* ── FIELD ── */
+  .field {
+    margin-bottom: 2rem;
+  }
+
+  .field-label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-family: var(--serif);
+    font-size: 14px;
+    letter-spacing: 0.05em;
+    color: var(--black);
+    margin-bottom: 10px;
+  }
+
+  .field-label .required {
+    font-family: var(--mono);
+    font-size: 8px;
+    letter-spacing: 0.1em;
+    color: var(--teal);
+    border: 1px solid var(--teal);
+    padding: 1px 6px;
+  }
+
+  .field-label .optional {
+    font-family: var(--mono);
+    font-size: 8px;
+    letter-spacing: 0.1em;
+    color: var(--border);
+    border: 1px solid var(--border);
+    padding: 1px 6px;
+  }
+
+  .field-hint {
+    font-size: 13px;
+    color: var(--gray);
+    line-height: 1.9;
+    margin-bottom: 10px;
+  }
+
+  input[type="text"],
+  input[type="email"],
+  input[type="url"],
+  input[type="tel"],
+  textarea,
+  select {
+    width: 100%;
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid var(--border);
+    padding: 10px 0;
+    font-family: var(--serif);
+    font-size: 15px;
+    color: var(--black);
+    outline: none;
+    transition: border-color 0.2s;
+    appearance: none;
+    -webkit-appearance: none;
+    border-radius: 0;
+  }
+
+  input[type="text"]:focus,
+  input[type="email"]:focus,
+  input[type="url"]:focus,
+  input[type="tel"]:focus,
+  textarea:focus,
+  select:focus {
+    border-bottom-color: var(--teal);
+  }
+
+  input::placeholder,
+  textarea::placeholder {
+    color: var(--border);
+    font-size: 14px;
+  }
+
+  textarea {
+    resize: none;
+    line-height: 2;
+  }
+
+  select {
+    cursor: pointer;
+    color: var(--black);
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23888' stroke-width='1.5' fill='none'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 4px center;
+    padding-right: 24px;
+  }
+
+  /* ── CHECKBOX / RADIO ── */
+  .check-group,
+  .radio-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 4px;
+  }
+
+  .check-label,
+  .radio-label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+    letter-spacing: 0.05em;
+    cursor: pointer;
+    border: 1px solid var(--border);
+    padding: 6px 14px;
+    transition: all 0.2s;
+    user-select: none;
+  }
+
+  .check-label:hover,
+  .radio-label:hover {
+    border-color: var(--teal);
+    color: var(--teal);
+  }
+
+  .check-label input,
+  .radio-label input {
+    display: none;
+  }
+
+  .check-label.checked,
+  .radio-label.checked {
+    background: var(--teal);
+    border-color: var(--teal);
+    color: #fff;
+  }
+
+  .check-icon,
+  .radio-icon {
+    width: 12px;
+    height: 12px;
+    border: 1px solid currentColor;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .check-icon { border-radius: 2px; }
+
+  /* ── FIELD ROW ── */
+  .field-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+  }
+
+  /* ── SUBMIT ── */
+  .submit-wrap {
+    padding: 3rem 0 5rem;
+    border-top: 1px solid var(--border);
+    text-align: center;
+  }
+
+  .submit-note {
+    font-size: 12px;
+    color: var(--gray);
+    line-height: 2.2;
+    margin-bottom: 2.5rem;
+  }
+
+  .submit-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 16px;
+    font-family: var(--mono);
+    font-size: 13px;
+    letter-spacing: 0.25em;
+    color: var(--black);
+    background: transparent;
+    border: 1px solid var(--black);
+    padding: 1rem 3rem;
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s;
+  }
+
+  .submit-btn:hover {
+    background: var(--black);
+    color: #faf8f4;
+  }
+
+  /* ── COMPLETE ── */
+  .complete-msg {
+    display: none;
+    text-align: center;
+    padding: 4rem 3rem;
+  }
+
+  .complete-msg h2 {
+    font-size: clamp(22px, 3vw, 32px);
+    font-weight: 300;
+    font-style: italic;
+    letter-spacing: 0.1em;
+    margin-bottom: 1.5rem;
+  }
+
+  .complete-msg p {
+    font-size: 14px;
+    color: var(--gray);
+    line-height: 2.4;
+    margin-bottom: 2.5rem;
+  }
+
+  .back-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    font-family: var(--mono);
+    font-size: 12px;
+    letter-spacing: 0.2em;
+    color: var(--black);
+    text-decoration: none;
+    padding-bottom: 4px;
+    border-bottom: 1px solid var(--black);
+    transition: opacity 0.2s;
+  }
+  .back-btn:hover { opacity: 0.5; }
+
+  /* ── PROGRESS ── */
+  .progress-bar {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem 3rem 0;
+    display: flex;
+    gap: 6px;
+    align-items: center;
+  }
+
+  .progress-step {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .progress-line {
+    width: 100%;
+    height: 1px;
+    background: var(--border);
+    position: relative;
+    top: -14px;
+  }
+
+  .progress-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--border);
+    position: relative;
+    z-index: 1;
+  }
+
+  .progress-step.active .progress-dot { background: var(--teal); }
+
+  .progress-label {
+    font-family: var(--mono);
+    font-size: 12px;
+    letter-spacing: 0.1em;
+    color: var(--gray);
+    white-space: nowrap;
+  }
+
+  /* ── FADE IN ── */
+  .fade-in {
+    opacity: 0;
+    transform: translateY(16px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+  .fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    border-top: 1px solid var(--border);
+    padding: 2rem 3rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .footer-logo {
+    font-family: var(--mono);
+    font-size: 12px;
+    letter-spacing: 0.2em;
+    color: var(--gray);
+  }
+  .footer-copy {
+    font-family: var(--mono);
+    font-size: 12px;
+    letter-spacing: 0.1em;
+    color: var(--border);
+  }
+
+  /* ── HAMBURGER ── */
+  .nav-hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    background: none;
+    border: none;
+    padding: 4px;
+  }
+  .nav-hamburger span {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background: var(--black);
+    transition: all 0.3s;
+  }
+  .nav-hamburger.open span:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+  .nav-hamburger.open span:nth-child(2) { opacity: 0; }
+  .nav-hamburger.open span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+
+    /* ── RESPONSIVE ── */
+  @media (max-width: 768px) {
+    nav { padding: 1rem 1.5rem; }
+    .nav-hamburger { display: flex; }
+    .nav-links {
+      display: none !important;
+      position: fixed;
+      top: 57px; left: 0; right: 0;
+      background: rgba(250,248,244,0.98);
+      flex-direction: column !important;
+      gap: 0 !important;
+      padding: 1rem 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-links.open { display: flex !important; }
+    .nav-links li { padding: 0.75rem 1.5rem; }
+    .page-header-inner { flex-direction: column; gap: 1rem; align-items: flex-start; }
+    .lead-wrap,
+    .form-wrap { padding-left: 1.5rem; padding-right: 1.5rem; }
+    .field-row { grid-template-columns: 1fr; gap: 1.5rem; }
+    .check-group,
+    .radio-group { gap: 8px; }
+    .progress-bar { padding-left: 1.5rem; padding-right: 1.5rem; }
+    footer { flex-direction: column; gap: 1rem; text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="index.html" class="nav-logo">FUMINO MIDORIKAWA</a>
+  <button class="nav-hamburger" onclick="toggleMenu()" id="hamburger" aria-label="メニュー">
+    <span></span><span></span><span></span>
+  </button>
+  <ul class="nav-links" id="nav-links">
+    <li><a href="about.html">ご挨拶</a></li>
+    <li><a href="works.html">制作実績</a></li>
+    <li><a href="services.html">仕事内容</a></li>
+    <li><a href="index.html#contact">お問い合わせ</a></li>
+  </ul>
+</nav>
+
+<!-- PAGE HEADER -->
+<div class="page-header">
+  <div class="page-header-inner">
+    <div>
+      <p class="page-title-sub">HEARING SHEET</p>
+      <h1 class="page-title">初回ヒアリングシート</h1>
+    </div>
+  </div>
+</div>
+
+<!-- PROGRESS -->
+<div class="progress-bar fade-in">
+  <div class="progress-step active">
+    <div class="progress-dot"></div>
+    <span class="progress-label">基本情報</span>
+  </div>
+  <div class="progress-line"></div>
+  <div class="progress-step active">
+    <div class="progress-dot"></div>
+    <span class="progress-label">依頼内容</span>
+  </div>
+  <div class="progress-line"></div>
+  <div class="progress-step active">
+    <div class="progress-dot"></div>
+    <span class="progress-label">制作条件</span>
+  </div>
+  <div class="progress-line"></div>
+  <div class="progress-step active">
+    <div class="progress-dot"></div>
+    <span class="progress-label">納品・その他</span>
+  </div>
+</div>
+
+<!-- LEAD -->
+<div class="lead-wrap fade-in">
+  <p class="lead-text">ご依頼をご検討中の方向けに、ヒアリングシートをご用意しました。<br>ご記入いただいた内容をもとに、より具体的なご提案とお見積もりをご案内します。</p>
+  <p class="lead-note">
+    ・すべての項目を埋めなくても送信可能です。わかる範囲でお気軽にどうぞ。<br>
+    ・通常24時間以内にご返信いたします。<br>
+    ・まずは相談だけという方は<a href="index.html#contact" style="color:var(--teal); text-decoration:none; border-bottom:1px solid var(--teal);">お問い合わせフォーム</a>をご利用ください。
+  </p>
+</div>
+
+<!-- FORM -->
+<div class="form-wrap" id="hearing-form-wrap">
+<form id="hearing-form" onsubmit="handleSubmit(event)">
+
+  <!-- SECTION 01 基本情報 -->
+  <div class="form-section fade-in">
+    <p class="form-section-label"><span class="form-section-num">01</span>基本情報</p>
+
+    <div class="field-row">
+      <div class="field">
+        <label class="field-label">
+          お名前・担当者名 <span class="required">※</span>
+        </label>
+        <input type="text" name="name" placeholder="田中 太郎" required>
+      </div>
+      <div class="field">
+        <label class="field-label">
+          会社名・屋号
+        </label>
+        <input type="text" name="company" placeholder="〇〇株式会社 / 個人の場合は空欄でOK">
+      </div>
+    </div>
+
+    <div class="field-row">
+      <div class="field">
+        <label class="field-label">
+          メールアドレス <span class="required">※</span>
+        </label>
+        <input type="email" name="email" placeholder="example@mail.com" required>
+      </div>
+      <div class="field">
+        <label class="field-label">
+          電話番号
+        </label>
+        <input type="tel" name="tel" placeholder="090-0000-0000">
+      </div>
+    </div>
+
+    <div class="field">
+      <label class="field-label">
+        既存のWebサイト・SNS URL
+      </label>
+      <p class="field-hint">ブランドイメージの参考にさせていただきます。複数ある場合はカンマ区切りでどうぞ。</p>
+      <input type="url" name="website" placeholder="https://example.com">
+    </div>
+  </div>
+
+  <!-- SECTION 02 依頼内容 -->
+  <div class="form-section fade-in">
+    <p class="form-section-label"><span class="form-section-num">02</span>依頼内容</p>
+
+    <div class="field">
+      <label class="field-label">
+        依頼したいサービス <span class="required">※</span>
+      </label>
+      <p class="field-hint">複数選択可能です。</p>
+      <div class="check-group" id="service-check">
+        <label class="check-label" onclick="toggleCheck(this, event)">
+          <input type="checkbox" name="service" value="LP制作">
+          <span class="check-icon"></span>LP制作
+        </label>
+        <label class="check-label" onclick="toggleCheck(this, event)">
+          <input type="checkbox" name="service" value="ホームページ制作">
+          <span class="check-icon"></span>ホームページ制作
+        </label>
+        <label class="check-label" onclick="toggleCheck(this, event)">
+          <input type="checkbox" name="service" value="EC・商品画像">
+          <span class="check-icon"></span>EC・商品画像
+        </label>
+        <label class="check-label" onclick="toggleCheck(this, event)">
+          <input type="checkbox" name="service" value="ロゴ・グラフィック">
+          <span class="check-icon"></span>ロゴ・グラフィック
+        </label>
+        <label class="check-label" onclick="toggleCheck(this, event)">
+          <input type="checkbox" name="service" value="バナー・SNS素材">
+          <span class="check-icon"></span>バナー・SNS素材
+        </label>
+        <label class="check-label" onclick="toggleCheck(this, event)">
+          <input type="checkbox" name="service" value="その他">
+          <span class="check-icon"></span>その他
+        </label>
+      </div>
+    </div>
+
+    <div class="field">
+      <label class="field-label">
+        依頼の目的・背景 <span class="required">※</span>
+      </label>
+      <p class="field-hint">「新商品のローンチ」「集客を増やしたい」「ブランドを刷新したい」など、背景をお聞かせください。</p>
+      <textarea name="purpose" rows="4" placeholder="例：新規で化粧品をAmazonに出品するにあたり、クリック率を高める商品画像を作りたい。"></textarea>
+    </div>
+
+    <div class="field">
+      <label class="field-label">
+        ターゲット・想定ユーザー
+      </label>
+      <p class="field-hint">年齢・性別・職業・悩みなど、想定されるお客様像をできるだけ具体的に。</p>
+      <textarea name="target" rows="3" placeholder="例：25〜40代の男性、健康意識が高いビジネスマン、忙しくて食事が偏りがち"></textarea>
+    </div>
+
+    <div class="field">
+      <label class="field-label">
+        デザインのイメージ・テイスト
+      </label>
+      <div class="check-group" id="taste-check">
+        <label class="check-label" onclick="toggleCheck(this, event)">
+          <input type="checkbox" name="taste" value="シンプル">
+          <span class="check-icon"></span>シンプル
+        </label>
+        <label class="check-label" onclick="toggleCheck(this, event)">
+          <input type="checkbox" name="taste" value="スタイリッシュ">
+          <span class="check-icon"></span>スタイリッシュ
+        </label>
+        <label class="check-label" onclick="toggleCheck(this, event)">
+          <input type="checkbox" name="taste" value="ナチュラル">
+          <span class="check-icon"></span>ナチュラル
+        </label>
+        <label class="check-label" onclick="toggleCheck(this, event)">
+          <input type="checkbox" name="taste" value="信頼感・誠実">
+          <span class="check-icon"></span>信頼感・誠実
+        </label>
+        <label class="check-label" onclick="toggleCheck(this, event)">
+          <input type="checkbox" name="taste" value="温かみ・親しみ">
+          <span class="check-icon"></span>温かみ・親しみ
+        </label>
+        <label class="check-label" onclick="toggleCheck(this, event)">
+          <input type="checkbox" name="taste" value="高級感">
+          <span class="check-icon"></span>高級感
+        </label>
+        <label class="check-label" onclick="toggleCheck(this, event)">
+          <input type="checkbox" name="taste" value="ポップ・カジュアル">
+          <span class="check-icon"></span>ポップ・カジュアル
+        </label>
+        <label class="check-label" onclick="toggleCheck(this, event)">
+          <input type="checkbox" name="taste" value="プロフェッショナル">
+          <span class="check-icon"></span>プロフェッショナル
+        </label>
+      </div>
+    </div>
+
+    <div class="field">
+      <label class="field-label">
+        参考サイト・参考画像
+      </label>
+      <p class="field-hint">「こんなイメージに近い」というURLや、好きなブランド・デザインがあれば教えてください。</p>
+      <textarea name="reference" rows="2" placeholder="https://example.com、https://example2.com など"></textarea>
+    </div>
+  </div>
+
+  <!-- SECTION 03 制作条件 -->
+  <div class="form-section fade-in">
+    <p class="form-section-label"><span class="form-section-num">03</span>制作条件</p>
+
+    <div class="field-row">
+      <div class="field">
+        <label class="field-label">
+          希望納期
+        </label>
+        <select name="deadline">
+          <option value="" disabled selected>— 選択してください</option>
+          <option>1週間以内（急ぎ）</option>
+          <option>2〜3週間</option>
+          <option>1ヶ月程度</option>
+          <option>1〜2ヶ月</option>
+          <option>未定・相談したい</option>
+        </select>
+      </div>
+      <div class="field">
+        <label class="field-label">
+          おおよその予算
+        </label>
+        <select name="budget">
+          <option value="" disabled selected>— 選択してください</option>
+          <option>〜¥10,000</option>
+          <option>¥10,000 〜 ¥30,000</option>
+          <option>¥30,000 〜 ¥50,000</option>
+          <option>¥50,000 〜 ¥100,000</option>
+          <option>¥100,000以上</option>
+          <option>未定・相談したい</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="field">
+      <label class="field-label">
+        素材・テキストの準備状況
+      </label>
+      <div class="check-group" id="material-check">
+        <label class="check-label" onclick="toggleCheck(this, event)">
+          <input type="checkbox" name="material" value="テキスト（原稿）あり">
+          <span class="check-icon"></span>テキスト（原稿）あり
+        </label>
+        <label class="check-label" onclick="toggleCheck(this, event)">
+          <input type="checkbox" name="material" value="写真・画像素材あり">
+          <span class="check-icon"></span>写真・画像素材あり
+        </label>
+        <label class="check-label" onclick="toggleCheck(this, event)">
+          <input type="checkbox" name="material" value="ロゴデータあり">
+          <span class="check-icon"></span>ロゴデータあり
+        </label>
+        <label class="check-label" onclick="toggleCheck(this, event)">
+          <input type="checkbox" name="material" value="素材はほぼない">
+          <span class="check-icon"></span>素材はほぼない
+        </label>
+        <label class="check-label" onclick="toggleCheck(this, event)">
+          <input type="checkbox" name="material" value="相談しながら揃えたい">
+          <span class="check-icon"></span>相談しながら揃えたい
+        </label>
+      </div>
+    </div>
+
+    <div class="field">
+      <label class="field-label">
+        継続依頼の可能性
+      </label>
+      <div class="radio-group" id="continue-radio">
+        <label class="radio-label" onclick="toggleRadio(this, 'continue-radio', event)">
+          <input type="radio" name="continue" value="yes">
+          <span class="radio-icon"></span>継続依頼を想定している
+        </label>
+        <label class="radio-label" onclick="toggleRadio(this, 'continue-radio', event)">
+          <input type="radio" name="continue" value="maybe">
+          <span class="radio-icon"></span>状況次第でお願いしたい
+        </label>
+        <label class="radio-label" onclick="toggleRadio(this, 'continue-radio', event)">
+          <input type="radio" name="continue" value="once">
+          <span class="radio-icon"></span>今回のみの予定
+        </label>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 04 納品・その他 -->
+  <div class="form-section fade-in">
+    <p class="form-section-label"><span class="form-section-num">04</span>納品・その他</p>
+
+    <div class="field">
+      <label class="field-label">
+        希望の納品形式
+      </label>
+      <p class="field-hint">複数選択可能です。ご不明な場合は「相談したい」をお選びください。</p>
+      <div class="check-group" id="format-check">
+        <label class="check-label" onclick="toggleCheck(this, event)">
+          <input type="checkbox" name="format" value="JPG / PNG">
+          <span class="check-icon"></span>JPG / PNG
+        </label>
+        <label class="check-label" onclick="toggleCheck(this, event)">
+          <input type="checkbox" name="format" value="SVG">
+          <span class="check-icon"></span>SVG
+        </label>
+        <label class="check-label" onclick="toggleCheck(this, event)">
+          <input type="checkbox" name="format" value="PDF">
+          <span class="check-icon"></span>PDF
+        </label>
+        <label class="check-label" onclick="toggleCheck(this, event)">
+          <input type="checkbox" name="format" value="AI（Illustrator）">
+          <span class="check-icon"></span>AI（Illustrator）
+        </label>
+        <label class="check-label" onclick="toggleCheck(this, event)">
+          <input type="checkbox" name="format" value="PSD（Photoshop）">
+          <span class="check-icon"></span>PSD（Photoshop）
+        </label>
+        <label class="check-label" onclick="toggleCheck(this, event)">
+          <input type="checkbox" name="format" value="Figmaデータ">
+          <span class="check-icon"></span>Figmaデータ
+        </label>
+        <label class="check-label" onclick="toggleCheck(this, event)">
+          <input type="checkbox" name="format" value="HTML / CSS">
+          <span class="check-icon"></span>HTML / CSS
+        </label>
+        <label class="check-label" onclick="toggleCheck(this, event)">
+          <input type="checkbox" name="format" value="相談したい">
+          <span class="check-icon"></span>相談したい
+        </label>
+      </div>
+      <p style="font-size:12px; color:var(--gray); margin-top:0.5rem;">※ .psd / .ai などの元データ納品希望の場合は、別途料金がかかる場合がございます。</p>
+    </div>
+
+    <div class="field">
+      <label class="field-label">
+        制作実績への掲載可否
+      </label>
+      <p class="field-hint">制作させていただいた作品を、私のポートフォリオに掲載させていただく場合がございます。</p>
+      <div class="radio-group" id="portfolio-radio">
+        <label class="radio-label" onclick="toggleRadio(this, 'portfolio-radio', event)">
+          <input type="radio" name="portfolio" value="ok">
+          <span class="radio-icon"></span>掲載OK
+        </label>
+        <label class="radio-label" onclick="toggleRadio(this, 'portfolio-radio', event)">
+          <input type="radio" name="portfolio" value="ng">
+          <span class="radio-icon"></span>掲載NG
+        </label>
+        <label class="radio-label" onclick="toggleRadio(this, 'portfolio-radio', event)">
+          <input type="radio" name="portfolio" value="consult">
+          <span class="radio-icon"></span>内容によって相談したい
+        </label>
+      </div>
+    </div>
+
+    <div class="field">
+      <label class="field-label">
+        NDA（秘密保持契約）の締結
+      </label>
+      <div class="radio-group" id="nda-radio">
+        <label class="radio-label" onclick="toggleRadio(this, 'nda-radio', event)">
+          <input type="radio" name="nda" value="yes">
+          <span class="radio-icon"></span>締結を希望する
+        </label>
+        <label class="radio-label" onclick="toggleRadio(this, 'nda-radio', event)">
+          <input type="radio" name="nda" value="no">
+          <span class="radio-icon"></span>不要
+        </label>
+        <label class="radio-label" onclick="toggleRadio(this, 'nda-radio', event)">
+          <input type="radio" name="nda" value="consult">
+          <span class="radio-icon"></span>相談したい
+        </label>
+      </div>
+    </div>
+
+    <div class="field">
+      <label class="field-label">
+        その他・補足
+      </label>
+      <p class="field-hint">ご不明点・ご要望・気になることなど、なんでもお気軽にどうぞ。</p>
+      <textarea name="notes" rows="5" placeholder="例：過去に別のデザイナーに依頼したことがあり、こういう点が気になっていた、など何でもOKです。"></textarea>
+    </div>
+  </div>
+
+  <!-- SUBMIT -->
+  <div class="submit-wrap fade-in">
+    <p class="submit-note">
+      内容を確認後、24時間以内にご連絡いたします。<br>
+      お急ぎの場合は、メールまたはSNSよりご連絡ください。
+    </p>
+    <button type="submit" class="submit-btn">SEND HEARING SHEET →</button>
+  </div>
+
+</form>
+
+<!-- COMPLETE -->
+<div class="complete-msg" id="complete-msg">
+  <h2>送信が完了しました。</h2>
+  <p>
+    お時間をいただきありがとうございます。<br>
+    内容を確認した上で、24時間以内にご連絡いたします。<br>
+    しばらくお待ちください。
+  </p>
+  <a href="index.html" class="back-btn">← トップページへ戻る</a>
+</div>
+
+</div><!-- /form-wrap -->
+
+<!-- FOOTER -->
+<footer>
+  <span class="footer-logo">FUMINO MIDORIKAWA</span>
+  <span class="footer-copy">© 2026 Fuminowa Design.</span>
+</footer>
+
+<script>
+  /* チェックボックス */
+  function toggleCheck(label, e) {
+    e.preventDefault();
+    label.classList.toggle('checked');
+    const cb = label.querySelector('input[type="checkbox"]');
+    cb.checked = label.classList.contains('checked');
+  }
+
+  /* ラジオボタン */
+  function toggleRadio(label, groupId, e) {
+    e.preventDefault();
+    document.querySelectorAll(`#${groupId} .radio-label`).forEach(l => l.classList.remove('checked'));
+    label.classList.add('checked');
+    const rb = label.querySelector('input[type="radio"]');
+    rb.checked = true;
+  }
+
+  /* ハンバーガー */
+  function toggleMenu() {
+    const btn = document.getElementById('hamburger');
+    const links = document.getElementById('nav-links');
+    btn.classList.toggle('open');
+    links.classList.toggle('open');
+  }
+
+  /* 送信 */
+  async function handleSubmit(e) {
+    e.preventDefault();
+    const form = e.target;
+    const btn = form.querySelector('button[type="submit"]');
+    btn.disabled = true;
+    btn.textContent = 'SENDING...';
+    try {
+      const res = await fetch('https://formspree.io/f/xaqadjqy', {
+        method: 'POST',
+        body: new FormData(form),
+        headers: { 'Accept': 'application/json' }
+      });
+      if (res.ok) {
+        document.querySelector('.page-header').style.display = 'none';
+document.querySelector('.progress-bar').style.display = 'none';
+document.querySelector('.lead-wrap').style.display = 'none';
+        form.style.display = 'none';
+        const complete = document.getElementById('complete-msg');
+        complete.style.display = 'block';
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      } else {
+        alert('送信に失敗しました。時間をおいてもう一度お試しください。');
+        btn.textContent = 'SEND HEARING SHEET →';
+      }
+    } catch (err) {
+      alert('送信に失敗しました。通信状況をご確認ください。');
+      btn.textContent = 'SEND HEARING SHEET →';
+    }
+    btn.disabled = false;
+  }
+
+  /* フェードイン */
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => entry.target.classList.add('visible'), i * 80);
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>

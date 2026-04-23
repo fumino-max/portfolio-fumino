@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>仕事内容 — FUMINO MIDORIKAWA</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Noto+Serif+JP:wght@300;400&family=Space+Mono&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --teal: #6aada8; --green: #7aaa4a; --orange: #e8952a;
+    --black: #1a1a1a; --gray: #888; --light: #f7f5f0; --border: #d8d4cc;
+    --serif: 'Cormorant Garamond', 'Noto Serif JP', serif;
+    --mono: 'Space Mono', monospace;
+  }
+  html { scroll-behavior: smooth; }
+  body { font-family: var(--serif); background: #faf8f4; color: var(--black); overflow-x: hidden; }
+
+  nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; justify-content: space-between; align-items: center; padding: 1.25rem 3rem; background: rgba(250,248,244,0.92); backdrop-filter: blur(6px); border-bottom: 1px solid var(--border); }
+  .nav-logo { font-family: var(--mono); font-size: 13px; letter-spacing: 0.2em; color: var(--black); text-decoration: none; }
+  .nav-links { display: flex; gap: 2.5rem; list-style: none; }
+  .nav-links a { font-family: var(--serif); font-size: 13px; letter-spacing: 0.1em; color: var(--gray); text-decoration: none; transition: color 0.2s; }
+  .nav-links a:hover { color: var(--black); }
+
+  .page-header { padding-top: 120px; padding-bottom: 4rem; border-bottom: 1px solid var(--border); }
+  .page-header-inner { max-width: 960px; margin: 0 auto; padding: 0 3rem; display: flex; justify-content: space-between; align-items: flex-end; }
+  .page-title { font-size: clamp(36px, 5vw, 64px); font-weight: 300; font-style: italic; letter-spacing: 0.1em; line-height: 1; }
+  .page-title-sub { font-family: var(--mono); font-size: 12px; letter-spacing: 0.25em; color: var(--gray); margin-bottom: 0.75rem; }
+  .breadcrumb { font-family: var(--mono); font-size: 12px; letter-spacing: 0.15em; color: var(--gray); }
+  .breadcrumb a { color: var(--gray); text-decoration: none; transition: color 0.2s; }
+  .breadcrumb a:hover { color: var(--black); }
+
+  .section { padding: 5rem 0; border-bottom: 1px solid var(--border); }
+  .section-inner { max-width: 960px; margin: 0 auto; padding: 0 3rem; }
+  .section-label { font-family: var(--mono); font-size: 12px; letter-spacing: 0.3em; color: var(--gray); display: flex; align-items: center; gap: 12px; margin-bottom: 3rem; }
+  .section-label::before { content: ''; display: block; width: 24px; height: 1px; background: var(--gray); }
+
+  .lead-text { max-width: 600px; margin-bottom: 4rem; }
+  .lead-text h2 { font-size: clamp(22px, 3vw, 32px); font-weight: 300; line-height: 1.7; letter-spacing: 0.05em; margin-bottom: 1.5rem; }
+  .lead-text p { font-size: 14px; line-height: 2.4; color: #555; }
+
+  .service-cards { display: flex; flex-direction: column; }
+  .service-card { display: grid; grid-template-columns: 80px 1fr; gap: 3rem; padding: 3rem 0; border-bottom: 1px solid var(--border); align-items: start; }
+  .service-card:first-child { border-top: 1px solid var(--border); }
+  .service-num-wrap { display: flex; flex-direction: column; align-items: center; gap: 12px; padding-top: 4px; }
+  .service-num { font-family: var(--mono); font-size: 28px; font-weight: 300; color: var(--border); line-height: 1; }
+  .service-accent-line { width: 1px; height: 40px; }
+  .service-tag { font-family: var(--mono); font-size: 12px; letter-spacing: 0.2em; color: var(--gray); border: 1px solid var(--border); display: inline-block; padding: 2px 10px; margin-bottom: 1rem; }
+  .service-title { font-size: clamp(20px, 2.5vw, 28px); font-weight: 300; letter-spacing: 0.08em; margin-bottom: 1.25rem; line-height: 1.4; }
+  .service-desc { font-size: 14px; line-height: 2.4; color: #555; margin-bottom: 2rem; max-width: 540px; }
+  .service-detail-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-bottom: 2rem; }
+  .service-detail-label { font-family: var(--mono); font-size: 12px; letter-spacing: 0.2em; color: var(--gray); margin-bottom: 0.75rem; display: flex; align-items: center; gap: 8px; }
+  .service-detail-label::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+  .service-detail-list { list-style: none; display: flex; flex-direction: column; gap: 0.4rem; }
+  .service-detail-list li { font-size: 13px; line-height: 1.9; color: #444; display: flex; align-items: flex-start; gap: 8px; }
+  .service-detail-list li::before { content: '—'; color: var(--border); font-family: var(--mono); font-size: 12px; margin-top: 4px; flex-shrink: 0; }
+  .service-price { display: inline-flex; align-items: baseline; gap: 8px; background: var(--light); border: 1px solid var(--border); padding: 0.75rem 1.5rem; }
+  .service-price-label { font-family: var(--mono); font-size: 12px; letter-spacing: 0.2em; color: var(--gray); }
+  .service-price-value { font-size: 18px; font-weight: 300; }
+  .service-price-note { font-family: var(--mono); font-size: 12px; letter-spacing: 0.1em; color: var(--gray); }
+
+  .flow-list { display: grid; grid-template-columns: repeat(5, 1fr); position: relative; }
+  .flow-list::before { content: ''; position: absolute; top: 28px; left: calc(10% + 20px); right: calc(10% + 20px); height: 1px; background: var(--border); z-index: 0; }
+  .flow-item { display: flex; flex-direction: column; align-items: center; text-align: center; padding: 0 1rem; position: relative; z-index: 1; }
+  .flow-circle { width: 56px; height: 56px; border-radius: 50%; border: 1px solid var(--border); background: #faf8f4; display: flex; align-items: center; justify-content: center; margin-bottom: 1rem; font-family: var(--mono); font-size: 12px; letter-spacing: 0.1em; color: var(--gray); }
+  .flow-title { font-size: 13px; font-weight: 300; letter-spacing: 0.08em; margin-bottom: 0.5rem; }
+  .flow-desc { font-size: 13px; color: var(--gray); line-height: 1.9; }
+
+  .faq-list { display: flex; flex-direction: column; }
+  .faq-item { border-bottom: 1px solid var(--border); overflow: hidden; }
+  .faq-item:first-child { border-top: 1px solid var(--border); }
+  .faq-q { width: 100%; background: transparent; border: none; padding: 1.5rem 0; display: flex; align-items: center; gap: 1.5rem; cursor: pointer; text-align: left; transition: opacity 0.2s; }
+  .faq-q:hover { opacity: 0.6; }
+  .faq-q-mark { font-family: var(--mono); font-size: 13px; letter-spacing: 0.1em; color: var(--teal); flex-shrink: 0; width: 24px; }
+  .faq-q-text { font-family: var(--serif); font-size: 15px; font-weight: 300; letter-spacing: 0.05em; color: var(--black); flex: 1; }
+  .faq-icon { font-family: var(--mono); font-size: 16px; color: var(--gray); flex-shrink: 0; transition: transform 0.3s; }
+  .faq-item.open .faq-icon { transform: rotate(45deg); }
+  .faq-a { display: none; padding: 0 0 1.5rem 2.5rem; font-size: 14px; line-height: 2.4; color: #555; }
+  .faq-item.open .faq-a { display: block; }
+
+  .cta-section { padding: 6rem 0; border-bottom: 1px solid var(--border); }
+  .cta-inner { max-width: 960px; margin: 0 auto; padding: 0 3rem; }
+  .cta-label { font-family: var(--mono); font-size: 12px; letter-spacing: 0.3em; color: var(--gray); display: flex; align-items: center; justify-content: center; gap: 12px; margin-bottom: 2.5rem; }
+  .cta-label::before, .cta-label::after { content: ''; display: block; width: 24px; height: 1px; background: var(--gray); }
+  .cta-heading { font-size: clamp(24px, 3.5vw, 40px); font-weight: 300; font-style: italic; letter-spacing: 0.08em; line-height: 1.5; margin-bottom: 1.5rem; }
+  .cta-sub { font-size: 13px; color: var(--gray); line-height: 2.2; margin-bottom: 3rem; }
+  .cta-btn { display: inline-flex; align-items: center; gap: 16px; font-family: var(--mono); font-size: 13px; letter-spacing: 0.25em; color: var(--black); text-decoration: none; border: 1px solid var(--black); padding: 1rem 2.5rem; transition: background 0.2s, color 0.2s; }
+  .cta-btn:hover { background: var(--black); color: #faf8f4; }
+
+  .fade-in { opacity: 0; transform: translateY(20px); transition: opacity 0.7s ease, transform 0.7s ease; }
+  .fade-in.visible { opacity: 1; transform: translateY(0); }
+
+  footer { border-top: 1px solid var(--border); padding: 2rem 3rem; display: flex; justify-content: space-between; align-items: center; }
+  .footer-logo { font-family: var(--mono); font-size: 12px; letter-spacing: 0.2em; color: var(--gray); }
+  .footer-copy { font-family: var(--mono); font-size: 12px; letter-spacing: 0.1em; color: var(--border); }
+
+  
+  /* ── CONTACT TABS ── */
+  .contact-tabs { display: flex; border-bottom: 1px solid var(--border); margin-bottom: 2rem; }
+  .contact-tab-btn {
+    flex: 1; background: none; border: none; padding: 14px 8px;
+    font-family: var(--mono); font-size: 10px; letter-spacing: 0.2em;
+    color: var(--gray); cursor: pointer;
+    border-bottom: 2px solid transparent; margin-bottom: -1px; transition: all 0.2s;
+  }
+  .contact-tab-btn.active { color: var(--black); border-bottom-color: var(--teal); }
+  .contact-tab-content { display: none; }
+  .contact-tab-content.active { display: block; }
+
+  /* ── HAMBURGER ── */
+  .nav-hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    background: none;
+    border: none;
+    padding: 4px;
+  }
+  .nav-hamburger span {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background: #1a1a1a;
+    transition: all 0.3s;
+  }
+  .nav-hamburger.open span:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+  .nav-hamburger.open span:nth-child(2) { opacity: 0; }
+  .nav-hamburger.open span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+
+@media (max-width: 768px) {
+    nav { padding: 1rem 1.5rem; }
+    .nav-hamburger { display: flex; }
+    .nav-links {
+      display: none !important;
+      position: fixed;
+      top: 57px; left: 0; right: 0;
+      background: rgba(250,248,244,0.97);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--border);
+      flex-direction: column;
+      align-items: center;
+      padding: 0;
+      list-style: none;
+      z-index: 99;
+    }
+    .nav-links.open { display: flex !important; }
+    .nav-links li { width: 100%; text-align: center; }
+    .nav-links a { display: block; padding: 1.1rem 0; border-bottom: 1px solid var(--border); font-size: 13px; }
+    .page-header-inner { flex-direction: column; gap: 1rem; align-items: flex-start; }
+    .section-inner { padding: 0 1.5rem; }
+    .service-card { grid-template-columns: 1fr; gap: 1.5rem; }
+    .service-num-wrap { flex-direction: row; align-items: center; }
+    .service-accent-line { width: 24px; height: 1px; }
+    .service-detail-grid { grid-template-columns: 1fr; }
+    .flow-list { grid-template-columns: 1fr; gap: 2rem; }
+    .flow-list::before { display: none; }
+    footer { flex-direction: column; gap: 1rem; text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">FUMINO MIDORIKAWA</a>
+  <ul class="nav-links" id="nav-links">
+    <li><a href="about.html" onclick="closeMenu()">ご挨拶</a></li>
+    <li><a href="works.html" onclick="closeMenu()">制作実績</a></li>
+    <li><a href="services.html" onclick="closeMenu()">仕事内容</a></li>
+    <li><a href="index.html#contact" onclick="closeMenu()">お問い合わせ</a></li>
+  </ul>
+  <button class="nav-hamburger" id="hamburger" onclick="toggleMenu()" aria-label="メニュー">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<div class="page-header">
+  <div class="page-header-inner">
+    <div>
+      <p class="page-title-sub">SERVICES</p>
+      <h1 class="page-title">仕事内容</h1>
+    </div>
+    <p class="breadcrumb"><a href="index.html">HOME</a> / SERVICES</p>
+  </div>
+</div>
+
+<section class="section">
+  <div class="section-inner">
+    <p class="section-label fade-in">WHAT I DO</p>
+    <div class="lead-text fade-in">
+      <h2>目的から逆算した<br>デザインを、ご一緒に。</h2>
+      <p>「かっこいいデザイン」を作ることよりも、</br>「クライアントの目標を達成するデザイン」をつくることを第一に考えています。</br>ご要望をじっくり伺った上で、最適な設計と表現をご提案します。</p>
+    </div>
+    <div class="service-cards">
+
+      <div class="service-card fade-in">
+        <div class="service-num-wrap">
+          <span class="service-num">01</span>
+          <div class="service-accent-line" style="background:var(--teal);"></div>
+        </div>
+        <div>
+          <span class="service-tag">WEB DESIGN</span>
+          <h2 class="service-title">Webデザイン・ホームページ制作</h2>
+          <p class="service-desc">ブランドの世界観を丁寧に表現し、訪問者に信頼感と安心感を伝えるサイトを制作します。企画・構成設計からデザイン・実装まで一貫して対応可能です。</br>LINE公式アカウントの構築やリッチメニューの作成も対応しています。
+集客や導線設計まで含めてサポートいたします。</p>
+          <div class="service-detail-grid">
+            <div><p class="service-detail-label">対応範囲</p><ul class="service-detail-list"><li>企画・構成設計</li><li>ワイヤーフレーム作成</li><li>デザイン（Figma）</li><li>STUDIO / HTML・CSS実装</li><li>レスポンシブ対応</li></ul></div>
+            <div><p class="service-detail-label">こんな方に</p><ul class="service-detail-list"><li>開業・新規事業のサイトが欲しい</li><li>既存サイトをリニューアルしたい</li><li>ターゲットに伝わるデザインにしたい</li><li>コーディングまで任せたい</li></ul></div>
+          </div>
+          <div class="service-price"><span class="service-price-label">PRICE</span><span class="service-price-value">¥100,000 〜</span><span class="service-price-note">/ ページ数・仕様により変動</span></div>
+        </div>
+      </div>
+
+      <div class="service-card fade-in">
+        <div class="service-num-wrap">
+          <span class="service-num">02</span>
+          <div class="service-accent-line" style="background:var(--green);"></div>
+        </div>
+        <div>
+          <span class="service-tag">LP DESIGN</span>
+          <h2 class="service-title">ランディングページ制作</h2>
+          <p class="service-desc">「見てもらう」だけでなく「行動してもらう」ページを制作します。ターゲットの悩みや心理を分析し、共感から行動へ自然につながる構成とビジュアルを設計します。</p>
+          <div class="service-detail-grid">
+            <div><p class="service-detail-label">対応範囲</p><ul class="service-detail-list"><li>ターゲット・訴求分析</li><li>LP構成・ライティング提案</li><li>デザイン（Figma）</li><li>STUDIO / HTML・CSS実装</li><li>CTA設計・導線最適化</li></ul></div>
+            <div><p class="service-detail-label">こんな方に</p><ul class="service-detail-list"><li>申込・問い合わせを増やしたい</li><li>サービスの魅力が伝わっていない</li><li>金融・医療・BtoB系のLPを作りたい</li><li>構成から一緒に考えてほしい</li></ul></div>
+          </div>
+          <div class="service-price"><span class="service-price-label">PRICE</span><span class="service-price-value">¥50,000 〜</span><span class="service-price-note">/ 構成・ページ量により変動</span></div>
+        </div>
+      </div>
+
+      <div class="service-card fade-in">
+        <div class="service-num-wrap">
+          <span class="service-num">03</span>
+          <div class="service-accent-line" style="background:var(--orange);"></div>
+        </div>
+        <div>
+          <span class="service-tag">LOGO / BRANDING</span>
+          <h2 class="service-title">ロゴ<br>デザイン他</h2>
+          <p class="service-desc">ブランドの第一印象を形にするロゴ制作。お客様の想いや事業の背景を丁寧にヒアリングし、シンプルで長く愛されるデザインに落とし込みます。</p>
+          <div class="service-detail-grid">
+            <div><p class="service-detail-label">対応範囲</p><ul class="service-detail-list"><li>ロゴデザイン</li><li>名刺・チラシ・パンフレット</li><li>バナー・サムネイル・SNS素材</li></ul></div>
+            <div><p class="service-detail-label">こんな方に</p><ul class="service-detail-list"><li>開業・起業のロゴが欲しい</li><li>ブランドらしさを統一したい</li><li>印刷物もまとめてお任せしたい</li></ul></div>
+          </div>
+          <div class="service-price"><span class="service-price-label">PRICE</span><span class="service-price-value">¥10,000 〜</span><span class="service-price-note">/ 制作物の種類・数により変動</span></div>
+        </div>
+      </div>
+
+      <div class="service-card fade-in">
+        <div class="service-num-wrap">
+          <span class="service-num">04</span>
+          <div class="service-accent-line" style="background:var(--black);"></div>
+        </div>
+        <div>
+          <span class="service-tag">EC DESIGN</span>
+          <h2 class="service-title">EC・商品画像制作</h2>
+          <p class="service-desc">AmazonやECサイト向けに、商品の魅力が伝わる販売画像を制作します。クリック率・購買率を意識した情報設計で、「見やすさ」と「売れるビジュアル」を両立します。</p>
+          <div class="service-detail-grid">
+            <div><p class="service-detail-label">対応範囲</p><ul class="service-detail-list"><li>メイン画像・サブ画像制作</li><li>成分・機能訴求画像</li><li>使用シーン・ライフスタイル画像</li><li>Amazonガイドライン対応</li><li>楽天・Yahoo!ショッピング対応</li></ul></div>
+            <div><p class="service-detail-label">こんな方に</p><ul class="service-detail-list"><li>Amazonで新商品を出品したい</li><li>画像を変えてCVRを改善したい</li><li>サプリ・健康食品・雑貨など</li><li>セット販売や複数SKUも対応可</li></ul></div>
+          </div>
+          <div class="service-price"><span class="service-price-label">PRICE</span><span class="service-price-value">¥3,000 〜</span><span class="service-price-note">/ 1枚あたり（枚数・内容により変動）</span></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="section-inner">
+    <p class="section-label fade-in">FLOW</p>
+    <div class="lead-text fade-in" style="margin-bottom:3rem;"><h2>お仕事の流れ</h2></div>
+    <div class="flow-list fade-in">
+      <div class="flow-item"><div class="flow-circle">01</div><p class="flow-title">お問い合わせ</p><p class="flow-desc">フォームまたはSNSよりお気軽にご連絡ください。</p></div>
+      <div class="flow-item"><div class="flow-circle">02</div><p class="flow-title">ヒアリング</p><p class="flow-desc">目的・ターゲット・ご要望を丁寧にお聞きします。</p></div>
+      <div class="flow-item"><div class="flow-circle">03</div><p class="flow-title">お見積もり</p><p class="flow-desc">内容をもとにお見積もりと納期をご提示します。</p></div>
+      <div class="flow-item"><div class="flow-circle">04</div><p class="flow-title">制作・修正</p><p class="flow-desc">デザインを作成し、フィードバックをもとに修正します。</p></div>
+      <div class="flow-item"><div class="flow-circle">05</div><p class="flow-title">納品</p><p class="flow-desc">ご確認後、指定の形式でデータをお渡しします。</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="section-inner">
+    <p class="section-label fade-in">FAQ</p>
+    <div class="faq-list fade-in">
+      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-mark">Q.</span><span class="faq-q-text">修正は何回まで対応していただけますか？</span><span class="faq-icon">+</span></button><p class="faq-a">基本的に修正回数は2〜3回を目安としています。大幅な方向転換がない限り、ご満足いただけるまで丁寧に対応いたします。修正内容や回数によっては追加費用が発生する場合がございますので、事前にご相談ください。</p></div>
+      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-mark">Q.</span><span class="faq-q-text">納期はどのくらいかかりますか？</span><span class="faq-icon">+</span></button><p class="faq-a">制作内容によって異なりますが、LP・商品画像で1〜2週間、ホームページで2〜4週間が目安です。お急ぎの場合はご相談ください。</p></div>
+      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-mark">Q.</span><span class="faq-q-text">テキストや素材がない場合でも依頼できますか？</span><span class="faq-icon">+</span></button><p class="faq-a">はい、対応可能です。コピーライティングや構成のご提案も承っております。「ゼロから一緒に作りたい」というご要望もお気軽にご相談ください。</p></div>
+      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-mark">Q.</span><span class="faq-q-text">NDA（秘密保持契約）の締結は可能ですか？</span><span class="faq-icon">+</span></button><p class="faq-a">はい、対応しております。ご依頼者様からのご要望によりNDAを先に締結してから詳細をお聞きする形にも対応可能です。</p></div>
+      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-mark">Q.</span><span class="faq-q-text">継続的な依頼や複数案件の依頼はできますか？</span><span class="faq-icon">+</span></button><p class="faq-a">もちろんです。継続的なお付き合いは大歓迎です。複数案件や長期契約の場合は、スケジュールや費用について個別にご相談させていただきます。</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<div class="cta-section">
+  <div class="cta-inner">
+    <p class="cta-label fade-in">CONTACT</p>
+    <h2 class="cta-heading fade-in">まずは、お気軽に<br>ご相談ください。</h2>
+
+    <div class="fade-in" style="max-width:600px; margin:0 auto; text-align:left;">
+
+      <div class="contact-tabs">
+        <button class="contact-tab-btn active" onclick="switchTab('form', this)">CONTACT FORM</button>
+        <button class="contact-tab-btn" onclick="switchTab('hearing', this)">HEARING SHEET</button>
+      </div>
+
+      <div id="sv-tab-form" class="contact-tab-content active">
+        <form onsubmit="handleSubmitSv(event)" style="display:flex; flex-direction:column; gap:1.25rem;">
+          <div>
+            <label style="font-family:var(--mono); font-size:12px; letter-spacing:0.2em; color:var(--gray); display:block; margin-bottom:6px;">NAME</label>
+            <input type="text" placeholder="お名前" required style="width:100%; background:transparent; border:none; border-bottom:1px solid var(--border); padding:8px 0; font-family:var(--serif); font-size:15px; color:var(--black); outline:none; transition:border-color 0.2s;">
+          </div>
+          <div>
+            <label style="font-family:var(--mono); font-size:12px; letter-spacing:0.2em; color:var(--gray); display:block; margin-bottom:6px;">EMAIL</label>
+            <input type="email" placeholder="メールアドレス" required style="width:100%; background:transparent; border:none; border-bottom:1px solid var(--border); padding:8px 0; font-family:var(--serif); font-size:15px; color:var(--black); outline:none; transition:border-color 0.2s;">
+          </div>
+          <div>
+            <label style="font-family:var(--mono); font-size:12px; letter-spacing:0.2em; color:var(--gray); display:block; margin-bottom:6px;">MESSAGE</label>
+            <textarea placeholder="ご相談内容をお気軽にどうぞ" rows="5" required style="width:100%; background:transparent; border:none; border-bottom:1px solid var(--border); padding:8px 0; font-family:var(--serif); font-size:15px; color:var(--black); outline:none; resize:none; transition:border-color 0.2s;"></textarea>
+          </div>
+          <div style="text-align:right; margin-top:0.5rem;">
+            <button type="submit" style="font-family:var(--mono); font-size:12px; letter-spacing:0.25em; color:var(--black); background:transparent; border:1px solid var(--black); padding:0.9rem 2rem; cursor:pointer; transition:background 0.25s, color 0.25s;" onmouseover="this.style.background='#1a1a1a';this.style.color='#faf8f4';" onmouseout="this.style.background='transparent';this.style.color='#1a1a1a';">SEND →</button>
+          </div>
+          <p id="sv-form-msg" style="font-family:var(--mono); font-size:12px; letter-spacing:0.1em; color:var(--teal); display:none; text-align:right;">送信しました。ありがとうございます。</p>
+        </form>
+      </div>
+
+      <div id="sv-tab-hearing" class="contact-tab-content">
+        <p style="font-size:15px; color:var(--gray); line-height:2; margin-bottom:2rem;">依頼内容・納品形式・予算などをまとめてお伝えいただくことで、より具体的なご提案とお見積もりをスムーズにご案内できます。</p>
+        <ul style="list-style:none; display:flex; flex-direction:column; gap:0.75rem; margin-bottom:2.5rem;">
+          <li style="font-size:15px; color:#444; display:flex; align-items:flex-start; gap:10px;"><span style="color:var(--teal); font-family:var(--mono); font-size:12px; margin-top:3px; flex-shrink:0;">—</span>依頼内容がある程度決まっている</li>
+          <li style="font-size:15px; color:#444; display:flex; align-items:flex-start; gap:10px;"><span style="color:var(--teal); font-family:var(--mono); font-size:12px; margin-top:3px; flex-shrink:0;">—</span>すぐにお見積もりがほしい</li>
+          <li style="font-size:15px; color:#444; display:flex; align-items:flex-start; gap:10px;"><span style="color:var(--teal); font-family:var(--mono); font-size:12px; margin-top:3px; flex-shrink:0;">—</span>スムーズにプロジェクトを進めたい</li>
+        </ul>
+        <div style="text-align:right;">
+          <a href="hearing.html" style="display:inline-flex; align-items:center; gap:12px; font-family:var(--mono); font-size:12px; letter-spacing:0.2em; color:#faf8f4; background:#1a1a1a; border:1px solid #1a1a1a; padding:0.9rem 2rem; text-decoration:none; transition:background 0.2s, color 0.2s;" onmouseover="this.style.background='var(--teal)';this.style.borderColor='var(--teal)';" onmouseout="this.style.background='#1a1a1a';this.style.borderColor='#1a1a1a';">
+            ヒアリングシートへ →
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<footer>
+  <span class="footer-logo">FUMINO MIDORIKAWA</span>
+  <span class="footer-copy">© 2026 Fuminowa Design. All rights reserved.</span>
+</footer>
+
+<script>
+  function toggleFaq(btn) { btn.parentElement.classList.toggle('open'); }
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => { if (entry.isIntersecting) setTimeout(() => entry.target.classList.add('visible'), i * 80); });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+  function switchTab(name, btn) {
+    document.querySelectorAll('.contact-tab-content').forEach(el => el.classList.remove('active'));
+    document.querySelectorAll('.contact-tab-btn').forEach(el => el.classList.remove('active'));
+    document.getElementById('sv-tab-' + name).classList.add('active');
+    btn.classList.add('active');
+  }
+  function handleSubmitSv(e) {
+    e.preventDefault();
+    e.target.querySelectorAll('input, textarea').forEach(el => el.value = '');
+    document.getElementById('sv-form-msg').style.display = 'block';
+  }
+  function toggleMenu() {
+    const nav = document.getElementById('nav-links');
+    const btn = document.getElementById('hamburger');
+    nav.classList.toggle('open');
+    btn.classList.toggle('open');
+  }
+  function closeMenu() {
+    document.getElementById('nav-links').classList.remove('open');
+    document.getElementById('hamburger').classList.remove('open');
+  }
+</script>
+</body>
+</html>

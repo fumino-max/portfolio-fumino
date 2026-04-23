@@ -1,0 +1,691 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>制作実績 — FUMINO MIDORIKAWA</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Noto+Serif+JP:wght@300;400&family=Space+Mono&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --teal: #6aada8;
+    --green: #7aaa4a;
+    --orange: #e8952a;
+    --black: #1a1a1a;
+    --gray: #888;
+    --light: #f7f5f0;
+    --border: #d8d4cc;
+    --serif: 'Cormorant Garamond', 'Noto Serif JP', serif;
+    --mono: 'Space Mono', monospace;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: var(--serif);
+    background: #faf8f4;
+    color: var(--black);
+    overflow-x: hidden;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.25rem 3rem;
+    background: rgba(250,248,244,0.92);
+    backdrop-filter: blur(6px);
+    border-bottom: 1px solid var(--border);
+  }
+  .nav-logo { font-family: var(--mono); font-size: 13px; letter-spacing: 0.2em; color: var(--black); text-decoration: none; }
+  .nav-links { display: flex; gap: 2.5rem; list-style: none; }
+  .nav-links a { font-family: var(--serif); font-size: 13px; letter-spacing: 0.1em; color: var(--gray); text-decoration: none; transition: color 0.2s; }
+  .nav-links a:hover { color: var(--black); }
+
+  /* PAGE HEADER */
+  .page-header { padding-top: 120px; padding-bottom: 4rem; border-bottom: 1px solid var(--border); }
+  .page-header-inner { max-width: 960px; margin: 0 auto; padding: 0 3rem; display: flex; justify-content: space-between; align-items: flex-end; }
+  .page-title { font-size: clamp(36px, 5vw, 64px); font-weight: 300; font-style: italic; letter-spacing: 0.1em; line-height: 1; }
+  .page-title-sub { font-family: var(--mono); font-size: 12px; letter-spacing: 0.25em; color: var(--gray); margin-bottom: 0.75rem; }
+  .breadcrumb { font-family: var(--mono); font-size: 12px; letter-spacing: 0.15em; color: var(--gray); }
+  .breadcrumb a { color: var(--gray); text-decoration: none; transition: color 0.2s; }
+  .breadcrumb a:hover { color: var(--black); }
+
+  /* FILTER */
+  .filter-wrap { max-width: 960px; margin: 0 auto; padding: 2.5rem 3rem; display: flex; gap: 12px; flex-wrap: wrap; }
+  .filter-btn {
+    font-family: var(--mono);
+    font-size: 12px;
+    letter-spacing: 0.15em;
+    color: var(--gray);
+    background: transparent;
+    border: 1px solid var(--border);
+    padding: 6px 16px;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  .filter-btn:hover, .filter-btn.active {
+    background: var(--black);
+    color: #faf8f4;
+    border-color: var(--black);
+  }
+
+  /* WORKS GRID */
+  .works-wrap { max-width: 960px; margin: 0 auto; padding: 0 3rem 6rem; }
+
+  .category-section { margin-bottom: 4rem; }
+
+  .category-label {
+    font-family: var(--mono);
+    font-size: 12px;
+    letter-spacing: 0.3em;
+    color: var(--gray);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--border);
+  }
+  .category-label::before { content: ''; display: block; width: 24px; height: 1px; background: var(--gray); }
+
+  .works-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2rem; }
+
+  /* WORK CARD */
+  .work-card {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+    cursor: pointer;
+  }
+
+  .work-thumb {
+    aspect-ratio: 16/10;
+    overflow: hidden;
+    border: 1px solid var(--border);
+    margin-bottom: 1rem;
+    position: relative;
+    background: var(--light);
+  }
+
+  .work-thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+    display: block;
+  }
+
+  .work-card:hover .work-thumb img { transform: scale(1.04); }
+
+  .work-thumb-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(26,26,26,0);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.3s;
+  }
+
+  .work-card:hover .work-thumb-overlay { background: rgba(26,26,26,0.35); }
+
+  .work-thumb-overlay span {
+    font-family: var(--mono);
+    font-size: 12px;
+    letter-spacing: 0.2em;
+    color: #fff;
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+
+  .work-card:hover .work-thumb-overlay span { opacity: 1; }
+
+  .work-meta { display: flex; justify-content: space-between; align-items: flex-start; }
+
+  .work-info {}
+
+  .work-tag {
+    font-family: var(--mono);
+    font-size: 12px;
+    letter-spacing: 0.15em;
+    color: var(--gray);
+    border: 1px solid var(--border);
+    display: inline-block;
+    padding: 2px 8px;
+    margin-bottom: 6px;
+  }
+
+  .work-title { font-size: 15px; font-weight: 300; letter-spacing: 0.05em; }
+
+  .work-arrow {
+    font-family: var(--mono);
+    font-size: 13px;
+    color: var(--border);
+    margin-top: 4px;
+    transition: color 0.2s, transform 0.2s;
+  }
+
+  .work-card:hover .work-arrow { color: var(--black); transform: translateX(4px); }
+
+  /* MODAL */
+  .modal-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(250,248,244,0.96);
+    z-index: 200;
+    overflow-y: auto;
+    padding: 2rem;
+  }
+
+  .modal-overlay.open { display: block; }
+
+  .modal-inner {
+    max-width: 800px;
+    margin: 80px auto;
+    position: relative;
+  }
+
+  .modal-close {
+    position: fixed;
+    top: 2rem;
+    right: 2rem;
+    font-family: var(--mono);
+    font-size: 13px;
+    letter-spacing: 0.2em;
+    color: var(--gray);
+    background: transparent;
+    border: 1px solid var(--border);
+    padding: 8px 16px;
+    cursor: pointer;
+    transition: all 0.2s;
+    z-index: 201;
+  }
+
+  .modal-close:hover { background: var(--black); color: #faf8f4; border-color: var(--black); }
+
+  .modal-img {
+    width: 100%;
+    margin-bottom: 2.5rem;
+    border: 1px solid var(--border);
+  }
+
+  .modal-tag {
+    font-family: var(--mono);
+    font-size: 12px;
+    letter-spacing: 0.2em;
+    color: var(--gray);
+    border: 1px solid var(--border);
+    display: inline-block;
+    padding: 2px 8px;
+    margin-bottom: 1rem;
+  }
+
+  .modal-title {
+    font-size: clamp(22px, 3vw, 32px);
+    font-weight: 300;
+    letter-spacing: 0.05em;
+    margin-bottom: 2rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .modal-section { margin-bottom: 2rem; }
+
+  .modal-section-label {
+    font-family: var(--mono);
+    font-size: 12px;
+    letter-spacing: 0.2em;
+    color: var(--gray);
+    margin-bottom: 0.75rem;
+  }
+
+  .modal-section-body {
+    font-size: 14px;
+    line-height: 2.2;
+    color: #444;
+  }
+
+  .modal-tags { display: flex; flex-wrap: wrap; gap: 6px; }
+
+  .modal-skill-tag {
+    font-family: var(--mono);
+    font-size: 12px;
+    letter-spacing: 0.08em;
+    border: 1px solid var(--border);
+    padding: 3px 10px;
+    color: var(--black);
+  }
+
+  .modal-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-family: var(--mono);
+    font-size: 12px;
+    letter-spacing: 0.2em;
+    color: var(--black);
+    text-decoration: none;
+    border-bottom: 1px solid var(--black);
+    padding-bottom: 3px;
+    transition: opacity 0.2s;
+    margin-top: 1rem;
+  }
+  .modal-link:hover { opacity: 0.5; }
+
+  /* FADE IN */
+  .fade-in { opacity: 0; transform: translateY(20px); transition: opacity 0.7s ease, transform 0.7s ease; }
+  .fade-in.visible { opacity: 1; transform: translateY(0); }
+
+  /* FOOTER */
+  footer { border-top: 1px solid var(--border); padding: 2rem 3rem; display: flex; justify-content: space-between; align-items: center; }
+  .footer-logo { font-family: var(--mono); font-size: 12px; letter-spacing: 0.2em; color: var(--gray); }
+  .footer-copy { font-family: var(--mono); font-size: 12px; letter-spacing: 0.1em; color: var(--border); }
+
+  
+  /* ── HAMBURGER ── */
+  .nav-hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    background: none;
+    border: none;
+    padding: 4px;
+  }
+  .nav-hamburger span {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background: #1a1a1a;
+    transition: all 0.3s;
+  }
+  .nav-hamburger.open span:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+  .nav-hamburger.open span:nth-child(2) { opacity: 0; }
+  .nav-hamburger.open span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+
+/* RESPONSIVE */
+  @media (max-width: 768px) {
+    nav { padding: 1rem 1.5rem; }
+    .nav-hamburger { display: flex; }
+    .nav-links {
+      display: none !important;
+      position: fixed;
+      top: 57px; left: 0; right: 0;
+      background: rgba(250,248,244,0.97);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--border);
+      flex-direction: column;
+      align-items: center;
+      padding: 0;
+      list-style: none;
+      z-index: 99;
+    }
+    .nav-links.open { display: flex !important; }
+    .nav-links li { width: 100%; text-align: center; }
+    .nav-links a { display: block; padding: 1.1rem 0; border-bottom: 1px solid var(--border); font-size: 13px; }
+    .page-header-inner { flex-direction: column; gap: 1rem; align-items: flex-start; }
+    .filter-wrap, .works-wrap { padding-left: 1.5rem; padding-right: 1.5rem; }
+    .works-grid { grid-template-columns: 1fr; }
+    footer { flex-direction: column; gap: 1rem; text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="index.html" class="nav-logo">FUMINO MIDORIKAWA</a>
+  <ul class="nav-links" id="nav-links">
+    <li><a href="about.html" onclick="closeMenu()">ご挨拶</a></li>
+    <li><a href="works.html" onclick="closeMenu()">制作実績</a></li>
+    <li><a href="index.html#services" onclick="closeMenu()">仕事内容</a></li>
+    <li><a href="index.html#contact" onclick="closeMenu()">お問い合わせ</a></li>
+  </ul>
+  <button class="nav-hamburger" id="hamburger" onclick="toggleMenu()" aria-label="メニュー">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- PAGE HEADER -->
+<div class="page-header">
+  <div class="page-header-inner">
+    <div>
+      <p class="page-title-sub">WORKS</p>
+      <h1 class="page-title">制作実績</h1>
+    </div>
+    <p class="breadcrumb"><a href="index.html">HOME</a> / WORKS</p>
+  </div>
+</div>
+
+<!-- FILTER -->
+<div class="filter-wrap">
+  <button class="filter-btn active" onclick="filterWorks('all', this)">ALL</button>
+  <button class="filter-btn" onclick="filterWorks('hp', this)">HP</button>
+  <button class="filter-btn" onclick="filterWorks('lp', this)">LP</button>
+  <button class="filter-btn" onclick="filterWorks('logo', this)">LOGO</button>
+  <button class="filter-btn" onclick="filterWorks('ec', this)">商品画像</button>
+</div>
+
+<!-- WORKS -->
+<div class="works-wrap">
+
+  <!-- HP -->
+  <div class="category-section" data-category="hp">
+    <p class="category-label fade-in">HP</p>
+    <div class="works-grid">
+      <div class="work-card fade-in" onclick="openModal('mebuki')">
+        <div class="work-thumb">
+          <img src="work-mebuki.png" alt="整体院ホームページ">
+          <div class="work-thumb-overlay"><span>VIEW DETAIL →</span></div>
+        </div>
+        <div class="work-meta">
+          <div class="work-info">
+            <span class="work-tag">HP</span>
+            <p class="work-title">整体院ホームページ</p>
+          </div>
+          <span class="work-arrow">→</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- LP -->
+  <div class="category-section" data-category="lp">
+    <p class="category-label fade-in">LP</p>
+    <div class="works-grid">
+      <div class="work-card fade-in" onclick="openModal('logtrack')">
+        <div class="work-thumb">
+          <img src="work-logtrack.jpg" alt="BtoB向けランディングページ">
+          <div class="work-thumb-overlay"><span>VIEW DETAIL →</span></div>
+        </div>
+        <div class="work-meta">
+          <div class="work-info">
+            <span class="work-tag">LP</span>
+            <p class="work-title">BtoB向けランディングページ</p>
+          </div>
+          <span class="work-arrow">→</span>
+        </div>
+      </div>
+      <div class="work-card fade-in" onclick="openModal('iryo')">
+        <div class="work-thumb">
+          <img src="work-iryo.jpg" alt="医療系LP">
+          <div class="work-thumb-overlay"><span>VIEW DETAIL →</span></div>
+        </div>
+        <div class="work-meta">
+          <div class="work-info">
+            <span class="work-tag">LP</span>
+            <p class="work-title">医療系LP（架空）</p>
+          </div>
+          <span class="work-arrow">→</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- LOGO -->
+  <div class="category-section" data-category="logo">
+    <p class="category-label fade-in">LOGO</p>
+    <div class="works-grid">
+      <div class="work-card fade-in" onclick="openModal('asahidake')">
+        <div class="work-thumb">
+          <img src="work-asahidake.jpg" alt="ショップロゴ制作">
+          <div class="work-thumb-overlay"><span>VIEW DETAIL →</span></div>
+        </div>
+        <div class="work-meta">
+          <div class="work-info">
+            <span class="work-tag">LOGO</span>
+            <p class="work-title">ショップロゴ制作</p>
+          </div>
+          <span class="work-arrow">→</span>
+        </div>
+      </div>
+      <div class="work-card fade-in" onclick="openModal('fuminowa')">
+        <div class="work-thumb">
+          <img src="work-fuminowa.png" alt="ロゴ制作（Fuminowa Design）">
+          <div class="work-thumb-overlay"><span>VIEW DETAIL →</span></div>
+        </div>
+        <div class="work-meta">
+          <div class="work-info">
+            <span class="work-tag">LOGO</span>
+            <p class="work-title">ロゴ制作（Fuminowa Design）</p>
+          </div>
+          <span class="work-arrow">→</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 商品画像 -->
+  <div class="category-section" data-category="ec">
+    <p class="category-label fade-in">商品画像</p>
+    <div class="works-grid">
+      <div class="work-card fade-in" onclick="openModal('socks')">
+        <div class="work-thumb">
+          <img src="work-socks.jpg" alt="商品画像制作">
+          <div class="work-thumb-overlay"><span>VIEW DETAIL →</span></div>
+        </div>
+        <div class="work-meta">
+          <div class="work-info">
+            <span class="work-tag">商品画像</span>
+            <p class="work-title">商品画像制作（スポーツソックス）</p>
+          </div>
+          <span class="work-arrow">→</span>
+        </div>
+      </div>
+      <div class="work-card fade-in" onclick="openModal('pouch')">
+        <div class="work-thumb">
+          <img src="work-pouch1.jpg" alt="商品画像制作（吊り下げポーチ）">
+          <div class="work-thumb-overlay"><span>VIEW DETAIL →</span></div>
+        </div>
+        <div class="work-meta">
+          <div class="work-info">
+            <span class="work-tag">商品画像</span>
+            <p class="work-title">商品画像制作（吊り下げポーチ）</p>
+          </div>
+          <span class="work-arrow">→</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- MODAL -->
+<div class="modal-overlay" id="modal">
+  <button class="modal-close" onclick="closeModal()">CLOSE ✕</button>
+  <div class="modal-inner" id="modal-content"></div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <span class="footer-logo">FUMINO MIDORIKAWA</span>
+  <span class="footer-copy">© 2026 Fuminowa Design.</span>
+</footer>
+
+<script>
+const works = {
+  mebuki: {
+    img: 'work-mebuki.png',
+    tag: 'HP',
+    title: '整体院ホームページ',
+    link: 'https://seitai-mebuki.studio.site/',
+    overview: '新規開業する訪問整体院のコンセプト設計から、構成・ライティング、デザイン、STUDIOの実装まで一貫して担当しました。ターゲットは10代から80代までと幅広く、「安心感」と「専門性」を直感的に伝える設計を重視しています。',
+    points: [
+      '代表の顔写真やプロフィールを強調し、訪問整体への心理的障壁を解消',
+      '「なぜ継続が必要か」「体がどう変わるか」を独自のステップ図解で表現',
+      '10代から80代までがストレスなく読める平易な表現を徹底',
+      '公式LINEへの誘導を強化し、24時間相談できる窓口を設置'
+    ],
+    scope: ['企画・構成設計', 'コピーライティング', 'サイトデザイン', '図解・イラスト制作', 'STUDIO実装', 'レスポンシブ対応'],
+  },
+  logtrack: {
+    img: 'work-logtrack.jpg',
+    tag: 'LP',
+    title: 'BtoB向けランディングページ',
+    overview: '黒字企業の経営者をターゲットとした、旅費日当の運用・管理サービスのLPデザインを担当しました。節税メリットを訴求しつつも、「合法性への不安」や「グレーな印象」を払拭することを重視し、信頼感を軸に構成・デザインを設計しています。',
+    points: [
+      '「旅費日当で、賢く節税。」というシンプルなコピーで一瞬で価値を伝えるFV設計',
+      '「正しく運用できているか分からない」といったリアルな悩みを言語化し信頼ベースで共感を獲得',
+      'GPSログ＝エビデンスという形で制度を視覚化し、直感的な理解を促進',
+      '「自社が対象か確認する」という無料相談導線で、慎重な経営者でも行動しやすい設計'
+    ],
+    scope: ['構成設計', 'ワイヤーフレーム', 'デザイン（Figma）', 'HTML/CSS/JS', 'レスポンシブ対応'],
+  },
+  iryo: {
+    img: 'work-iryo.jpg',
+    tag: 'LP',
+    title: '医療系LP（架空）',
+    overview: '医療職としての経験を活かし、ユーザーの不安や心理に寄り添った訴求設計を得意としています。「誰に・何を・どう伝えるか」を明確にし、ターゲットの悩みや不安に寄り添いながら、自然な流れで行動へ導くことを重視しています。',
+    points: [
+      'ファーストビュー：ターゲットに刺さるキャッチコピーと視覚で興味を引く設計',
+      '悩み訴求：ユーザーの課題を言語化し共感を形成',
+      '解決策提示：サービスの強みをわかりやすく整理',
+      'CTA：適切なタイミングで行動を促す導線設計'
+    ],
+    scope: ['構成設計', 'デザイン', 'コピーライティング'],
+  },
+  asahidake: {
+    img: 'work-asahidake.jpg',
+    tag: 'LOGO',
+    title: 'ショップロゴ制作',
+    overview: '自然系ショップのロゴを担当しました。外国人の方にも人気が出るようにというクライアントの要望をもとに、英語表記と山のシルエットを組み合わせたシンプルで印象的なデザインに仕上げました。',
+    points: [
+      '外国人観光客にも直感的に伝わる英語表記を採用',
+      '旭岳のシルエットをシンプルに落とし込んだアイコン設計',
+      '北海道・大雪山国立公園の雄大な自然をティールカラーで表現'
+    ],
+    scope: ['ロゴデザイン', 'Illustrator'],
+  },
+  socks: {
+    img: 'work-socks.jpg',
+    images: ['work-socks2.jpg', 'work-socks3.jpg'],
+    tag: '商品画像',
+    title: '商品画像制作（スポーツソックス）',
+    overview: '楽天・Amazon・Yahooショッピング向けの商品画像制作を担当しました。ECサイトでは実物を手に取れないため、画像を通して「商品の特徴・使用イメージ・ベネフィット」を正確かつ分かりやすく伝えることを重視しています。',
+    points: [
+      'メイン画像：視認性とクリック率を意識したシンプル構成',
+      '訴求画像：特徴や強みを一目で理解できる情報設計',
+      '使用シーン：購入後のイメージが湧くビジュアル表現',
+      '視線誘導・余白・配色・文字量を調整し「見やすさ」と「伝わりやすさ」を両立'
+    ],
+    scope: ['商品画像制作', 'Photoshop', 'Canva'],
+  },
+  pouch: {
+    img: 'work-pouch1.jpg',
+    images: ['work-pouch2.jpg'],
+    tag: '商品画像',
+    title: '商品画像制作（吊り下げポーチ）',
+    overview: '楽天・Amazon・Yahooショッピング向けの商品画像制作を担当しました。旅行・ジム・おうちと幅広いシーンで活躍する吊り下げ式ポーチの機能と魅力を、視覚的にわかりやすく伝えることを重視しています。',
+    points: [
+      'メイン画像：吊り下げ使用時のイメージを直感的に伝えるビジュアル設計',
+      'お悩み訴求：ターゲットの課題（ぐちゃぐちゃ・洗面台が狭い等）を言語化し共感を獲得',
+      '機能訴求：吊り下げフック・大容量・透明ポケットなど特徴をポイントごとに整理',
+      '視線誘導・余白・配色を調整し「見やすさ」と「伝わりやすさ」を両立'
+    ],
+    scope: ['商品画像制作', 'Photoshop', 'Canva'],
+  },
+  fuminowa: {
+    img: 'work-fuminowa.png',
+    tag: 'LOGO',
+    title: 'ロゴ制作（Fuminowa Design）',
+    overview: '自身のデザインブランド「Fuminowa Design」のロゴを制作しました。作業療法士としての経験から得た「輪・和・環」の3つの想いを込め、日本語の「の」の字を円で表現したシンプルなデザインに仕上げました。',
+    points: [
+      '「輪（わ）」「和（わ）」「環（わ）」3つの意味を込めたコンセプト設計',
+      '「の」の字を円のモチーフで表現し、つながりと循環を視覚化',
+      'ティール・グリーン・オレンジの3色で3つの信念を表現',
+      '手書きのような柔らかさとミニマルさを両立したデザイン'
+    ],
+    scope: ['ロゴデザイン', 'Illustrator'],
+  }
+};
+
+function openModal(id) {
+  const w = works[id];
+  const pointsHTML = w.points.map(p => `<li style="margin-bottom:0.5rem;">${p}</li>`).join('');
+  const scopeHTML = w.scope.map(s => `<span class="modal-skill-tag">${s}</span>`).join('');
+  const linkHTML = w.link ? `<a href="${w.link}" target="_blank" class="modal-link">サイトを見る →</a>` : '';
+
+  const extraImgsHTML = w.images && w.images.length
+    ? `<div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:0.75rem;margin-bottom:1.5rem;">${w.images.map(src => `<img src="${src}" alt="${w.title}" style="width:100%;object-fit:cover;display:block;">`).join('')}</div>` : '';
+
+  document.getElementById('modal-content').innerHTML = `
+    <img src="${w.img}" alt="${w.title}" class="modal-img">
+    ${extraImgsHTML}
+    <span class="modal-tag">${w.tag}</span>
+    <h2 class="modal-title">${w.title}</h2>
+    <div class="modal-section">
+      <p class="modal-section-label">OVERVIEW</p>
+      <p class="modal-section-body">${w.overview}</p>
+      ${linkHTML}
+    </div>
+    <div class="modal-section">
+      <p class="modal-section-label">POINT</p>
+      <ul class="modal-section-body" style="padding-left:1.2rem;">${pointsHTML}</ul>
+    </div>
+    <div class="modal-section">
+      <p class="modal-section-label">SCOPE</p>
+      <div class="modal-tags">${scopeHTML}</div>
+    </div>
+  `;
+  document.getElementById('modal').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeModal() {
+  document.getElementById('modal').classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+document.getElementById('modal').addEventListener('click', function(e) {
+  if (e.target === this) closeModal();
+});
+
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') closeModal();
+});
+
+function filterWorks(cat, btn) {
+  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  document.querySelectorAll('.category-section').forEach(section => {
+    if (cat === 'all' || section.dataset.category === cat) {
+      section.style.display = '';
+    } else {
+      section.style.display = 'none';
+    }
+  });
+}
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach((entry, i) => {
+    if (entry.isIntersecting) {
+      setTimeout(() => entry.target.classList.add('visible'), i * 80);
+    }
+  });
+}, { threshold: 0.1 });
+
+document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+  function toggleMenu() {
+    const nav = document.getElementById('nav-links');
+    const btn = document.getElementById('hamburger');
+    nav.classList.toggle('open');
+    btn.classList.toggle('open');
+  }
+  function closeMenu() {
+    document.getElementById('nav-links').classList.remove('open');
+    document.getElementById('hamburger').classList.remove('open');
+  }
+
+</script>
+
+</body>
+</html>

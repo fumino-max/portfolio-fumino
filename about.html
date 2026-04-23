@@ -1,0 +1,659 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ご挨拶 — FUMINO MIDORIKAWA</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Noto+Serif+JP:wght@300;400&family=Space+Mono&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --teal: #6aada8;
+    --green: #7aaa4a;
+    --orange: #e8952a;
+    --black: #1a1a1a;
+    --gray: #888;
+    --light: #f7f5f0;
+    --border: #d8d4cc;
+    --serif: 'Cormorant Garamond', 'Noto Serif JP', serif;
+    --mono: 'Space Mono', monospace;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: var(--serif);
+    background: #faf8f4;
+    color: var(--black);
+    overflow-x: hidden;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.25rem 3rem;
+    background: rgba(250,248,244,0.92);
+    backdrop-filter: blur(6px);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .nav-logo {
+    font-family: var(--mono);
+    font-size: 13px;
+    letter-spacing: 0.2em;
+    color: var(--black);
+    text-decoration: none;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 2.5rem;
+    list-style: none;
+  }
+
+  .nav-links a {
+    font-family: var(--serif);
+    font-size: 13px;
+    letter-spacing: 0.1em;
+    color: var(--gray);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover { color: var(--black); }
+
+  /* PAGE HEADER */
+  .page-header {
+    padding-top: 120px;
+    padding-bottom: 4rem;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .page-header-inner {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 0 3rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+  }
+
+  .page-title {
+    font-size: clamp(36px, 5vw, 64px);
+    font-weight: 300;
+    font-style: italic;
+    letter-spacing: 0.1em;
+    line-height: 1;
+  }
+
+  .page-title-sub {
+    font-family: var(--mono);
+    font-size: 12px;
+    letter-spacing: 0.25em;
+    color: var(--gray);
+    margin-bottom: 0.75rem;
+  }
+
+  .breadcrumb {
+    font-family: var(--mono);
+    font-size: 12px;
+    letter-spacing: 0.15em;
+    color: var(--gray);
+  }
+
+  .breadcrumb a {
+    color: var(--gray);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .breadcrumb a:hover { color: var(--black); }
+
+  /* SECTIONS */
+  .section {
+    padding: 5rem 0;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .section-inner {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 0 3rem;
+  }
+
+  .section-label {
+    font-family: var(--mono);
+    font-size: 12px;
+    letter-spacing: 0.3em;
+    color: var(--gray);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 3rem;
+  }
+
+  .section-label::before {
+    content: '';
+    display: block;
+    width: 24px;
+    height: 1px;
+    background: var(--gray);
+  }
+
+  /* PROFILE */
+  .profile-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: start;
+  }
+
+  .profile-img-wrap {
+    position: relative;
+  }
+
+  .profile-img-wrap::before {
+    content: '';
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    right: -12px;
+    bottom: -12px;
+    border: 1px solid var(--border);
+    z-index: 0;
+  }
+
+  .profile-img-wrap img {
+    width: 100%;
+    aspect-ratio: 3/4;
+    object-fit: cover;
+    object-position: center top;
+    display: block;
+    position: relative;
+    z-index: 1;
+  }
+
+  .profile-name {
+    font-family: var(--mono);
+    font-size: 12px;
+    letter-spacing: 0.25em;
+    color: var(--gray);
+    margin-top: 1.5rem;
+    text-align: center;
+  }
+
+  .profile-text h2 {
+    font-size: clamp(20px, 2.5vw, 28px);
+    font-weight: 300;
+    line-height: 1.7;
+    letter-spacing: 0.05em;
+    margin-bottom: 2rem;
+  }
+
+  .profile-body {
+    font-size: 14px;
+    line-height: 2.4;
+    color: #444;
+    margin-bottom: 1.5rem;
+  }
+
+  /* CAREER */
+  .career-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .career-item {
+    display: grid;
+    grid-template-columns: 120px 1fr;
+    gap: 2rem;
+    padding: 1.5rem 0;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .career-year {
+    font-family: var(--mono);
+    font-size: 13px;
+    letter-spacing: 0.1em;
+    color: var(--gray);
+    padding-top: 2px;
+  }
+
+  .career-desc {
+    font-size: 14px;
+    line-height: 2;
+    color: var(--black);
+  }
+
+  .career-text {
+  font-size: 12px;
+　}
+
+  /* SKILLS */
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
+    margin-bottom: 2rem;
+  }
+
+  .skill-block {
+    background: #faf8f4;
+    padding: 2rem;
+  }
+
+  .skill-block-title {
+    font-family: var(--mono);
+    font-size: 12px;
+    letter-spacing: 0.2em;
+    color: var(--gray);
+    margin-bottom: 1.25rem;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .skill-block-title::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--border);
+  }
+
+  .skill-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+
+  .skill-tag {
+    font-family: var(--mono);
+    font-size: 12px;
+    letter-spacing: 0.08em;
+    color: var(--black);
+    border: 1px solid var(--border);
+    padding: 4px 10px;
+  }
+
+  /* HOURS */
+  .hours-block {
+    background: var(--light);
+    border: 1px solid var(--border);
+    padding: 2rem;
+    margin-bottom: 2rem;
+  }
+
+  .hours-row {
+    display: flex;
+    align-items: baseline;
+    gap: 2rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .hours-label {
+    font-family: var(--mono);
+    font-size: 12px;
+    letter-spacing: 0.2em;
+    color: var(--gray);
+    min-width: 80px;
+  }
+
+  .hours-value {
+    font-size: 24px;
+    font-weight: 300;
+    letter-spacing: 0.1em;
+  }
+
+  .hours-note {
+    font-size: 12px;
+    color: var(--gray);
+    line-height: 2;
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--border);
+  }
+
+  /* QUALIFICATIONS */
+  .qual-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .qual-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1.25rem 0;
+    border-bottom: 1px solid var(--border);
+    font-size: 14px;
+  }
+
+  .qual-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+
+  /* WA SECTION */
+  .wa-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .wa-row {
+    display: grid;
+    grid-template-columns: 48px 1fr;
+    gap: 2rem;
+    padding: 2rem 0;
+    border-bottom: 1px solid var(--border);
+    align-items: start;
+  }
+
+  .wa-circle {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 13px;
+    font-weight: 300;
+    letter-spacing: 0.05em;
+    color: #fff;
+    flex-shrink: 0;
+  }
+
+  .wa-content h3 {
+    font-size: 16px;
+    font-weight: 300;
+    letter-spacing: 0.1em;
+    margin-bottom: 0.75rem;
+  }
+
+  .wa-content p {
+    font-size: 13px;
+    color: #555;
+    line-height: 2.2;
+  }
+
+  /* FADE IN */
+  .fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+
+  .fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* FOOTER */
+  footer {
+    border-top: 1px solid var(--border);
+    padding: 2rem 3rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .footer-logo {
+    font-family: var(--mono);
+    font-size: 12px;
+    letter-spacing: 0.2em;
+    color: var(--gray);
+  }
+
+  .footer-copy {
+    font-family: var(--mono);
+    font-size: 12px;
+    letter-spacing: 0.1em;
+    color: var(--border);
+  }
+
+  
+  /* ── HAMBURGER ── */
+  .nav-hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    background: none;
+    border: none;
+    padding: 4px;
+  }
+  .nav-hamburger span {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background: #1a1a1a;
+    transition: all 0.3s;
+  }
+  .nav-hamburger.open span:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+  .nav-hamburger.open span:nth-child(2) { opacity: 0; }
+  .nav-hamburger.open span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+
+/* RESPONSIVE */
+  @media (max-width: 768px) {
+    nav { padding: 1rem 1.5rem; }
+    .nav-hamburger { display: flex; }
+    .nav-links {
+      display: none !important;
+      position: fixed;
+      top: 57px; left: 0; right: 0;
+      background: rgba(250,248,244,0.97);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--border);
+      flex-direction: column;
+      align-items: center;
+      padding: 0;
+      list-style: none;
+      z-index: 99;
+    }
+    .nav-links.open { display: flex !important; }
+    .nav-links li { width: 100%; text-align: center; }
+    .nav-links a { display: block; padding: 1.1rem 0; border-bottom: 1px solid var(--border); font-size: 13px; }
+    .page-header-inner { flex-direction: column; gap: 1rem; align-items: flex-start; }
+    .section-inner { padding: 0 1.5rem; }
+    .profile-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+    .profile-img-wrap { max-width: 320px; }
+    .skills-grid { grid-template-columns: 1fr; }
+    .career-item { grid-template-columns: 80px 1fr; gap: 1rem; }
+    footer { flex-direction: column; gap: 1rem; text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="index.html" class="nav-logo">FUMINO MIDORIKAWA</a>
+  <ul class="nav-links" id="nav-links">
+    <li><a href="index.html#about" onclick="closeMenu()">ご挨拶</a></li>
+    <li><a href="index.html#works" onclick="closeMenu()">制作実績</a></li>
+    <li><a href="index.html#services" onclick="closeMenu()">仕事内容</a></li>
+    <li><a href="index.html#contact" onclick="closeMenu()">お問い合わせ</a></li>
+  </ul>
+  <button class="nav-hamburger" id="hamburger" onclick="toggleMenu()" aria-label="メニュー">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- PAGE HEADER -->
+<div class="page-header">
+  <div class="page-header-inner">
+    <div>
+      <p class="page-title-sub">GREETING</p>
+      <h1 class="page-title">About</h1>
+    </div>
+    <p class="breadcrumb"><a href="index.html">HOME</a> / GREETING</p>
+  </div>
+</div>
+
+<!-- PROFILE -->
+<section class="section">
+  <div class="section-inner">
+    <p class="section-label fade-in">PROFILE</p>
+    <div class="profile-grid">
+      <div class="fade-in">
+        <div class="profile-img-wrap">
+          <img src="profile.jpg" alt="Fumino Midorikawa">
+        </div>
+        <p class="profile-name">FUMINO MIDORIKAWA</p>
+      </div>
+      <div class="profile-text fade-in">
+        <h2>「伝わるデザイン」を<br>強みとするデザイナー。</h2>
+        <p class="profile-body">作業療法士として7年間、老若男女さまざまな方と関わる中で、相手のニーズを引き出すコミュニケーション力を培ってきました。この経験を活かし、「誰に・何を伝えるべきか」を整理したうえで、成果につながるデザインをご提案いたします。</p>
+        <p class="profile-body">旅行・キャンプ・音楽・スポーツなど幅広い経験を通して感性を磨き、国内38都道府県・海外8ヶ国を訪れてきました。多様な価値観に触れてきたこともデザインに活かしています。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CAREER -->
+<section class="section">
+  <div class="section-inner">
+    <p class="section-label fade-in">CAREER</p>
+    <div class="career-list fade-in">
+      <div class="career-item">
+        <span class="career-year">〜 2019</span>
+        <p class="career-desc"> <strong class="career-title">多様な現場で揉まれた、北の大地での学生時代。</strong></br><span class="career-text">2浪を経て北海道大学へ。学業の傍ら、飲食・物流・イベント物販など、ジャンルを問わず多様なアルバイトに熱中しました。「現場で働く人のリアル」や「多様な価値観」を肌で感じ、フットワークの軽さを養った4年間です。</span>></p>
+      </div>
+      <div class="career-item">
+        <span class="career-year">〜　2026</span>
+        <p class="career-desc"><strong class="career-title">作業療法士として、1万人との対話からニーズを形に。</strong></br><span class="career-text">作業療法士として病院で7年間勤務。のべ1万人の患者様と関わる中で、相手の本音を引き出すコミュニケーション力を磨きました。また、リーダーとして外来部門の立ち上げを経験。ゼロから形にするバイタリティと、プロジェクトを完遂する責任感を培いました。</span></p>
+      </div>
+      <div class="career-item">
+        <span class="career-year">2026 —</span>
+        <p class="career-desc"><strong class="career-title">医療の視点 × 最新技術で届ける、優しいデザイン。</strong></br><span class="career-text">現在はフリーランスのWebデザイナー兼作業療法士として活動中。
+リハビリの視点を活かした「使う人にストレスを与えない設計」が得意です。AIを駆使してスマートに実制作を進め、その分できた時間でお客様の想いをじっくり伺う。そんな、アナログな温かさと最新の効率性を掛け合わせた制作スタイルを大切にしています。</span></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- THREE WA -->
+<section class="section">
+  <div class="section-inner">
+    <p class="section-label fade-in">THREE "WA"</p>
+    <div class="wa-grid fade-in">
+      <div class="wa-row">
+        <div class="wa-circle" style="background: var(--teal);">話</div>
+        <div class="wa-content">
+          <h3>話（わ）：丁寧に、深く聴く。</h3>
+          <p>リハビリの現場で何より大切だったのは、言葉にならない患者様の不安や希望を「聴く」ことでした。デザインにおいても、まずはあなたの想いを丁寧に紐解く「対話」から始めます。</p>
+        </div>
+      </div>
+      <div class="wa-row">
+        <div class="wa-circle" style="background: var(--green);">和</div>
+        <div class="wa-content">
+          <h3>和（わ）：心地よい調和を。</h3>
+          <p>見る人の心にすっと馴染み、信頼を感じさせる「調和」の取れたデザインを追求します。</p>
+        </div>
+      </div>
+      <div class="wa-row">
+        <div class="wa-circle" style="background: var(--orange);">輪</div>
+        <div class="wa-content">
+          <h3>輪（わ）：つながりを広げる。</h3>
+          <p>「作って終わり」にせず、想いが届き、成果や集客へとつながるデザインを大切にしています。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section class="section">
+  <div class="section-inner">
+    <p class="section-label fade-in">SKILLS & INFO</p>
+    <div class="skills-grid fade-in">
+      <div class="skill-block">
+        <p class="skill-block-title">制作内容</p>
+        <div class="skill-tags">
+          <span class="skill-tag">LP</span>
+          <span class="skill-tag">HP</span>
+          <span class="skill-tag">アプリデザイン</span>
+          <span class="skill-tag">バナー</span>
+          <span class="skill-tag">サムネイル</span>
+          <span class="skill-tag">商品画像</span>
+          <span class="skill-tag">チラシ</span>
+          <span class="skill-tag">パンフレット</span>
+          <span class="skill-tag">名刺</span>
+          <span class="skill-tag">ロゴ</span>
+        </div>
+      </div>
+      <div class="skill-block">
+        <p class="skill-block-title">使用ツール</p>
+        <div class="skill-tags">
+          <span class="skill-tag">Illustrator</span>
+          <span class="skill-tag">Photoshop</span>
+          <span class="skill-tag">Figma</span>
+          <span class="skill-tag">Canva</span>
+          <span class="skill-tag">STUDIO</span>
+          <span class="skill-tag">VSCode</span>
+        </div>
+      </div>
+      <div class="skill-block">
+        <p class="skill-block-title">資格</p>
+        <div class="skill-tags">
+          <span class="skill-tag">作業療法士（国家資格）</span>
+          <span class="skill-tag">福祉住環境コーディネーター2級</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="hours-block fade-in">
+      <div class="hours-row">
+        <span class="hours-label">稼働時間</span>
+        <span class="hours-value">9:00 — 17:00</span>
+      </div>
+      <p class="hours-note">※上記以外の時間帯も柔軟に対応可能です<br>※24時間以内の返信を徹底しております</p>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <span class="footer-logo">FUMINO MIDORIKAWA</span>
+  <span class="footer-copy">© 2026 Fuminowa Design.</span>
+</footer>
+
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => entry.target.classList.add('visible'), i * 80);
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+  function toggleMenu() {
+    const nav = document.getElementById('nav-links');
+    const btn = document.getElementById('hamburger');
+    nav.classList.toggle('open');
+    btn.classList.toggle('open');
+  }
+  function closeMenu() {
+    document.getElementById('nav-links').classList.remove('open');
+    document.getElementById('hamburger').classList.remove('open');
+  }
+
+</script>
+
+</body>
+</html>
