@@ -394,6 +394,19 @@
           <span class="work-arrow">→</span>
         </div>
       </div>
+       <div class="work-card fade-in" onclick="openModal('mebuki')">
+        <div class="work-thumb">
+          <img src="work-fuminowahp.webp" alt="ポートフォリオ">
+          <div class="work-thumb-overlay"><span>VIEW DETAIL →</span></div>
+        </div>
+        <div class="work-meta">
+          <div class="work-info">
+            <span class="work-tag">HP</span>
+            <p class="work-title">ポートフォリオ</p>
+          </div>
+          <span class="work-arrow">→</span>
+        </div>
+      </div>
     </div>
   </div>
 
@@ -423,6 +436,19 @@
           <div class="work-info">
             <span class="work-tag">LP</span>
             <p class="work-title">医療系LP（架空）</p>
+          </div>
+          <span class="work-arrow">→</span>
+        </div>
+      </div>
+      <div class="work-card fade-in" onclick="openModal('logtrack')">
+        <div class="work-thumb">
+          <img src="work-sankakuhi.webp" alt="教育系ランディングページ">
+          <div class="work-thumb-overlay"><span>VIEW DETAIL →</span></div>
+        </div>
+        <div class="work-meta">
+          <div class="work-info">
+            <span class="work-tag">LP</span>
+            <p class="work-title">教育系ランディングページ</p>
           </div>
           <span class="work-arrow">→</span>
         </div>
@@ -526,6 +552,21 @@ const works = {
     ],
     scope: ['企画・構成設計', 'コピーライティング', 'サイトデザイン', '図解・イラスト制作', 'STUDIO実装', 'レスポンシブ対応'],
   },
+  mebuki: {
+    img: 'work-fuminowahp.webp',
+    tag: 'HP',
+    title: 'ポートフォリオ',
+    link: 'https://fuminowa-design.com/',
+    overview: '自身の強みや制作実績を効果的に伝えるために制作したポートフォリオサイトです。作品を並べるだけでなく、提供できる価値や制作への想いが伝わる構成を意識し、親しみやすさと信頼感を両立したデザインに仕上げました。',
+    points: [
+      'FV：提供価値を明確に伝え、第一印象で興味を引くビジュアルとコピーを設計',
+      '自身の世界観や強みが伝わる、一貫性のあるデザイン',
+      'サービス内容・制作実績・プロフィールをわかりやすく整理し、回遊しやすい構成に',
+      'お問い合わせまで自然につながる、ストレスのないユーザー体験を重視',
+      'パフォーマンス・SEO配慮画像の軽量化や適切な構造設計を行い、表示速度の向上と検索エンジンに配慮したサイト設計を実施',
+    ],
+    scope: ['企画・構成設計', 'コピーライティング', 'サイトデザイン', 'コーディング', 'レスポンシブ対応', '実装・公開'],
+  },
   logtrack: {
     img: 'work-logtrack.webp',
     tag: 'LP',
@@ -551,6 +592,20 @@ const works = {
       'CTA：適切なタイミングで行動を促す導線設計'
     ],
     scope: ['構成設計', 'デザイン', 'コピーライティング'],
+  },
+  sankakuhi: {
+    img: 'work-sankakuhi.webp',
+    tag: 'LP',
+    title: '教育系ランディングページ',
+    overview: '三角比につまずきやすい高専生の不安や課題に着目し、「なぜ必要なのか」「受講することで何が変わるのか」を明確に伝える構成を設計しました。教育サービスでは、学習内容を伝えるだけでなく、受講後の未来を具体的にイメージしてもらうことが重要です。ターゲットの悩みに寄り添いながら、共感→理解→行動へと自然につながる導線を意識して制作しています。Canva・Photoshopを使用し、親しみやすさと信頼感を両立したデザインに仕上げました。',
+    points: [
+      '高専生の課題を端的に伝え、興味を引くキャッチコピーとビジュアル設計',
+      '学習につまずくポイントを具体的に言語化し、ターゲットとの心理的距離を縮める構成',
+      '講座を受講することで得られる変化やメリットを、わかりやすく整理',
+      '受講意欲が高まるタイミングでCTAを配置し、申し込みへスムーズに誘導'
+      '学生にも親しみやすく、情報が直感的に伝わる視認性を重視'
+    ],
+    scope: ['ワイヤーフレーム', 'デザイン（photoshop,canva)'],
   },
   asahidake: {
     img: 'work-asahidake.webp',
