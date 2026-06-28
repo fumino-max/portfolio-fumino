@@ -1,6 +1,21 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FUMINOWA DESIGN | 作業療法士が伝える、信頼に変えるデザイン</title>
+  <meta name="description" content="作業療法士として培った「聴く力・汲み取る力」でデザインを届ける、緑川史乃のポートフォリオサイト。ホームページ制作・LP・ロゴ・チラシ等を承っています。">
+  <meta property="og:title" content="FUMINOWA DESIGN | 作業療法士が伝える、信頼に変えるデザイン">
+  <meta property="og:description" content="作業療法士として培った「聴く力・汲み取る力」でデザインを届ける、緑川史乃のポートフォリオサイト。">
+  <meta property="og:image" content="https://fuminowa-design.com/images/og-image.png">
+  <meta property="og:url" content="https://fuminowa-design.com/">
+  <meta property="og:type" content="website">
+  <link rel="icon" href="images/favicon-48x48.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-BKZQDN2ZYX"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -8,888 +23,370 @@
     gtag('js', new Date());
     gtag('config', 'G-BKZQDN2ZYX');
   </script>
-
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <title>FUMINO MIDORIKAWA — Design Portfolio</title>
-  <meta name="description" content="Webデザイナー 兼 作業療法士。信頼を届けるデザイナーのポートフォリオサイトです。">
-  <link rel="canonical" href="https://fuminowa-design.com/">
-
-  <link rel="icon" href="/favicon.ico" sizes="any">
-  <link rel="icon" type="image/svg+xml" href="/logo.svg">
-  <link rel="icon" type="image/png" sizes="48x48" href="/fumirogo-48.png"> <link rel="apple-touch-icon" href="/fumirogo.png"> <meta property="og:url" content="https://fuminowa-design.com/">
-  <meta property="og:type" content="website">
-  <meta property="og:title" content="FUMINO MIDORIKAWA — Design Portfolio">
-  <meta property="og:description" content="Webデザイナー 兼 作業療法士。信頼を届けるデザイナーのポートフォリオサイトです。">
-  <meta property="og:site_name" content="fuminowa design">
-  <meta property="og:image" content="https://fuminowa-design.com/og-image.jpg">
-
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="FUMINO MIDORIKAWA — Design Portfolio">
-  <meta name="twitter:description" content="Webデザイナー 兼 作業療法士。信頼を届けるデザイナーのポートフォリオサイトです。">
-  <meta name="twitter:image" content="https://fuminowa-design.com/og-image.jpg">
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Noto+Serif+JP:wght@300;400&family=Space+Mono&display=swap" rel="stylesheet">
-
-  <style>
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-  :root {
-    --teal: #6aada8;
-    --green: #7aaa4a;
-    --orange: #e8952a;
-    --black: #1a1a1a;
-    --gray: #888;
-    --light: #f7f5f0;
-    --border: #d8d4cc;
-    --serif: 'Cormorant Garamond', 'Noto Serif JP', serif;
-    --mono: 'Space Mono', monospace;
-  }
-
-  html { scroll-behavior: smooth; }
-
-  body {
-    font-family: var(--serif);
-    background: #faf8f4;
-    color: var(--black);
-    overflow-x: hidden;
-  }
-
-  /* ── NAV ── */
-  nav {
-    position: fixed;
-    top: 0; left: 0; right: 0;
-    z-index: 100;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1.25rem 3rem;
-    background: rgba(250,248,244,0.92);
-    backdrop-filter: blur(6px);
-    border-bottom: 1px solid var(--border);
-  }
-
-  .nav-logo {
-    font-family: var(--mono);
-    font-size: 13px;
-    letter-spacing: 0.2em;
-    color: var(--black);
-    text-decoration: none;
-  }
-
-  .nav-links {
-    display: flex;
-    gap: 2.5rem;
-    list-style: none;
-  }
-
-  .nav-links a {
-    font-family: var(--serif);
-    font-size: 13px;
-    letter-spacing: 0.1em;
-    color: var(--gray);
-    text-decoration: none;
-    transition: color 0.2s;
-  }
-
-  .nav-links a:hover { color: var(--black); }
-
-  /* ── HERO ── */
-  .hero {
-    min-height: 100vh;
-    display: grid;
-    grid-template-columns: 60px 1fr 60px;
-    align-items: center;
-    padding-top: 80px;
-    position: relative;
-  }
-
-  .hero-side-left {
-    writing-mode: vertical-rl;
-    text-orientation: mixed;
-    font-size: 13px;
-    letter-spacing: 0.25em;
-    color: var(--gray);
-    padding: 2rem 0 2rem 2rem;
-    line-height: 2;
-  }
-
-  .hero-center {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 4rem 2rem;
-    text-align: center;
-    position: relative;
-  }
-
-  .hero-eyebrow {
-    font-family: var(--mono);
-    font-size: 12px;
-    letter-spacing: 0.3em;
-    color: var(--gray);
-    margin-bottom: 2.5rem;
-  }
-
-  /* Logo circle */
-  .logo-circle {
-    position: relative;
-    width: 340px;
-    height: 340px;
-    margin: 0 auto 2.5rem;
-  }
-
-  .logo-circle svg {
-    width: 100%;
-    height: 100%;
-  }
-
-  .hero-title {
-    font-family: var(--serif);
-    font-size: clamp(36px, 5vw, 64px);
-    font-weight: 300;
-    letter-spacing: 0.15em;
-    color: var(--teal);
-    line-height: 1;
-    margin-bottom: 1.5rem;
-  }
-
-  .hero-title em {
-    font-style: italic;
-    color: var(--black);
-    font-size: 0.65em;
-    display: block;
-    letter-spacing: 0.3em;
-    margin-top: 0.4em;
-  }
-
-  .hero-tagline {
-    font-size: 13px;
-    color: var(--gray);
-    letter-spacing: 0.05em;
-    line-height: 2;
-    max-width: 360px;
-  }
-
-  .hero-side-right {
-    writing-mode: vertical-rl;
-    text-orientation: mixed;
-    font-size: 13px;
-    letter-spacing: 0.25em;
-    color: var(--gray);
-    padding: 2rem 2rem 2rem 0;
-    line-height: 2;
-    text-align: right;
-  }
-
-  .hero-scroll {
-    position: absolute;
-    bottom: 2.5rem;
-    left: 50%;
-    transform: translateX(-50%);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 8px;
-    font-family: var(--mono);
-    font-size: 12px;
-    letter-spacing: 0.2em;
-    color: var(--gray);
-  }
-
-  .hero-scroll::after {
-    content: '';
-    display: block;
-    width: 1px;
-    height: 48px;
-    background: var(--border);
-    animation: scrollLine 1.8s ease-in-out infinite;
-  }
-
-  @keyframes scrollLine {
-    0%, 100% { opacity: 0.3; transform: scaleY(1); }
-    50% { opacity: 1; transform: scaleY(0.6); }
-  }
-
-  /* ── SECTIONS common ── */
-  section {
-    padding: 6rem 0;
-    border-top: 1px solid var(--border);
-  }
-
-  .section-inner {
-    max-width: 960px;
-    margin: 0 auto;
-    padding: 0 3rem;
-  }
-
-  .section-label {
-    font-family: var(--mono);
-    font-size: 12px;
-    letter-spacing: 0.3em;
-    color: var(--gray);
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    margin-bottom: 3rem;
-  }
-
-  .section-label::before {
-    content: '';
-    display: block;
-    width: 24px;
-    height: 1px;
-    background: var(--gray);
-  }
-
-  /* ── ABOUT ── */
-  .about-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 4rem;
-    align-items: start;
-  }
-
-  .about-heading {
-    font-size: clamp(22px, 3vw, 32px);
-    font-weight: 300;
-    line-height: 1.6;
-    letter-spacing: 0.05em;
-    margin-bottom: 2rem;
-  }
-
-  .about-body {
-    font-size: 14px;
-    line-height: 2.2;
-    color: #444;
-    margin-bottom: 1.5rem;
-  }
-
-  .about-wa {
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
-    padding-top: 1rem;
-  }
-
-  .wa-item {
-    display: flex;
-    gap: 1rem;
-    align-items: flex-start;
-  }
-
-  .wa-dot {
-    width: 12px;
-    height: 12px;
-    border-radius: 50%;
-    margin-top: 4px;
-    flex-shrink: 0;
-  }
-
-  .wa-dot.teal { background: var(--teal); }
-  .wa-dot.green { background: var(--green); }
-  .wa-dot.orange { background: var(--orange); }
-
-  .wa-text strong {
-    display: block;
-    font-size: 13px;
-    letter-spacing: 0.1em;
-    margin-bottom: 4px;
-  }
-
-  .wa-text p {
-    font-size: 12px;
-    color: var(--gray);
-    line-height: 1.9;
-  }
-
-  .about-more {
-    display: inline-flex;
-    align-items: center;
-    gap: 12px;
-    font-family: var(--mono);
-    font-size: 12px;
-    letter-spacing: 0.2em;
-    color: var(--black);
-    text-decoration: none;
-    margin-top: 2rem;
-    padding-bottom: 4px;
-    border-bottom: 1px solid var(--black);
-    transition: opacity 0.2s;
-  }
-
-  .about-more:hover { opacity: 0.5; }
-
-  /* ── WORKS ── */
-  .works-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1.5rem;
-  }
-
-  .work-card {
-    text-decoration: none;
-    color: inherit;
-    display: block;
-  }
-
-  .work-thumb {
-    aspect-ratio: 4/3;
-    background: var(--light);
-    border: 1px solid var(--border);
-    margin-bottom: 0.75rem;
-    overflow: hidden;
-    position: relative;
-  }
-
-  .work-thumb-inner {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-family: var(--mono);
-    font-size: 12px;
-    letter-spacing: 0.2em;
-    color: var(--border);
-    transition: transform 0.4s ease;
-  }
-
-  .work-card:hover .work-thumb-inner {
-    transform: scale(1.03);
-  }
-
-  .work-tag {
-    font-family: var(--mono);
-    font-size: 12px;
-    letter-spacing: 0.15em;
-    color: var(--gray);
-    border: 1px solid var(--border);
-    display: inline-block;
-    padding: 2px 8px;
-    margin-bottom: 6px;
-  }
-
-  .work-title {
-    font-size: 14px;
-    font-weight: 300;
-    letter-spacing: 0.05em;
-  }
-
-  .works-more {
-    text-align: right;
-    margin-top: 2.5rem;
-  }
-
-  .works-more a {
-    display: inline-flex;
-    align-items: center;
-    gap: 12px;
-    font-family: var(--mono);
-    font-size: 12px;
-    letter-spacing: 0.2em;
-    color: var(--black);
-    text-decoration: none;
-    padding-bottom: 4px;
-    border-bottom: 1px solid var(--black);
-    transition: opacity 0.2s;
-  }
-
-  .works-more a:hover { opacity: 0.5; }
-
-  /* ── SERVICES ── */
-  .services-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1px;
-    background: var(--border);
-    border: 1px solid var(--border);
-  }
-
-  .service-item {
-    background: #faf8f4;
-    padding: 2rem;
-  }
-
-  .service-num {
-    font-family: var(--mono);
-    font-size: 12px;
-    letter-spacing: 0.2em;
-    color: var(--border);
-    margin-bottom: 1rem;
-  }
-
-  .service-title {
-    font-size: 18px;
-    font-weight: 300;
-    letter-spacing: 0.1em;
-    margin-bottom: 0.75rem;
-  }
-
-  .service-desc {
-    font-size: 12px;
-    color: var(--gray);
-    line-height: 2;
-  }
-
-  .service-accent {
-    display: inline-block;
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
-    margin-right: 6px;
-    vertical-align: middle;
-  }
-
-  /* ── CONTACT ── */
-  .contact-section {
-    text-align: center;
-    padding: 6rem 0;
-  }
-
-  .contact-heading {
-    font-size: clamp(28px, 4vw, 48px);
-    font-weight: 300;
-    font-style: italic;
-    letter-spacing: 0.1em;
-    margin-bottom: 1.5rem;
-  }
-
-  .contact-sub {
-    font-size: 13px;
-    color: var(--gray);
-    letter-spacing: 0.1em;
-    margin-bottom: 3rem;
-    line-height: 2;
-  }
-
-  .contact-btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 16px;
-    font-family: var(--mono);
-    font-size: 13px;
-    letter-spacing: 0.25em;
-    color: var(--black);
-    text-decoration: none;
-    border: 1px solid var(--black);
-    padding: 1rem 2.5rem;
-    transition: background 0.2s, color 0.2s;
-  }
-
-  .contact-btn:hover {
-    background: var(--black);
-    color: #faf8f4;
-  }
-
-  /* ── CONTACT TABS ── */
-  .contact-tabs {
-    display: flex;
-    border-bottom: 1px solid var(--border);
-    margin-bottom: 2rem;
-  }
-  .contact-tab-btn {
-    flex: 1;
-    background: none;
-    border: none;
-    padding: 14px 8px;
-    font-family: var(--mono);
-    font-size: 10px;
-    letter-spacing: 0.2em;
-    color: var(--gray);
-    cursor: pointer;
-    border-bottom: 2px solid transparent;
-    margin-bottom: -1px;
-    transition: all 0.2s;
-  }
-  .contact-tab-btn.active {
-    color: var(--black);
-    border-bottom-color: var(--teal);
-  }
-  .contact-tab-content { display: none; }
-  .contact-tab-content.active { display: block; }
-
-  /* ── HAMBURGER ── */
-  .nav-hamburger {
-    display: none;
-    flex-direction: column;
-    gap: 5px;
-    cursor: pointer;
-    background: none;
-    border: none;
-    padding: 4px;
-  }
-  .nav-hamburger span {
-    display: block;
-    width: 22px;
-    height: 1px;
-    background: var(--black);
-    transition: all 0.3s;
-  }
-  .nav-hamburger.open span:nth-child(1) { transform: translateY(6px) rotate(45deg); }
-  .nav-hamburger.open span:nth-child(2) { opacity: 0; }
-  .nav-hamburger.open span:nth-child(3) { transform: translateY(-6px) rotate(-45deg); }
-
-  /* ── HERO MOBILE TEXT ── */
-  .hero-tagline-mobile { display: none; }
-
-  /* ── FOOTER ── */
-  footer {
-    border-top: 1px solid var(--border);
-    padding: 2rem 3rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-
-  .footer-logo {
-    font-family: var(--mono);
-    font-size: 12px;
-    letter-spacing: 0.2em;
-    color: var(--gray);
-  }
-
-  .footer-copy {
-    font-family: var(--mono);
-    font-size: 12px;
-    letter-spacing: 0.1em;
-    color: var(--border);
-  }
-
-  .send-btn {
-    font-family: var(--mono);
-    font-size: 12px;
-    letter-spacing: 0.25em;
-    color: var(--black);
-    background: transparent;
-    border: 1px solid var(--black);
-    padding: 0.9rem 2rem;
-    cursor: pointer;
-    transition: background 0.25s, color 0.25s;
-  }
-  .send-btn:hover {
-    background: var(--black);
-    color: #faf8f4;
-  }
-
-  /* ── FADE IN ── */
-  .fade-in {
-    opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 0.7s ease, transform 0.7s ease;
-  }
-
-  .fade-in.visible {
-    opacity: 1;
-    transform: translateY(0);
-  }
-
-  /* ── RESPONSIVE ── */
-  @media (max-width: 768px) {
-    nav { padding: 1rem 1.5rem; }
-    .nav-hamburger { display: flex; }
-    .nav-links {
-      display: none;
-      position: fixed;
-      top: 57px; left: 0; right: 0;
-      background: rgba(250,248,244,0.97);
-      backdrop-filter: blur(8px);
-      border-bottom: 1px solid var(--border);
-      flex-direction: column;
-      align-items: center;
-      gap: 0;
-      padding: 0;
-      list-style: none;
-      z-index: 99;
-    }
-    .nav-links.open { display: flex; }
-    .nav-links li { width: 100%; text-align: center; }
-    .nav-links a { display: block; padding: 1.1rem 0; border-bottom: 1px solid var(--border); font-size: 13px; }
-    .hero {
-      grid-template-columns: 1fr;
-      overflow: hidden;
-    }
-    .hero-side-left { display: none !important; }
-    .hero-side-right { display: none !important; }
-    .hero-tagline-mobile { display: block; }
-    .logo-circle { width: 240px; height: 240px; }
-    .section-inner { padding: 0 1.5rem; }
-    .about-grid { grid-template-columns: 1fr; gap: 2rem; }
-    .works-grid { grid-template-columns: 1fr 1fr; }
-    .services-grid { grid-template-columns: 1fr; }
-    footer { flex-direction: column; gap: 1rem; text-align: center; }
-  }
-</style>
 </head>
 <body>
 
-<!-- NAV -->
-<nav>
-  <a href="#" class="nav-logo">FUMINO MIDORIKAWA</a>
-  <ul class="nav-links" id="nav-links">
-    <li><a href="#about" onclick="closeMenu()">ご挨拶</a></li>
-    <li><a href="#works" onclick="closeMenu()">制作実績</a></li>
-    <li><a href="#services" onclick="closeMenu()">仕事内容</a></li>
-    <li><a href="#contact" onclick="closeMenu()">お問い合わせ</a></li>
-  </ul>
-  <button class="nav-hamburger" id="hamburger" onclick="toggleMenu()" aria-label="メニュー">
-    <span></span><span></span><span></span>
-  </button>
-</nav>
-
-<!-- HERO -->
-<section class="hero">
-  <div class="hero-side-left">医療現場で培った&thinsp;"寄り添う力"を活かし、伝わるデザインを制作します</div>
-
-  <div class="hero-center">
-    <p class="hero-eyebrow">WEB DESIGNER / 作業療法士</p>
-    <p class="hero-tagline-mobile" style="font-size:13px; color:var(--gray); letter-spacing:0.04em; line-height:1.9; margin-bottom:1.5rem;">医療現場で培った&thinsp;"寄り添う力"を活かし、<br>伝わるデザインを制作します</p>
-
-    <!-- ロゴ -->
-    <div class="logo-circle">
-      <img src="logo.svg" alt="FUMINOWA DESIGN ロゴ" style="width:100%; height:100%; object-fit:contain;">
-    </div>
-
-    <h1 class="hero-title">FUMINOWA DESIGN</h1>
-
-  </div>
-
-  <div class="hero-side-right">想いを汲み取り信頼に変えるデザイン。</div>
-</section>
-
-<!-- ABOUT -->
-<section id="about">
-  <div class="section-inner">
-    <p class="section-label fade-in">GREETING</p>
-    <div class="about-grid">
-      <div class="fade-in">
-        <h2 class="about-heading">三つの「わ」で、<br>想いを形に。</h2>
-        <p class="about-body">患者さんの人生に寄り添ってきた視点で、<span style="white-space:nowrap">信頼されるデザインを。</span></p>
-        <p class="about-body">私のロゴにある3つの丸には、作業療法士としての経験から<span style="white-space:nowrap">学んだ、デザインにおける3つの信念を込めています。</span></p>
+  <!-- Mobile Header -->
+  <header class="mobile-header">
+    <a href="/" class="mobile-header__brand">FUMINOWA DESIGN</a>
+    <button class="mobile-header__menu" data-nav-toggle aria-label="メニューを開く">
+      <div class="mobile-header__menu-lines" aria-hidden="true">
+        <span class="mobile-header__menu-line"></span>
+        <span class="mobile-header__menu-line"></span>
+        <span class="mobile-header__menu-line"></span>
       </div>
-      <div class="about-wa fade-in">
-        <div class="wa-item">
-          <div class="wa-dot teal"></div>
-          <div class="wa-text">
-            <strong>話（わ）：丁寧に、深く聴く。</strong>
-            <p>リハビリの現場で何より大切だったのは、言葉にならない患者様の不安や希望を「聴く」ことでした。デザインにおいても、まずはあなたの想いを丁寧に紐解く「対話」から始めます。</p>
-          </div>
-        </div>
-        <div class="wa-item">
-          <div class="wa-dot green"></div>
-          <div class="wa-text">
-            <strong>和（わ）：心地よい調和を。</strong>
-            <p>見る人の心にすっと馴染み、信頼を感じさせる「調和」の取れたデザインを追求します。</p>
-          </div>
-        </div>
-        <div class="wa-item">
-          <div class="wa-dot orange"></div>
-          <div class="wa-text">
-            <strong>輪（わ）：つながりを広げる。</strong>
-            <p>「作って終わり」にせず、想いが届き、成果や集客へとつながるデザインを大切にしています。</p>
-          </div>
+      MENU
+    </button>
+  </header>
+
+  <!-- Nav Overlay -->
+  <div class="nav-overlay" aria-hidden="true"></div>
+
+  <!-- Nav Drawer -->
+  <nav class="nav-drawer" aria-label="サイトナビゲーション">
+    <button class="nav-drawer__close" aria-label="閉じる">✕</button>
+    <p class="nav-drawer__title">Navigation</p>
+    <ul class="nav-drawer__list">
+      <li class="nav-drawer__item">
+        <a href="greeting.html">
+          <span class="nav-drawer__item-en">GREETING</span>
+          <span class="nav-drawer__item-ja">ご挨拶</span>
+        </a>
+      </li>
+      <li class="nav-drawer__item">
+        <a href="about.html">
+          <span class="nav-drawer__item-en">ABOUT</span>
+          <span class="nav-drawer__item-ja">理念・想い</span>
+        </a>
+      </li>
+      <li class="nav-drawer__item">
+        <a href="works.html">
+          <span class="nav-drawer__item-en">WORKS</span>
+          <span class="nav-drawer__item-ja">制作実績</span>
+        </a>
+      </li>
+      <li class="nav-drawer__item">
+        <a href="services.html">
+          <span class="nav-drawer__item-en">SERVICES</span>
+          <span class="nav-drawer__item-ja">仕事内容</span>
+        </a>
+      </li>
+      <li class="nav-drawer__item">
+        <a href="contact.html">
+          <span class="nav-drawer__item-en">CONTACT</span>
+          <span class="nav-drawer__item-ja">お問い合わせ</span>
+        </a>
+      </li>
+    </ul>
+  </nav>
+
+  <div class="layout">
+
+    <!-- ===== LEFT SIDEBAR ===== -->
+    <aside class="sidebar" aria-label="サイト情報">
+      <div class="sidebar__logo-wrap">
+        <img class="sidebar__logo-img" src="images/site-logo.png" alt="FUMINOWA DESIGN ロゴ">
+        <div class="sidebar__brand">
+          <span class="sidebar__brand-main">FUMINOWA</span>
+          <span class="sidebar__brand-sub">DESIGN</span>
         </div>
       </div>
-    </div>
-    <div class="works-more fade-in">
-      <a href="about.html">MORE →</a>
-    </div>
-  </div>
-</section>
-
-<!-- WORKS -->
-<section id="works">
-  <div class="section-inner">
-    <p class="section-label fade-in">SELECTED WORKS</p>
-    <div class="works-grid">
-      <a href="works.html" class="work-card fade-in">
-        <div class="work-thumb">
-          <div class="work-thumb-inner">
-            <img src="work-mebuki.webp" alt="Webサイト制作" style="width:100%; height:100%; object-fit:cover; display:block;">
-          </div>
-        </div>
-        <span class="work-tag">WEB DESIGN</span>
-        <p class="work-title">Webサイト制作</p>
+      <p class="sidebar__tagline">
+        作業療法士が、<br>
+        想いを汲み取り<br>
+        信頼に変えるデザイン。
+      </p>
+      <a href="contact.html" class="sidebar__cta">
+        CONTACT
+        <svg width="10" height="10" viewBox="0 0 10 10" fill="none" aria-hidden="true">
+          <path d="M2 5h6M5.5 2.5L8 5l-2.5 2.5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
       </a>
-      <a href="works.html" class="work-card fade-in">
-        <div class="work-thumb">
-          <div class="work-thumb-inner">
-            <img src="work-logtrack.webp" alt="ランディングページ" style="width:100%; height:100%; object-fit:cover; display:block;">
+      <!-- Fixed vertical SNS bar at left edge -->
+      <nav class="sns-bar" aria-label="SNSリンク">
+        <span class="sns-bar__label">SNS</span>
+        <span class="sns-bar__line"></span>
+        <a href="https://x.com/Nobeer_Nolifumi" target="_blank" rel="noopener noreferrer" class="sns-bar__link" aria-label="X (Twitter)">
+          <img src="images/icon-x.svg" alt="X" width="22" height="22">
+        </a>
+        <a href="https://www.instagram.com/fumino.23max/" target="_blank" rel="noopener noreferrer" class="sns-bar__link" aria-label="Instagram">
+          <img src="images/icon-instagram.svg" alt="Instagram" width="22" height="22">
+        </a>
+        <a href="https://note.com/fumino_max" target="_blank" rel="noopener noreferrer" class="sns-bar__link" aria-label="Note">
+          <img src="images/icon-note.svg" alt="Note" width="22" height="22">
+        </a>
+      </nav>
+    </aside>
+
+    <!-- ===== RIGHT CONTENT ===== -->
+    <div class="main-content">
+
+      <!-- Header Nav -->
+      <header class="site-header">
+        <button class="hamburger-btn" data-nav-toggle aria-label="メニューを開く">
+          <div class="hamburger-btn__lines" aria-hidden="true">
+            <span class="hamburger-btn__line"></span>
+            <span class="hamburger-btn__line"></span>
+            <span class="hamburger-btn__line"></span>
           </div>
+          MENU
+        </button>
+      </header>
+
+      <!-- FV -->
+      <section class="fv" aria-label="ファーストビュー">
+        <div class="fv__name-area">
+          <p class="fv__title"><span class="fv__title-ja">Web Designer×作業療法士</span></p>
+          <p class="fv__title fv__title-en">FUMINO MIDORIKAWA</p>
         </div>
-        <span class="work-tag">LP DESIGN</span>
-        <p class="work-title">ランディングページ</p>
-      </a>
-      <a href="works.html" class="work-card fade-in">
-        <div class="work-thumb">
-          <div class="work-thumb-inner">
-            <img src="work-asahidake.webp" alt="ロゴ・ブランディング" style="width:100%; height:100%; object-fit:cover; display:block;">
-          </div>
-        </div>
-        <span class="work-tag">LOGO / BRAND</span>
-        <p class="work-title">ロゴ・ブランディング</p>
-      </a>
-    </div>
-    <div class="works-more fade-in">
-      <a href="works.html">ALL WORKS →</a>
-    </div>
-  </div>
-</section>
+        <figure class="fv__photo">
+          <img src="images/fumino-photo.png" alt="緑川史乃のイラスト">
+        </figure>
+        <a href="greeting.html" class="btn btn--green">
+          ちょっと気になる
+          <svg class="btn__arrow" viewBox="0 0 16 17" fill="none" aria-hidden="true">
+            <circle cx="8" cy="8.5" r="6.5" stroke="currentColor" stroke-width="1.5"/><path d="M5.5 8.5h5M8.5 6.5l2 2-2 2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
+      </section>
 
-<!-- SERVICES -->
-<section id="services">
-  <div class="section-inner">
-    <p class="section-label fade-in">SERVICES</p>
-    <div class="services-grid fade-in">
-      <div class="service-item">
-        <p class="service-num">01</p>
-        <h3 class="service-title"><span class="service-accent" style="background:#6aada8"></span>Webデザイン</h3>
-        <p class="service-desc">ホームページ・コーポレートサイトの設計・デザイン。ブランドの世界観を丁寧に表現します。</p>
-      </div>
-      <div class="service-item">
-        <p class="service-num">02</p>
-        <h3 class="service-title"><span class="service-accent" style="background:#7aaa4a"></span>LP制作</h3>
-        <p class="service-desc">成果につながるランディングページ。ターゲットの心に届くコピーとデザインで訴求力を高めます。</p>
-      </div>
-      <div class="service-item">
-        <p class="service-num">03</p>
-        <h3 class="service-title"><span class="service-accent" style="background:#e8952a"></span>ロゴ・グラフィック</h3>
-        <p class="service-desc">ブランドの第一印象を形にするロゴ制作。想いをシンプルかつ印象的なビジュアルに落とし込みます。</p>
-      </div>
-      <div class="service-item">
-        <p class="service-num">04</p>
-        <h3 class="service-title"><span class="service-accent" style="background:#1a1a1a"></span>商品画像制作</h3>
-        <p class="service-desc">ECサイト・SNS向けの商品画像。魅力が伝わるビジュアルで購買意欲を引き出します。</p>
-      </div>
-    </div>
-    <div class="works-more fade-in" style="text-align:right; margin-top:1.5rem;">
-      <a href="services.html">DETAIL →</a>
-    </div>
-  </div>
-</section>
-
-<!-- CONTACT -->
-<section id="contact" style="border-top: 1px solid var(--border); padding: 6rem 0;">
-  <div class="section-inner">
-    <p class="section-label fade-in">CONTACT</p>
-    <div class="fade-in" style="max-width: 600px; margin: 0 auto;">
-      <h2 style="font-size: clamp(24px,3vw,36px); font-weight:300; font-style:italic; letter-spacing:0.08em; line-height:1.5; margin-bottom:2.5rem;">お気軽に<br>ご相談ください。</h2>
-
-      <div class="contact-tabs">
-        <button class="contact-tab-btn active" onclick="switchContactTab('form', this)">CONTACT FORM</button>
-        <button class="contact-tab-btn" onclick="switchContactTab('hearing', this)">HEARING SHEET</button>
+      <!-- Beer Foam Divider -->
+      <div class="foam-divider" aria-hidden="true">
+        <svg class="foam-svg" viewBox="0 0 800 185" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+          <!-- Single foam body: waves 1-4 + smooth S-curve drip (all one path) -->
+          <g class="foam-body">
+            <!-- White fill (no stroke = no top border line) -->
+            <path
+              d="M0,0 L800,0 L800,55 C762,340 571,45 560,55 Q490,120 420,55 Q350,104 280,55 Q210,90 140,55 Q70,76 0,55 Z"
+              fill="#ffffff" stroke="none"
+            />
+            <!-- Full edge stroke: waves 1-4 + smooth curve into drip -->
+            <path
+              d="M0,55 Q70,76 140,55 Q210,90 280,55 Q350,104 420,55 Q490,120 560,55 C571,45 762,340 800,55"
+              fill="none" stroke="#323232" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" vector-effect="non-scaling-stroke"
+            />
+          </g>
+        </svg>
       </div>
 
-      <div id="ctab-form" class="contact-tab-content active">
-        <form onsubmit="handleSubmit(event)" style="display:flex; flex-direction:column; gap:1.25rem;">
-          <div>
-            <label style="font-family:var(--mono); font-size:12px; letter-spacing:0.2em; color:var(--gray); display:block; margin-bottom:6px;">NAME</label>
-            <input type="text" name="name" placeholder="お名前" required style="width:100%; background:transparent; border:none; border-bottom:1px solid var(--border); padding:8px 0; font-family:var(--serif); font-size:15px; color:var(--black); outline:none; transition:border-color 0.2s;">
+      <!-- ABOUT -->
+      <section class="sec-about" id="about">
+        <header class="sec-header">
+          <div class="sec-label" aria-hidden="true">
+            <span class="sec-label__dot"></span>
+            <span class="sec-label__text">ABOUT</span>
           </div>
-          <div>
-            <label style="font-family:var(--mono); font-size:12px; letter-spacing:0.2em; color:var(--gray); display:block; margin-bottom:6px;">EMAIL</label>
-            <input type="email" name="email" placeholder="メールアドレス" required style="width:100%; background:transparent; border:none; border-bottom:1px solid var(--border); padding:8px 0; font-family:var(--serif); font-size:15px; color:var(--black); outline:none; transition:border-color 0.2s;">
-          </div>
-          <div>
-            <label style="font-family:var(--mono); font-size:12px; letter-spacing:0.2em; color:var(--gray); display:block; margin-bottom:6px;">MESSAGE</label>
-            <textarea name="message" placeholder="ご相談内容をお気軽にどうぞ" rows="5" required style="width:100%; background:transparent; border:none; border-bottom:1px solid var(--border); padding:8px 0; font-family:var(--serif); font-size:15px; color:var(--black); outline:none; resize:none; transition:border-color 0.2s;"></textarea>
-          </div>
-          <div style="text-align:right; margin-top:0.5rem;">
-            <button type="submit" class="send-btn">SEND →</button>
-          </div>
-          <p id="form-msg" style="font-family:var(--mono); font-size:12px; letter-spacing:0.1em; color:var(--teal); display:none; text-align:right;">送信しました。ありがとうございます。</p>
-        </form>
-      </div>
-
-      <div id="ctab-hearing" class="contact-tab-content">
-        <p style="font-size:15px; color:var(--gray); line-height:2; margin-bottom:2rem;">依頼内容・納品形式・予算などをまとめてお伝えいただくことで、より具体的なご提案とお見積もりをスムーズにご案内できます。</p>
-        <ul style="list-style:none; display:flex; flex-direction:column; gap:0.75rem; margin-bottom:2.5rem;">
-          <li style="font-size:15px; color:#444; display:flex; align-items:flex-start; gap:10px;"><span style="color:var(--teal); font-family:var(--mono); font-size:12px; margin-top:3px; flex-shrink:0;">—</span>依頼内容がある程度決まっている</li>
-          <li style="font-size:15px; color:#444; display:flex; align-items:flex-start; gap:10px;"><span style="color:var(--teal); font-family:var(--mono); font-size:12px; margin-top:3px; flex-shrink:0;">—</span>すぐにお見積もりがほしい</li>
-          <li style="font-size:15px; color:#444; display:flex; align-items:flex-start; gap:10px;"><span style="color:var(--teal); font-family:var(--mono); font-size:12px; margin-top:3px; flex-shrink:0;">—</span>スムーズにプロジェクトを進めたい</li>
+          <h2 class="sec-title">３つの「わ」で、想いを形に。</h2>
+          <p class="sec-desc">患者さんの人生に寄り添ってきた視点で、<br>伝わるデザインを制作します。</p>
+        </header>
+        <ul class="wa-list">
+          <li class="wa-item">
+            <div class="wa-item__circle wa-item__circle--1">
+              <span class="wa-item__kanji">話</span>
+            </div>
+            <p class="wa-item__label">丁寧に、深く聴く。</p>
+          </li>
+          <li class="wa-item">
+            <div class="wa-item__circle wa-item__circle--2">
+              <span class="wa-item__kanji wa-kanji--a">和</span>
+              <span class="wa-item__kanji wa-kanji--b" aria-hidden="true">輪</span>
+            </div>
+            <p class="wa-item__label">心地よい調和を。</p>
+          </li>
+          <li class="wa-item">
+            <div class="wa-item__circle wa-item__circle--3">
+              <span class="wa-item__kanji">輪</span>
+            </div>
+            <p class="wa-item__label">つながりを広げる。</p>
+          </li>
         </ul>
-        <div style="text-align:right;">
-          <a href="hearing.html"
-            style="display:inline-flex; align-items:center; gap:12px; font-family:var(--mono); font-size:12px; letter-spacing:0.2em; color:#faf8f4; background:var(--black); border:1px solid var(--black); padding:0.9rem 2rem; text-decoration:none; transition:background 0.2s, color 0.2s;"
-            onmouseover="this.style.background='var(--teal)'; this.style.borderColor='var(--teal)';"
-            onmouseout="this.style.background='var(--black)'; this.style.borderColor='var(--black)';">
-            ヒアリングシートへ →
+        <a href="about.html" class="btn btn--green">
+          制作の流れはこちら
+          <svg class="btn__arrow" viewBox="0 0 16 17" fill="none" aria-hidden="true">
+            <circle cx="8" cy="8.5" r="6.5" stroke="currentColor" stroke-width="1.5"/><path d="M5.5 8.5h5M8.5 6.5l2 2-2 2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
+      </section>
+
+      <!-- WORK -->
+      <section class="sec-work" id="work">
+        <header class="sec-header">
+          <div class="sec-label" aria-hidden="true">
+            <span class="sec-label__dot"></span>
+            <span class="sec-label__text">WORK</span>
+          </div>
+          <h2 class="sec-title">こんなこと、やってきました。</h2>
+        </header>
+        <div class="work-flow">
+          <div class="work-flow__track">
+            <div class="work-flow__item">
+              <img src="images/work-mebuki.webp" alt="ホームページ制作">
+              <span class="work-flow__tag">HP</span>
+            </div>
+            <div class="work-flow__item">
+              <img src="images/work-iryo.webp" alt="LP制作">
+              <span class="work-flow__tag">LP</span>
+            </div>
+            <div class="work-flow__item">
+              <img src="images/work-fuminowa.webp" alt="ロゴ制作">
+              <span class="work-flow__tag">LOGO</span>
+            </div>
+            <div class="work-flow__item">
+              <img src="images/work-socks.webp" alt="商品画像">
+              <span class="work-flow__tag">PHOTO</span>
+            </div>
+            <div class="work-flow__item">
+              <img src="images/work-logtrack.webp" alt="LP制作">
+              <span class="work-flow__tag">LP</span>
+            </div>
+            <div class="work-flow__item">
+              <img src="images/work-asahidake.webp" alt="ロゴ制作">
+              <span class="work-flow__tag">LOGO</span>
+            </div>
+            <!-- duplicated for seamless loop -->
+            <div class="work-flow__item" aria-hidden="true">
+              <img src="images/work-mebuki.webp" alt="">
+              <span class="work-flow__tag">HP</span>
+            </div>
+            <div class="work-flow__item" aria-hidden="true">
+              <img src="images/work-iryo.webp" alt="">
+              <span class="work-flow__tag">LP</span>
+            </div>
+            <div class="work-flow__item" aria-hidden="true">
+              <img src="images/work-fuminowa.webp" alt="">
+              <span class="work-flow__tag">LOGO</span>
+            </div>
+            <div class="work-flow__item" aria-hidden="true">
+              <img src="images/work-socks.webp" alt="">
+              <span class="work-flow__tag">PHOTO</span>
+            </div>
+            <div class="work-flow__item" aria-hidden="true">
+              <img src="images/work-logtrack.webp" alt="">
+              <span class="work-flow__tag">LP</span>
+            </div>
+            <div class="work-flow__item" aria-hidden="true">
+              <img src="images/work-asahidake.webp" alt="">
+              <span class="work-flow__tag">LOGO</span>
+            </div>
+          </div>
+        </div>
+        <a href="works.html" class="btn btn--green">
+          全部覗いてみる
+          <svg class="btn__arrow" viewBox="0 0 16 17" fill="none" aria-hidden="true">
+            <circle cx="8" cy="8.5" r="6.5" stroke="currentColor" stroke-width="1.5"/><path d="M5.5 8.5h5M8.5 6.5l2 2-2 2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
+      </section>
+
+      <!-- SERVICE -->
+      <section class="sec-service" id="service">
+        <header class="sec-header">
+          <div class="sec-label" aria-hidden="true">
+            <span class="sec-label__dot"></span>
+            <span class="sec-label__text">SERVICE</span>
+          </div>
+          <h2 class="sec-title">できること。</h2>
+          <p class="sec-desc">作業療法士として培った"聴く力・汲み取る力"を、<br>すべてのサービスに活かしています。</p>
+        </header>
+        <ul class="service-list">
+          <li class="service-card">
+            <div class="service-card__num-wrap" aria-hidden="true">
+              <span class="service-card__num-circle"></span>
+              <span class="service-card__num">01</span>
+            </div>
+            <div class="service-card__info">
+              <p class="service-card__name">ホームページ制作</p>
+              <p class="service-card__sub">誰にでも使いやすいUI設計</p>
+            </div>
+            <div class="service-card__speech">
+              <img class="service-card__fumicon" src="images/fumicon.webp" alt="フミノ">
+              <p class="service-card__bubble">「老若男女の患者さんと接した経験から、誰にでも見やすい配色・文字サイズを意識しています。」</p>
+            </div>
+          </li>
+          <li class="service-card">
+            <div class="service-card__num-wrap" aria-hidden="true">
+              <span class="service-card__num-circle"></span>
+              <span class="service-card__num">02</span>
+            </div>
+            <div class="service-card__info">
+              <p class="service-card__name">LP制作</p>
+              <p class="service-card__sub">行動につながる構成力</p>
+            </div>
+            <div class="service-card__speech">
+              <img class="service-card__fumicon" src="images/fumicon.webp" alt="フミノ">
+              <p class="service-card__bubble">「リハビリも"行動を変える"仕事。一歩踏み出せる流れを考えるのが得意です。」</p>
+            </div>
+          </li>
+          <li class="service-card">
+            <div class="service-card__num-wrap" aria-hidden="true">
+              <span class="service-card__num-circle"></span>
+              <span class="service-card__num">03</span>
+            </div>
+            <div class="service-card__info">
+              <p class="service-card__name">ロゴ・名刺・LINE構築</p>
+              <p class="service-card__sub">"らしさ"を一貫させるブランド設計</p>
+            </div>
+            <div class="service-card__speech">
+              <img class="service-card__fumicon" src="images/fumicon.webp" alt="フミノ">
+              <p class="service-card__bubble">「一人ひとり違う支援計画を立ててきた経験で、"その人らしさ"を見つけます」</p>
+            </div>
+          </li>
+          <li class="service-card">
+            <div class="service-card__num-wrap" aria-hidden="true">
+              <span class="service-card__num-circle"></span>
+              <span class="service-card__num">04</span>
+            </div>
+            <div class="service-card__info">
+              <p class="service-card__name">チラシ・パンフレット制作</p>
+              <p class="service-card__sub">伝わる情報設計</p>
+            </div>
+            <div class="service-card__speech">
+              <img class="service-card__fumicon" src="images/fumicon.webp" alt="フミノ">
+              <p class="service-card__bubble">「現場で伝わる説明を考えてきたことを活かし、情報の優先順位を整理します」</p>
+            </div>
+          </li>
+        </ul>
+        <a href="services.html" class="btn btn--green">
+          料金はこちら
+          <svg class="btn__arrow" viewBox="0 0 16 17" fill="none" aria-hidden="true">
+            <circle cx="8" cy="8.5" r="6.5" stroke="currentColor" stroke-width="1.5"/><path d="M5.5 8.5h5M8.5 6.5l2 2-2 2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
+      </section>
+
+      <!-- CONTACT Preview -->
+      <section class="sec-contact-preview" id="contact">
+        <header class="sec-header">
+          <div class="sec-label" aria-hidden="true">
+            <span class="sec-label__dot"></span>
+            <span class="sec-label__text">CONTACT</span>
+          </div>
+          <h2 class="sec-title">お気軽にご相談ください。</h2>
+        </header>
+        <div class="contact-cta">
+          <p class="contact-cta__text">
+            作業療法士として培った"聴く力"で、<br>
+            あなたの想いをデザインに変えます。<br>
+            まずはお気軽にお問い合わせください。
+          </p>
+          <a href="contact.html" class="btn btn--green">
+            気軽な相談
+            <svg class="btn__arrow" viewBox="0 0 16 17" fill="none" aria-hidden="true">
+              <circle cx="8" cy="8.5" r="6.5" stroke="currentColor" stroke-width="1.5"/><path d="M5.5 8.5h5M8.5 6.5l2 2-2 2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
           </a>
         </div>
-      </div>
+      </section>
 
-    </div>
-  </div>
-</section>
+      <!-- Footer -->
+      <footer class="site-footer">
+        <img class="site-footer__logo" src="images/site-logo.png" alt="FUMINOWA DESIGN">
+        <p class="site-footer__copy">©2026 FUMINOWA DESIGN</p>
+      </footer>
 
-<!-- FOOTER -->
-<footer>
-  <span class="footer-logo">FUMINO MIDORIKAWA</span>
-  <span class="footer-copy">© 2026 Fuminowa Design.</span>
-</footer>
+    </div><!-- /.main-content -->
+  </div><!-- /.layout -->
 
-<script>
-  function toggleMenu() {
-    const navLinks = document.getElementById('nav-links');
-    const hamburger = document.getElementById('hamburger');
-    navLinks.classList.toggle('open');
-    hamburger.classList.toggle('open');
-  }
-
-  function closeMenu() {
-    const navLinks = document.getElementById('nav-links');
-    const hamburger = document.getElementById('hamburger');
-    navLinks.classList.remove('open');
-    hamburger.classList.remove('open');
-  }
-  function switchContactTab(name, btn) {
-    document.querySelectorAll('.contact-tab-content').forEach(el => el.classList.remove('active'));
-    document.querySelectorAll('.contact-tab-btn').forEach(el => el.classList.remove('active'));
-    document.getElementById('ctab-' + name).classList.add('active');
-    btn.classList.add('active');
-  }
-
-  async function handleSubmit(e) {
-    e.preventDefault();
-    const form = e.target;
-    const btn = form.querySelector('button[type="submit"]');
-    btn.disabled = true;
-    btn.textContent = 'SENDING...';
-    try {
-      const res = await fetch('https://formspree.io/f/xaqadjqy', {
-        method: 'POST',
-        body: new FormData(form),
-        headers: { 'Accept': 'application/json' }
-      });
-      if (res.ok) {
-        form.reset();
-        document.getElementById('form-msg').style.display = 'block';
-        btn.textContent = 'SEND →';
-      } else {
-        alert('送信に失敗しました。時間をおいてもう一度お試しください。');
-        btn.textContent = 'SEND →';
-      }
-    } catch (err) {
-      alert('送信に失敗しました。通信状況をご確認ください。');
-      btn.textContent = 'SEND →';
-    }
-    btn.disabled = false;
-  }
-
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach((entry, i) => {
-      if (entry.isIntersecting) {
-        setTimeout(() => entry.target.classList.add('visible'), i * 80);
-      }
-    });
-  }, { threshold: 0.1 });
-
-  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
-</script>
-
+  <script src="js/main.js"></script>
 </body>
 </html>

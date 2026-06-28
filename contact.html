@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>お問い合わせ | FUMINOWA DESIGN</title>
+  <meta name="description" content="FUMINOWA DESIGNへのお問い合わせ・ご相談フォームです。ホームページ制作・LP・ロゴ・チラシなどお気軽にご相談ください。">
+  <meta property="og:title" content="お問い合わせ | FUMINOWA DESIGN">
+  <meta property="og:description" content="FUMINOWA DESIGNへのお問い合わせ・ご相談フォームです。ホームページ制作・LP・ロゴ・チラシなどお気軽にご相談ください。">
+  <meta property="og:image" content="https://fuminowa-design.com/images/og-image.png">
+  <meta property="og:url" content="https://fuminowa-design.com/contact.html">
+  <meta property="og:type" content="website">
+  <link rel="icon" href="images/favicon-48x48.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-BKZQDN2ZYX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-BKZQDN2ZYX');
+  </script>
+</head>
+<body>
+
+  <div class="nav-overlay" aria-hidden="true"></div>
+  <nav class="nav-drawer" aria-label="サイトナビゲーション">
+    <button class="nav-drawer__close" aria-label="閉じる">✕</button>
+    <p class="nav-drawer__title">Navigation</p>
+    <ul class="nav-drawer__list">
+      <li class="nav-drawer__item"><a href="greeting.html"><span class="nav-drawer__item-en">GREETING</span><span class="nav-drawer__item-ja">ご挨拶</span></a></li>
+      <li class="nav-drawer__item"><a href="about.html"><span class="nav-drawer__item-en">ABOUT</span><span class="nav-drawer__item-ja">理念・想い</span></a></li>
+      <li class="nav-drawer__item"><a href="works.html"><span class="nav-drawer__item-en">WORKS</span><span class="nav-drawer__item-ja">制作実績</span></a></li>
+      <li class="nav-drawer__item"><a href="services.html"><span class="nav-drawer__item-en">SERVICES</span><span class="nav-drawer__item-ja">仕事内容</span></a></li>
+      <li class="nav-drawer__item"><a href="contact.html" aria-current="page"><span class="nav-drawer__item-en">CONTACT</span><span class="nav-drawer__item-ja">お問い合わせ</span></a></li>
+    </ul>
+  </nav>
+
+  <header class="page-header">
+    <div class="page-header__logo">
+      <a href="index.html">
+        <img class="page-header__logo-img" src="images/site-logo.png" alt="">
+        <span class="page-header__brand">FUMINOWA DESIGN</span>
+      </a>
+    </div>
+    <button class="hamburger-btn" data-nav-toggle aria-label="メニューを開く">
+      <div class="hamburger-btn__lines" aria-hidden="true">
+        <span class="hamburger-btn__line"></span>
+        <span class="hamburger-btn__line"></span>
+        <span class="hamburger-btn__line"></span>
+      </div>
+      MENU
+    </button>
+  </header>
+
+  <main class="page-main">
+
+    <section class="page-section">
+      <div class="sec-header">
+        <div class="sec-label" aria-hidden="true">
+          <span class="sec-label__dot"></span>
+          <span class="sec-label__text">CONTACT</span>
+        </div>
+        <h1 class="sec-title">お気軽にご相談ください。</h1>
+        <p class="sec-desc">作業療法士として培った"聴く力"で、あなたの想いをデザインに変えます。</p>
+      </div>
+
+      <!-- Thank you message (hidden until submit) -->
+      <div class="contact-thanks" role="alert" aria-live="polite">
+        <div class="contact-thanks__icon" aria-hidden="true">✓</div>
+        <p class="contact-thanks__title">送信完了</p>
+        <p class="contact-thanks__msg">お問い合わせありがとうございます。<br>24時間以内にご返信いたします。<br>しばらくお待ちください。</p>
+        <a href="index.html" class="btn btn--green" style="margin-top:16px">
+          トップページへ
+          <svg class="btn__arrow" viewBox="0 0 16 17" fill="none" aria-hidden="true">
+            <circle cx="8" cy="8.5" r="6.5" stroke="currentColor" stroke-width="1.5"/><path d="M5.5 8.5h5M8.5 6.5l2 2-2 2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
+      </div>
+
+      <!-- Tab buttons -->
+      <div class="contact-tabs" role="tablist" aria-label="お問い合わせ種別">
+        <button class="contact-tab is-active" role="tab" aria-selected="true" aria-controls="tab-inquiry" data-tab="inquiry">
+          お問い合わせ
+        </button>
+        <button class="contact-tab" role="tab" aria-selected="false" aria-controls="tab-hearing" data-tab="hearing">
+          ヒアリングシート
+        </button>
+      </div>
+
+      <!-- Tab 1: お問い合わせ -->
+      <div class="contact-tab-panel is-active" id="tab-inquiry" role="tabpanel">
+        <form class="contact-form" action="https://formspree.io/f/xaqadjqy" method="POST" novalidate>
+          <div class="form-group">
+            <label class="form-label" for="name">お名前 <span class="required">必須</span></label>
+            <input class="form-input" type="text" id="name" name="name" placeholder="山田 花子" autocomplete="name" data-required>
+            <p class="form-error">お名前を入力してください</p>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="email">メールアドレス <span class="required">必須</span></label>
+            <input class="form-input" type="email" id="email" name="email" placeholder="example@email.com" autocomplete="email" data-required>
+            <p class="form-error">正しいメールアドレスを入力してください</p>
+          </div>
+          <div class="form-group">
+            <p class="form-label" id="service-label">ご希望のサービス</p>
+            <div class="checkboxes" role="group" aria-labelledby="service-label">
+              <label class="checkbox-item"><input type="checkbox" name="service[]" value="ホームページ制作">ホームページ制作</label>
+              <label class="checkbox-item"><input type="checkbox" name="service[]" value="LP制作">LP制作</label>
+              <label class="checkbox-item"><input type="checkbox" name="service[]" value="ロゴ・名刺・LINE構築">ロゴ・名刺・LINE構築</label>
+              <label class="checkbox-item"><input type="checkbox" name="service[]" value="チラシ・パンフレット制作">チラシ・パンフレット制作</label>
+              <label class="checkbox-item"><input type="checkbox" name="service[]" value="その他">その他</label>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="message">内容・ご相談事項 <span class="required">必須</span></label>
+            <textarea class="form-textarea" id="message" name="message" placeholder="ご相談内容をお気軽にお書きください。&#10;（例：開業に向けてホームページを作りたい、チラシをリニューアルしたい、など）" data-required></textarea>
+            <p class="form-error">内容・ご相談事項を入力してください</p>
+          </div>
+          <input type="hidden" name="_subject" value="FUMINOWA DESIGNへのお問い合わせ">
+          <input type="hidden" name="_language" value="ja">
+          <div class="form-submit">
+            <button type="submit" class="btn btn--green">送信する
+              <svg class="btn__arrow" viewBox="0 0 16 17" fill="none" aria-hidden="true"><circle cx="8" cy="8.5" r="6.5" stroke="currentColor" stroke-width="1.5"/><path d="M5.5 8.5h5M8.5 6.5l2 2-2 2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+          </div>
+        </form>
+      </div>
+
+      <!-- Tab 2: ヒアリングシート -->
+      <div class="contact-tab-panel" id="tab-hearing" role="tabpanel">
+        <div class="hearing-header">
+          <p class="hearing-header__label">HEARING SHEET</p>
+          <h2 class="hearing-header__title">初回ヒアリングシート</h2>
+        </div>
+        <div class="hearing-nav">
+          <span class="hearing-nav__item">基本情報</span>
+          <span class="hearing-nav__item">依頼内容</span>
+          <span class="hearing-nav__item">制作条件</span>
+          <span class="hearing-nav__item">納品・その他</span>
+        </div>
+        <p class="contact-hearing__desc">ご依頼の方向けに、ヒアリングシートをご用意しました。<br>ご記入いただいた内容をもとに、より具体的なご提案とお見積もりをご案内します。</p>
+        <ul class="hearing-notes">
+          <li>すべての情報の記載がなくても送信可能です。わかる範囲でお気軽にどうぞ。</li>
+          <li>通常24時間以内にご返信いたします。</li>
+          <li>まずは相談だけという方はお問い合わせフォームをご利用ください。</li>
+        </ul>
+
+        <form class="contact-form hearing-form" action="https://formspree.io/f/xaqadjqy" method="POST" novalidate>
+          <input type="hidden" name="_subject" value="【ヒアリングシート】FUMINOWA DESIGNへのご依頼">
+          <input type="hidden" name="_language" value="ja">
+
+          <!-- 01 基本情報 -->
+          <div class="hearing-section">
+            <div class="hearing-section__head">
+              <span class="hearing-section__num">01</span>
+              <span class="hearing-section__label">基本情報</span>
+            </div>
+            <div class="hearing-row">
+              <div class="form-group">
+                <label class="form-label" for="h-name">お名前・担当者名 <span class="required">必須</span></label>
+                <input class="form-input" type="text" id="h-name" name="name" placeholder="例）山田 花子" autocomplete="name" data-required>
+                <p class="form-error">お名前を入力してください</p>
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="h-company">会社名・屋号</label>
+                <input class="form-input" type="text" id="h-company" name="company" placeholder="例）株式会社〇〇　※個人の場合は不要">
+              </div>
+            </div>
+            <div class="hearing-row">
+              <div class="form-group">
+                <label class="form-label" for="h-email">メールアドレス <span class="required">必須</span></label>
+                <input class="form-input" type="email" id="h-email" name="email" placeholder="example@email.com" autocomplete="email" data-required>
+                <p class="form-error">正しいメールアドレスを入力してください</p>
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="h-tel">電話番号</label>
+                <input class="form-input" type="tel" id="h-tel" name="tel" placeholder="090-0000-0000" autocomplete="tel">
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="h-url">現在のお仕事サイト・SNS URL</label>
+              <textarea class="form-textarea" id="h-url" name="url" rows="3" placeholder="ブランドイメージが参考になりそうであれば、掲載のある場合はリンクをいくつかお知らせください。"></textarea>
+            </div>
+          </div>
+
+          <!-- 02 依頼内容 -->
+          <div class="hearing-section">
+            <div class="hearing-section__head">
+              <span class="hearing-section__num">02</span>
+              <span class="hearing-section__label">依頼内容</span>
+            </div>
+            <div class="form-group">
+              <p class="form-label" id="h-service-label">依頼したいサービス <span class="required">必須</span><br><small>複数選択可です。</small></p>
+              <div class="checkboxes" role="group" aria-labelledby="h-service-label">
+                <label class="checkbox-item"><input type="checkbox" name="h_service[]" value="LP制作">LP制作</label>
+                <label class="checkbox-item"><input type="checkbox" name="h_service[]" value="ホームページ制作">ホームページ制作</label>
+                <label class="checkbox-item"><input type="checkbox" name="h_service[]" value="EC・商品画像">EC・商品画像</label>
+                <label class="checkbox-item"><input type="checkbox" name="h_service[]" value="ロゴ・グラフィック">ロゴ・グラフィック</label>
+                <label class="checkbox-item"><input type="checkbox" name="h_service[]" value="バナー・SNS素材">バナー・SNS素材</label>
+                <label class="checkbox-item"><input type="checkbox" name="h_service[]" value="その他">その他</label>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="h-purpose">依頼の目的・背景 <span class="required">必須</span></label>
+              <textarea class="form-textarea" id="h-purpose" name="purpose" data-required placeholder="例）新商品のローンチ、「集客を増やしたい」「ブランドを確立したい」など、背景を詳細お知らせください。&#10;例）開業で医療法人のウェブサイトを制作したいなど、具体的なご要望があれば教えてください。"></textarea>
+              <p class="form-error">依頼の目的・背景を入力してください</p>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="h-target">ターゲット・想定ユーザー</label>
+              <p class="form-hint">年齢・性別・職業・悩みなど、想定されるお客様の情報をできるだけ詳しくお伝えください。</p>
+              <textarea class="form-textarea" id="h-target" name="target" placeholder="例）40〜50代の女性、開業医・経営者のマダム、もっとエレガントなイメージにしたいなど"></textarea>
+            </div>
+            <div class="form-group">
+              <p class="form-label" id="h-taste-label">デザインのイメージ・テイスト</p>
+              <div class="checkboxes" role="group" aria-labelledby="h-taste-label">
+                <label class="checkbox-item"><input type="checkbox" name="h_taste[]" value="シンプル">シンプル</label>
+                <label class="checkbox-item"><input type="checkbox" name="h_taste[]" value="スタイリッシュ">スタイリッシュ</label>
+                <label class="checkbox-item"><input type="checkbox" name="h_taste[]" value="ナチュラル">ナチュラル</label>
+                <label class="checkbox-item"><input type="checkbox" name="h_taste[]" value="信頼感・誠実">信頼感・誠実</label>
+                <label class="checkbox-item"><input type="checkbox" name="h_taste[]" value="温かみ・親しみ">温かみ・親しみ</label>
+                <label class="checkbox-item"><input type="checkbox" name="h_taste[]" value="高級感">高級感</label>
+                <label class="checkbox-item"><input type="checkbox" name="h_taste[]" value="ポップ・カジュアル">ポップ・カジュアル</label>
+                <label class="checkbox-item"><input type="checkbox" name="h_taste[]" value="プロフェッショナル">プロフェッショナル</label>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="h-ref">参考サイト・参考画像</label>
+              <textarea class="form-textarea" id="h-ref" name="reference" placeholder="「こんなイメージに近い」というURLや、好きなブランド・デザインがあれば教えてください。"></textarea>
+            </div>
+          </div>
+
+          <!-- 03 制作条件 -->
+          <div class="hearing-section">
+            <div class="hearing-section__head">
+              <span class="hearing-section__num">03</span>
+              <span class="hearing-section__label">制作条件</span>
+            </div>
+            <div class="hearing-row">
+              <div class="form-group">
+                <label class="form-label" for="h-deadline">希望期日</label>
+                <select class="form-input form-select" id="h-deadline" name="deadline">
+                  <option value="">― 選択してください</option>
+                  <option>1ヶ月以内</option>
+                  <option>2〜3ヶ月以内</option>
+                  <option>3〜6ヶ月以内</option>
+                  <option>半年以上先</option>
+                  <option>急ぎではない・相談したい</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="h-budget">おおよその予算</label>
+                <select class="form-input form-select" id="h-budget" name="budget">
+                  <option value="">― 選択してください</option>
+                  <option>〜5万円</option>
+                  <option>5〜10万円</option>
+                  <option>10〜20万円</option>
+                  <option>20〜50万円</option>
+                  <option>50万円以上</option>
+                  <option>未定・相談したい</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-group">
+              <p class="form-label" id="h-material-label">素材・テキストの準備状況</p>
+              <div class="checkboxes" role="group" aria-labelledby="h-material-label">
+                <label class="checkbox-item"><input type="checkbox" name="h_material[]" value="テキスト(原稿)あり">テキスト（原稿）あり</label>
+                <label class="checkbox-item"><input type="checkbox" name="h_material[]" value="写真・画像素材あり">写真・画像素材あり</label>
+                <label class="checkbox-item"><input type="checkbox" name="h_material[]" value="ロゴデータあり">ロゴデータあり</label>
+                <label class="checkbox-item"><input type="checkbox" name="h_material[]" value="素材はほぼない">素材はほぼない</label>
+                <label class="checkbox-item"><input type="checkbox" name="h_material[]" value="相談しながら揃えたい">相談しながら揃えたい</label>
+              </div>
+            </div>
+            <div class="form-group">
+              <p class="form-label" id="h-repeat-label">継続依頼の可能性</p>
+              <div class="checkboxes" role="group" aria-labelledby="h-repeat-label">
+                <label class="checkbox-item"><input type="radio" name="repeat" value="継続依頼を想定している">継続依頼を想定している</label>
+                <label class="checkbox-item"><input type="radio" name="repeat" value="状況次第でありえたい">状況次第でありえたい</label>
+                <label class="checkbox-item"><input type="radio" name="repeat" value="今回のみの予定">今回のみの予定</label>
+              </div>
+            </div>
+          </div>
+
+          <!-- 04 納品・その他 -->
+          <div class="hearing-section">
+            <div class="hearing-section__head">
+              <span class="hearing-section__num">04</span>
+              <span class="hearing-section__label">納品・その他</span>
+            </div>
+            <div class="form-group">
+              <p class="form-label" id="h-format-label">希望の納品形式<br><small>複数選択可です。</small></p>
+              <div class="checkboxes" role="group" aria-labelledby="h-format-label">
+                <label class="checkbox-item"><input type="checkbox" name="h_format[]" value="JPG/PNG">JPG / PNG</label>
+                <label class="checkbox-item"><input type="checkbox" name="h_format[]" value="PSD">PSD</label>
+                <label class="checkbox-item"><input type="checkbox" name="h_format[]" value="AI(Illustrator)">AI（Illustrator）</label>
+                <label class="checkbox-item"><input type="checkbox" name="h_format[]" value="PDF">PDF</label>
+                <label class="checkbox-item"><input type="checkbox" name="h_format[]" value="Figmaデータ">Figmaデータ</label>
+                <label class="checkbox-item"><input type="checkbox" name="h_format[]" value="HTML/CSS">HTML / CSS</label>
+                <label class="checkbox-item"><input type="checkbox" name="h_format[]" value="相談したい">相談したい</label>
+              </div>
+              <p class="form-hint">※PDFなどのデータ書き出しが必要な場合は、別途料金がかかる場合があります。</p>
+            </div>
+            <div class="form-group">
+              <p class="form-label" id="h-portfolio-label">制作実績への掲載可否</p>
+              <div class="checkboxes" role="group" aria-labelledby="h-portfolio-label">
+                <label class="checkbox-item"><input type="radio" name="portfolio" value="掲載OK">掲載OK</label>
+                <label class="checkbox-item"><input type="radio" name="portfolio" value="匿名NG">匿名NG</label>
+                <label class="checkbox-item"><input type="radio" name="portfolio" value="内容によって相談したい">内容によって相談したい</label>
+              </div>
+            </div>
+            <div class="form-group">
+              <p class="form-label" id="h-nda-label">NDA（秘密保持契約）の締結</p>
+              <div class="checkboxes" role="group" aria-labelledby="h-nda-label">
+                <label class="checkbox-item"><input type="radio" name="nda" value="締結を希望する">締結を希望する</label>
+                <label class="checkbox-item"><input type="radio" name="nda" value="不要">不要</label>
+                <label class="checkbox-item"><input type="radio" name="nda" value="相談したい">相談したい</label>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="h-note">その他・補足</label>
+              <p class="form-hint">ご不明点・ご要望・気になることなど、なんでもお気軽にどうぞ。</p>
+              <textarea class="form-textarea" id="h-note" name="note" placeholder="例）過去に作ってもらった経験があります、急ぎではないので丁寧に進めたいです、など"></textarea>
+            </div>
+          </div>
+
+          <div class="form-submit">
+            <button type="submit" class="btn btn--outline hearing-submit">
+              SEND HEARING SHEET
+              <svg class="btn__arrow" viewBox="0 0 16 17" fill="none" aria-hidden="true"><circle cx="8" cy="8.5" r="6.5" stroke="currentColor" stroke-width="1.5"/><path d="M5.5 8.5h5M8.5 6.5l2 2-2 2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+          </div>
+        </form>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <img class="site-footer__logo" src="images/site-logo.png" alt="FUMINOWA DESIGN">
+    <p class="site-footer__copy">©2026 FUMINOWA DESIGN</p>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
