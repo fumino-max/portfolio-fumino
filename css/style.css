@@ -1729,6 +1729,14 @@ ul, ol { list-style: none; }
   .sidebar__brand-sub { font-size: 18px; }
   .sidebar__tagline { font-size: 15px; }
   .sec-title { font-size: 20px; }
+
+  .wa-list { gap: 20px; }
+  .wa-item { gap: 20px; }
+  .wa-item__circle { width: 80px; height: 80px; }
+
+  .wa-full-item { gap: 16px; }
+  .wa-full-item__circle { width: 60px; height: 60px; font-size: 20px; }
+  .wa-full-item__title { font-size: 15px; }
 }
 
 
