@@ -1,0 +1,1182 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="元作業療法士のWebデザイナー、緑川史乃。想いを汲み取り、行動につながるLPを制作します。">
+  <title>FUMINOWA DESIGN｜行動につながるLP制作</title>
+  <link rel="canonical" href="https://fuminowa-design.com/lp/">
+  <link rel="icon" href="img/logo.svg" type="image/svg+xml">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="FUMINOWA DESIGN｜行動につながるLP制作">
+  <meta property="og:description" content="元作業療法士のWebデザイナー、緑川史乃。想いを汲み取り、行動につながるLPを制作します。">
+  <meta property="og:url" content="https://fuminowa-design.com/lp/">
+  <meta property="og:image" content="https://fuminowa-design.com/lp/img/logo2.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <style>
+    :root {
+      --paper: #fffdf7;
+      --ink: #283331;
+      --teal: #287c72;
+      --logo-teal: #71a59b;
+      --lime: #9cbc4b;
+      --yellow: #f2b42a;
+      --coral: #f0644b;
+      --line: rgba(40, 51, 49, 0.16);
+      --shadow: 0 18px 50px rgba(40, 51, 49, 0.16);
+      --ease: cubic-bezier(.22, 1, .36, 1);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; }
+
+    html { color-scheme: light; }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      background: var(--paper);
+      font-family: "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Yu Gothic", system-ui, sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a { color: inherit; }
+    img { display: block; max-width: 100%; }
+
+    .first-view {
+      position: relative;
+      isolation: isolate;
+      min-height: 100svh;
+      overflow: hidden;
+      background: var(--paper);
+    }
+
+    .first-view__background {
+      position: absolute;
+      inset: 0;
+      z-index: -3;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+    }
+
+    .first-view::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: -2;
+      background:
+        linear-gradient(90deg, rgba(255, 253, 247, .98) 0%, rgba(255, 253, 247, .9) 42%, rgba(255, 253, 247, .26) 70%, rgba(255, 253, 247, .08) 100%),
+        linear-gradient(180deg, rgba(255, 253, 247, .72) 0%, transparent 28%);
+    }
+
+    .site-header {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 10;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: min(100% - 96px, 1340px);
+      min-height: 86px;
+      margin-inline: auto;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+    }
+
+    .brand__mark {
+      width: 40px;
+      height: 40px;
+      object-fit: contain;
+    }
+
+    .brand__name {
+      font-family: Montserrat, Arial, sans-serif;
+      font-size: 13px;
+      font-weight: 800;
+      line-height: 1.1;
+      letter-spacing: .22em;
+    }
+
+    .header-cta {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 46px;
+      padding: 0 22px;
+      border-radius: 999px;
+      color: #fff;
+      background: var(--coral);
+      box-shadow: 0 8px 20px rgba(240, 100, 75, .22);
+      font-size: 14px;
+      font-weight: 800;
+      text-decoration: none;
+      transition: transform .35s var(--ease), box-shadow .35s var(--ease);
+    }
+
+    .header-cta:hover { transform: translateY(-3px); box-shadow: 0 12px 25px rgba(240, 100, 75, .3); }
+
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1.02fr) minmax(380px, .98fr);
+      align-items: center;
+      gap: clamp(24px, 5vw, 88px);
+      width: min(100% - 96px, 1340px);
+      min-height: 100svh;
+      margin-inline: auto;
+      padding: 124px 0 48px;
+    }
+
+    .hero__copy {
+      position: relative;
+      z-index: 2;
+      max-width: 780px;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin: 0 0 22px;
+      color: var(--teal);
+      font-size: clamp(13px, 1.2vw, 16px);
+      font-weight: 800;
+      letter-spacing: .12em;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 36px;
+      height: 4px;
+      border-radius: 99px;
+      background: var(--yellow);
+    }
+
+    .hero__title {
+      margin: 0;
+      font-size: clamp(56px, 6.8vw, 100px);
+      font-weight: 900;
+      line-height: 1.16;
+      letter-spacing: -.045em;
+    }
+
+    .hero__title-line { display: block; }
+
+    .mobile-break { display: none; }
+
+    .hero__title-accent {
+      position: relative;
+      display: inline-block;
+      color: var(--teal);
+      white-space: nowrap;
+    }
+
+    .hero__title-accent::after {
+      content: "";
+      position: absolute;
+      left: -.04em;
+      right: -.06em;
+      bottom: .06em;
+      z-index: -1;
+      height: .22em;
+      border-radius: 999px;
+      background: var(--yellow);
+      transform: rotate(-2deg);
+    }
+
+    .hero__lead {
+      max-width: 620px;
+      margin: 28px 0 0;
+      font-size: clamp(16px, 1.35vw, 20px);
+      font-weight: 600;
+      line-height: 1.9;
+      letter-spacing: .025em;
+    }
+
+    .hero__actions {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 32px;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 14px;
+      min-height: 60px;
+      padding: 0 30px;
+      border: 2px solid transparent;
+      border-radius: 999px;
+      font-size: 16px;
+      font-weight: 800;
+      text-decoration: none;
+      transition: transform .35s var(--ease), box-shadow .35s var(--ease), background-color .35s var(--ease);
+    }
+
+    .button::after { content: "→"; font-size: 1.2em; transition: transform .35s var(--ease); }
+    .button:hover { transform: translateY(-3px); }
+    .button:hover::after { transform: translateX(4px); }
+
+    .button--primary {
+      color: #fff;
+      background: var(--coral);
+      box-shadow: 0 12px 28px rgba(240, 100, 75, .26);
+    }
+
+    .button--secondary {
+      color: var(--teal);
+      border-color: var(--teal);
+      background: rgba(255, 253, 247, .84);
+    }
+
+    .button[aria-disabled="true"] {
+      cursor: not-allowed;
+      opacity: .56;
+      box-shadow: none;
+    }
+
+    .button[aria-disabled="true"]:hover { transform: none; }
+    .button[aria-disabled="true"]:hover::after { transform: none; }
+
+    .availability {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      margin-top: 18px;
+      padding: 9px 14px;
+      border: 2px solid var(--ink);
+      border-radius: 999px;
+      background: var(--yellow);
+      font-size: 13px;
+      font-weight: 800;
+      box-shadow: 4px 4px 0 var(--ink);
+      transform: rotate(-1deg);
+    }
+
+    .availability::before {
+      content: "";
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      background: var(--teal);
+      box-shadow: 0 0 0 4px rgba(40, 124, 114, .16);
+    }
+
+    .hero__visual {
+      position: relative;
+      display: grid;
+      place-items: center;
+      min-width: 0;
+      justify-self: end;
+      width: min(100%, 600px);
+    }
+
+    .hero__visual::before {
+      content: "";
+      position: absolute;
+      inset: 7% 4% 3% 10%;
+      border: 3px solid var(--ink);
+      border-radius: 46% 54% 48% 52% / 56% 44% 56% 44%;
+      background: var(--paper);
+      box-shadow: 14px 16px 0 rgba(40, 124, 114, .88), var(--shadow);
+      transform: rotate(3deg);
+    }
+
+    .hero__portrait {
+      position: relative;
+      z-index: 1;
+      width: min(86%, 510px);
+      height: auto;
+      border: 3px solid var(--ink);
+      border-radius: 42% 58% 44% 56% / 50% 42% 58% 50%;
+      object-fit: contain;
+      transform: rotate(-2deg);
+    }
+
+    .visual-sticker {
+      position: absolute;
+      right: 1%;
+      top: 8%;
+      z-index: 2;
+      display: grid;
+      place-items: center;
+      width: 104px;
+      aspect-ratio: 1;
+      border: 3px solid var(--ink);
+      border-radius: 50%;
+      background: var(--lime);
+      font-family: Montserrat, Arial, sans-serif;
+      font-size: 20px;
+      font-weight: 900;
+      line-height: 1.05;
+      text-align: center;
+      transform: rotate(8deg);
+      box-shadow: 6px 7px 0 var(--ink);
+    }
+
+    .visual-sticker small { display: block; font-size: 10px; letter-spacing: .12em; }
+
+    :focus-visible { outline: 3px solid var(--yellow); outline-offset: 4px; }
+
+    .is-ready .hero__copy > *,
+    .is-ready .hero__visual {
+      animation: enter .72s var(--ease) both;
+    }
+
+    .is-ready .hero__copy > :nth-child(2) { animation-delay: .07s; }
+    .is-ready .hero__copy > :nth-child(3) { animation-delay: .14s; }
+    .is-ready .hero__copy > :nth-child(4) { animation-delay: .21s; }
+    .is-ready .hero__copy > :nth-child(5) { animation-delay: .28s; }
+    .is-ready .hero__visual { animation-delay: .18s; }
+
+    @keyframes enter {
+      from { opacity: 0; transform: translateY(24px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (max-width: 900px) {
+      .site-header { width: min(100% - 48px, 1340px); }
+
+      .hero {
+        grid-template-columns: minmax(0, 1.08fr) minmax(280px, .92fr);
+        width: min(100% - 48px, 1340px);
+      }
+
+      .hero__title { font-size: clamp(52px, 8.4vw, 76px); }
+      .button { min-height: 56px; padding-inline: 24px; }
+      .visual-sticker { width: 84px; font-size: 17px; }
+    }
+
+    @media (max-width: 680px) {
+      .first-view::before {
+        background: linear-gradient(180deg, rgba(255, 253, 247, .97) 0%, rgba(255, 253, 247, .88) 54%, rgba(255, 253, 247, .16) 100%);
+      }
+
+      .site-header {
+        width: calc(100% - 40px);
+        min-height: 68px;
+      }
+
+      .brand { gap: 9px; }
+      .brand__mark { width: 34px; height: 34px; }
+      .brand__name { font-size: 10px; letter-spacing: .17em; }
+      .header-cta { min-height: 42px; padding-inline: 16px; font-size: 12px; }
+
+      .hero {
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 24px;
+        width: calc(100% - 40px);
+        min-height: 100svh;
+        padding: 94px 0 28px;
+      }
+
+      .hero__copy { max-width: none; }
+      .eyebrow { margin-bottom: 14px; font-size: 12px; }
+
+      .hero__title {
+        font-size: clamp(43px, 13.2vw, 58px);
+        line-height: 1.18;
+        letter-spacing: -.05em;
+      }
+
+      .hero__title-accent { white-space: normal; }
+      .mobile-break { display: initial; }
+
+      .hero__lead {
+        margin-top: 16px;
+        font-size: 15px;
+        line-height: 1.75;
+      }
+
+      .hero__actions {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 10px;
+        margin-top: 20px;
+      }
+
+      .button { width: 100%; min-height: 52px; padding-inline: 20px; font-size: 14px; }
+      .button--secondary { display: none; }
+      .availability { margin-top: 13px; padding: 7px 12px; font-size: 12px; box-shadow: 3px 3px 0 var(--ink); }
+
+      .hero__visual {
+        align-self: center;
+        width: min(72vw, 286px);
+        margin-top: auto;
+      }
+
+      .hero__visual::before { box-shadow: 9px 10px 0 rgba(40, 124, 114, .88), 0 12px 34px rgba(40, 51, 49, .14); }
+      .hero__portrait { width: 86%; }
+      .visual-sticker { width: 68px; border-width: 2px; font-size: 14px; box-shadow: 4px 4px 0 var(--ink); }
+      .visual-sticker small { font-size: 8px; }
+    }
+
+    @media (max-width: 390px) {
+      .site-header, .hero { width: calc(100% - 32px); }
+      .brand__name { display: none; }
+      .hero { gap: 18px; padding-top: 84px; }
+      .hero__title { font-size: 49px; }
+      .hero__lead { font-size: 14px; line-height: 1.68; }
+      .hero__visual { width: min(63vw, 244px); }
+    }
+
+    @media (max-height: 760px) and (max-width: 680px) {
+      .hero__visual { width: min(48vw, 190px); }
+      .hero { gap: 12px; padding-bottom: 18px; }
+      .hero__lead { margin-top: 12px; }
+      .hero__actions { margin-top: 14px; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        scroll-behavior: auto !important;
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: .01ms !important;
+      }
+    }
+
+    /* Full-page sections */
+    .content-section {
+      position: relative;
+      overflow: hidden;
+      padding: clamp(88px, 10vw, 152px) 0;
+    }
+
+    .section-inner {
+      position: relative;
+      z-index: 2;
+      width: min(100% - 96px, 1200px);
+      margin-inline: auto;
+    }
+
+    .section-kicker {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin: 0 0 18px;
+      color: var(--teal);
+      font-family: Montserrat, Arial, sans-serif;
+      font-size: 13px;
+      font-weight: 900;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+    }
+
+    .section-kicker::before {
+      content: "";
+      width: 38px;
+      height: 4px;
+      border-radius: 999px;
+      background: var(--yellow);
+    }
+
+    .section-title {
+      max-width: 920px;
+      margin: 0;
+      font-size: clamp(42px, 6vw, 76px);
+      font-weight: 900;
+      line-height: 1.16;
+      letter-spacing: -.045em;
+    }
+
+    .section-lead {
+      max-width: 720px;
+      margin: 30px 0 0;
+      font-size: clamp(17px, 1.55vw, 21px);
+      font-weight: 500;
+      line-height: 2;
+    }
+
+    .section-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 44px;
+    }
+
+    .section-cta {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 14px;
+      min-height: 60px;
+      padding: 0 30px;
+      border: 2px solid transparent;
+      border-radius: 999px;
+      color: #fff;
+      background: var(--coral);
+      box-shadow: 0 12px 28px rgba(240, 100, 75, .24);
+      font-weight: 800;
+      text-decoration: none;
+      transition: transform .35s var(--ease), box-shadow .35s var(--ease);
+    }
+
+    .section-cta::after { content: "→"; font-size: 1.2em; transition: transform .35s var(--ease); }
+    .section-cta:hover { transform: translateY(-3px); box-shadow: 0 16px 32px rgba(240, 100, 75, .3); }
+    .section-cta:hover::after { transform: translateX(4px); }
+
+    .section-cta--outline {
+      color: var(--teal);
+      border-color: var(--teal);
+      background: var(--paper);
+      box-shadow: none;
+    }
+
+    .generated-bg {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    /* Strengths */
+    .strengths {
+      min-height: 900px;
+      color: #fff;
+      background: var(--teal);
+    }
+
+    .strengths::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      background: linear-gradient(90deg, rgba(20, 91, 83, .35), rgba(40, 124, 114, .08));
+      pointer-events: none;
+    }
+
+    .strengths .section-kicker { color: #fff; }
+
+    .strengths__title {
+      display: grid;
+      gap: .05em;
+      margin: 0;
+      font-size: clamp(68px, 8.6vw, 124px);
+      font-weight: 900;
+      line-height: 1.12;
+      letter-spacing: -.055em;
+      white-space: nowrap;
+    }
+
+    .strengths__title span { transform-origin: left center; }
+    .strengths__title span:nth-child(2) { padding-left: .55em; color: var(--yellow); }
+    .strengths__title span:nth-child(3) { padding-left: 1.1em; color: var(--lime); }
+
+    .strengths__intro {
+      display: grid;
+      grid-template-columns: minmax(220px, .72fr) minmax(0, 1.28fr);
+      gap: clamp(36px, 7vw, 96px);
+      align-items: end;
+      margin-top: 68px;
+    }
+
+    .strengths__avatar {
+      width: min(100%, 280px);
+      height: auto;
+      border: 3px solid var(--ink);
+      border-radius: 50%;
+      background: #fff;
+      box-shadow: 10px 12px 0 var(--yellow);
+    }
+
+    .strengths__copy {
+      max-width: 720px;
+      margin: 0;
+      font-size: clamp(17px, 1.45vw, 21px);
+      font-weight: 600;
+      line-height: 2;
+    }
+
+    .strengths__points {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+      margin: 64px 0 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .strength-point {
+      min-height: 230px;
+      padding: 28px;
+      border: 2px solid rgba(255, 255, 255, .8);
+      border-radius: 30px;
+      background: rgba(255, 255, 255, .1);
+      backdrop-filter: blur(4px);
+    }
+
+    .strength-point__num {
+      display: block;
+      color: var(--yellow);
+      font-family: Montserrat, Arial, sans-serif;
+      font-size: 14px;
+      font-weight: 900;
+      letter-spacing: .12em;
+    }
+
+    .strength-point h3 { margin: 20px 0 10px; font-size: clamp(28px, 2.8vw, 40px); line-height: 1; }
+    .strength-point p { margin: 0; font-size: 15px; line-height: 1.85; }
+
+    /* Service */
+    .service { background: var(--paper); }
+
+    .service::before {
+      content: "LP";
+      position: absolute;
+      top: 50px;
+      right: -20px;
+      color: rgba(113, 165, 155, .09);
+      font-family: Montserrat, Arial, sans-serif;
+      font-size: clamp(180px, 25vw, 390px);
+      font-weight: 900;
+      line-height: 1;
+    }
+
+    .service-flow {
+      position: relative;
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 16px;
+      margin: 72px 0 0;
+      padding: 0;
+      list-style: none;
+      counter-reset: flow;
+    }
+
+    .service-flow::before {
+      content: "";
+      position: absolute;
+      top: 34px;
+      left: 8%;
+      right: 8%;
+      height: 4px;
+      border-radius: 99px;
+      background: linear-gradient(90deg, var(--teal), var(--lime), var(--yellow), var(--coral));
+    }
+
+    .service-flow li {
+      position: relative;
+      counter-increment: flow;
+      padding-top: 90px;
+      font-size: clamp(17px, 1.5vw, 20px);
+      font-weight: 800;
+      text-align: center;
+    }
+
+    .service-flow li::before {
+      content: counter(flow, decimal-leading-zero);
+      position: absolute;
+      top: 0;
+      left: 50%;
+      display: grid;
+      place-items: center;
+      width: 70px;
+      height: 70px;
+      border: 3px solid var(--ink);
+      border-radius: 50%;
+      color: var(--ink);
+      background: var(--yellow);
+      font-family: Montserrat, Arial, sans-serif;
+      font-size: 18px;
+      font-weight: 900;
+      transform: translateX(-50%);
+      box-shadow: 5px 6px 0 var(--ink);
+    }
+
+    .service-list {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px 42px;
+      max-width: 900px;
+      margin: 68px 0 0 auto;
+      padding: 34px 40px;
+      border: 2px solid var(--ink);
+      border-radius: 32px;
+      background: var(--pale-mint, #e7f2ee);
+      box-shadow: 9px 10px 0 var(--teal);
+      list-style: none;
+    }
+
+    .service-list li {
+      position: relative;
+      padding-left: 26px;
+      font-size: 16px;
+      font-weight: 700;
+      line-height: 1.65;
+    }
+
+    .service-list li::before { content: "●"; position: absolute; left: 0; color: var(--lime); }
+
+    /* Works */
+    .works { background: #e7f2ee; }
+    .works::after { content: ""; position: absolute; inset: 0; z-index: 1; background: rgba(255,255,255,.16); pointer-events: none; }
+    .works-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 64px 32px; margin-top: 72px; }
+    .work-card:nth-child(even) { transform: translateY(56px); }
+
+    .work-card {
+      overflow: hidden;
+      border: 2px solid var(--ink);
+      border-radius: 34px;
+      background: rgba(255, 253, 247, .94);
+      box-shadow: 10px 12px 0 var(--ink);
+    }
+
+    .work-card__image-wrap { overflow: hidden; border-bottom: 2px solid var(--ink); background: #fff; }
+    .work-card__image { width: 100%; height: auto; transition: transform .7s var(--ease); }
+    .work-card:hover .work-card__image { transform: scale(1.025); }
+    .work-card__body { padding: 28px 30px 32px; }
+    .work-card__type { margin: 0 0 8px; color: var(--teal); font-family: Montserrat, Arial, sans-serif; font-size: 12px; font-weight: 900; letter-spacing: .16em; }
+    .work-card h3 { margin: 0; font-size: clamp(24px, 2.5vw, 34px); line-height: 1.35; }
+    .work-card__text { margin: 16px 0 0; font-size: 15px; line-height: 1.85; }
+    .work-tags { display: flex; flex-wrap: wrap; gap: 7px; margin: 20px 0 0; padding: 0; list-style: none; }
+    .work-tags li { padding: 7px 10px; border-radius: 999px; background: #fff1bf; font-size: 11px; font-weight: 800; }
+    .works .section-actions { margin-top: 120px; justify-content: center; }
+
+    /* Profile */
+    .profile { background: #fff1bf; }
+    .profile-layout { display: grid; grid-template-columns: minmax(320px, .88fr) minmax(0, 1.12fr); gap: clamp(48px, 8vw, 110px); align-items: center; }
+    .profile-photo-wrap { position: relative; width: min(100%, 470px); justify-self: center; }
+    .profile-photo-wrap::before { content: ""; position: absolute; inset: 7% -6% -4% 8%; border: 3px solid var(--ink); border-radius: 44% 56% 48% 52% / 54% 44% 56% 46%; background: var(--lime); transform: rotate(5deg); }
+    .profile-photo { position: relative; width: 100%; height: auto; border: 3px solid var(--ink); border-radius: 44% 56% 48% 52% / 54% 44% 56% 46%; box-shadow: 12px 14px 0 var(--teal); }
+    .profile-name { margin: 26px 0 0; color: var(--teal); font-family: Montserrat, Arial, sans-serif; font-size: clamp(32px, 4vw, 58px); font-weight: 900; line-height: 1; letter-spacing: -.03em; }
+    .profile-role { margin: 14px 0 0; font-size: 15px; font-weight: 800; letter-spacing: .08em; }
+    .profile-copy { margin: 34px 0 0; font-size: 17px; line-height: 2; }
+    .career-note { margin-top: 36px; padding: 26px 28px; border-left: 8px solid var(--yellow); border-radius: 0 22px 22px 0; background: rgba(255,255,255,.74); }
+    .career-note h3 { margin: 0 0 10px; font-size: 20px; }
+    .career-note p { margin: 0; font-size: 15px; line-height: 1.85; }
+
+    /* Social */
+    .social { background: var(--paper); }
+    .social .section-title { max-width: 1160px; font-size: clamp(42px, 5.2vw, 68px); }
+    .social-layout { display: grid; grid-template-columns: minmax(250px, .72fr) minmax(0, 1.28fr); gap: clamp(42px, 7vw, 92px); align-items: end; margin-top: 64px; }
+    .social-photo-wrap { position: relative; max-width: 390px; }
+    .social-photo { width: 100%; height: auto; border: 3px solid var(--ink); border-radius: 32px; box-shadow: 12px 14px 0 var(--yellow); transform: rotate(-2deg); }
+    .social-photo-note { position: absolute; right: -18px; bottom: 24px; padding: 12px 16px; border: 2px solid var(--ink); border-radius: 999px; background: var(--lime); font-size: 13px; font-weight: 900; transform: rotate(5deg); }
+    .social-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+
+    .social-card {
+      display: grid;
+      min-height: 180px;
+      padding: 26px;
+      border: 2px solid var(--ink);
+      border-radius: 28px;
+      color: var(--ink);
+      background: #fff;
+      box-shadow: 7px 8px 0 var(--teal);
+      text-decoration: none;
+      transition: transform .35s var(--ease), box-shadow .35s var(--ease);
+    }
+
+    .social-card:nth-child(2) { background: #e7f2ee; }
+    .social-card:nth-child(3) { background: #fff1bf; }
+    .social-card:nth-child(4) { background: #f7f4ec; }
+    .social-card:hover { transform: translateY(-5px) rotate(-1deg); box-shadow: 11px 13px 0 var(--teal); }
+    .social-card__name { font-family: Montserrat, Arial, sans-serif; font-size: clamp(26px, 3vw, 40px); font-weight: 900; }
+    .social-card__action { align-self: end; display: flex; justify-content: space-between; gap: 16px; margin-top: 28px; font-size: 13px; font-weight: 800; }
+    .social-card__action::after { content: "↗"; font-size: 21px; }
+
+    /* Final CTA */
+    .final-contact {
+      min-height: 760px;
+      display: grid;
+      place-items: center;
+      color: #fff;
+      text-align: center;
+      background: var(--teal);
+    }
+
+    .final-contact::after { content: ""; position: absolute; inset: 0; z-index: 1; background: rgba(18, 78, 72, .12); pointer-events: none; }
+    .final-contact__inner { max-width: 1120px; margin-inline: auto; }
+    .final-contact__logo { width: min(250px, 54vw); height: auto; margin: 0 auto 40px; }
+    .final-contact .section-title { max-width: 1120px; margin-inline: auto; font-size: clamp(42px, 4.1vw, 64px); line-height: 1.24; }
+    .final-contact__title-line { display: block; white-space: nowrap; }
+    .final-contact .section-lead { margin-inline: auto; }
+    .final-contact .availability { margin-top: 26px; color: var(--ink); }
+    .final-contact .section-actions { justify-content: center; margin-top: 28px; }
+    .final-cta { min-width: min(100%, 330px); }
+
+    .site-footer { padding: 36px 48px 110px; color: #fff; background: #1f625b; text-align: center; }
+    .site-footer p { margin: 0; font-size: 12px; letter-spacing: .08em; }
+
+    /* Floating CTA */
+    .floating-cta {
+      position: fixed;
+      top: 50%;
+      right: 0;
+      bottom: auto;
+      z-index: 100;
+      transform: translateY(-50%);
+      transition: opacity .3s var(--ease), transform .3s var(--ease), visibility .3s;
+    }
+
+    .floating-cta.is-hidden { opacity: 0; visibility: hidden; transform: translate(18px, -50%); pointer-events: none; }
+    .floating-cta a { display: flex; align-items: center; justify-content: center; gap: 12px; width: 62px; min-height: 286px; padding: 20px 0; border: 3px solid var(--ink); border-right: 0; border-radius: 30px 0 0 30px; color: #fff; background: var(--coral); box-shadow: -7px 8px 0 var(--ink); font-size: 14px; font-weight: 900; line-height: 1.5; text-decoration: none; writing-mode: vertical-rl; }
+    .floating-cta a::after { content: "↗"; font-size: 18px; }
+
+    /* Scroll reveals */
+    .reveal { opacity: 1; transform: none; transition: opacity .7s var(--ease), transform .7s var(--ease); }
+    .has-observer .reveal { opacity: 0; transform: translateY(30px); }
+    .has-observer .reveal.is-visible { opacity: 1; transform: translateY(0); }
+
+    .has-observer .strengths__title.reveal span {
+      opacity: 0;
+      filter: blur(6px);
+      transform: translateX(-72px) rotate(-3deg) scale(.9);
+      transition: opacity .72s var(--ease), filter .72s var(--ease), transform .9s var(--ease);
+    }
+
+    .has-observer .strengths__title.reveal.is-visible span { opacity: 1; filter: blur(0); transform: none; }
+    .has-observer .strengths__title.reveal.is-visible span:nth-child(1) { transition-delay: .04s; }
+    .has-observer .strengths__title.reveal.is-visible span:nth-child(2) { transition-delay: .18s; }
+    .has-observer .strengths__title.reveal.is-visible span:nth-child(3) { transition-delay: .34s; }
+
+    @media (max-width: 900px) {
+      .section-inner { width: min(100% - 48px, 1200px); }
+      .strengths__intro, .profile-layout, .social-layout { grid-template-columns: 1fr; }
+      .strengths__avatar { width: 210px; }
+      .service-flow { grid-template-columns: repeat(3, 1fr); row-gap: 40px; }
+      .service-flow::before { display: none; }
+      .works-grid { gap: 42px 24px; }
+      .work-card:nth-child(even) { transform: none; }
+      .works .section-actions { margin-top: 64px; }
+      .profile-photo-wrap { max-width: 400px; }
+      .social-layout { align-items: start; }
+      .social-photo-wrap { max-width: 320px; }
+    }
+
+    @media (max-width: 680px) {
+      .content-section { padding: 84px 0; }
+      .section-inner { width: auto; margin-left: 20px; margin-right: 76px; }
+      .section-title { font-size: clamp(36px, 10vw, 46px); line-height: 1.2; }
+      .section-lead { margin-top: 22px; font-size: 16px; line-height: 1.85; }
+      .section-actions { display: grid; margin-top: 34px; }
+      .section-cta { width: 100%; min-height: 54px; padding-inline: 20px; font-size: 14px; }
+
+      .strengths { min-height: auto; }
+      .strengths__title { display: grid; gap: .12em; font-size: clamp(42px, 13vw, 56px); line-height: 1.22; white-space: normal; }
+      .strengths__title span { padding-left: 0 !important; white-space: nowrap; }
+      .strengths__intro { gap: 34px; margin-top: 48px; }
+      .strengths__avatar { width: 150px; }
+      .strengths__copy { font-size: 16px; line-height: 1.9; }
+      .strengths__points { grid-template-columns: 1fr; gap: 12px; margin-top: 42px; }
+      .strength-point { min-height: auto; padding: 24px; }
+
+      .service-flow { grid-template-columns: 1fr; gap: 18px; margin-top: 48px; }
+      .service-flow li { min-height: 62px; padding: 17px 20px 16px 80px; border: 2px solid var(--ink); border-radius: 22px; background: #fff; text-align: left; }
+      .service-flow li::before { left: 8px; top: 50%; width: 48px; height: 48px; font-size: 13px; transform: translateY(-50%); box-shadow: 3px 4px 0 var(--ink); }
+      .service-list { grid-template-columns: 1fr; margin-top: 42px; padding: 26px 22px; box-shadow: 6px 7px 0 var(--teal); }
+
+      .works-grid { grid-template-columns: 1fr; gap: 32px; margin-top: 48px; }
+      .work-card { border-radius: 26px; box-shadow: 7px 8px 0 var(--ink); }
+      .work-card__body { padding: 23px 22px 26px; }
+      .works .section-actions { margin-top: 46px; }
+
+      .profile-layout { gap: 52px; }
+      .profile-photo-wrap { width: min(82vw, 340px); }
+      .profile-name { font-size: clamp(36px, 11vw, 48px); }
+      .profile-copy { font-size: 16px; line-height: 1.9; }
+
+      .social-layout { margin-top: 42px; }
+      .social-photo-wrap { width: min(74vw, 280px); margin-inline: auto; }
+      .social-photo-note { right: -12px; bottom: 18px; font-size: 11px; }
+      .social-grid { grid-template-columns: 1fr; }
+      .social-card { min-height: 138px; padding: 22px; }
+
+      .final-contact { min-height: 720px; }
+      .final-contact .section-inner { width: calc(100% - 40px); margin-inline: auto; }
+      .final-contact .section-title, .social .section-title { font-size: clamp(36px, 10vw, 46px); }
+      .final-contact__title-line { white-space: normal; }
+      .final-contact__logo { margin-bottom: 30px; }
+      .site-footer { padding: 30px 20px 110px; }
+
+      .floating-cta { left: auto; right: 0; bottom: auto; }
+      .floating-cta a { width: 52px; min-height: 248px; padding: 16px 0; border-radius: 25px 0 0 25px; box-shadow: -5px 6px 0 var(--ink); font-size: 12px; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .has-observer .reveal { opacity: 1 !important; transform: none !important; }
+      .has-observer .strengths__title.reveal span { opacity: 1 !important; filter: none !important; transform: none !important; transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <section class="first-view" id="top" aria-labelledby="hero-title">
+      <img class="first-view__background" src="img/hero-bg-publish.jpg" alt="" aria-hidden="true" width="1672" height="941" fetchpriority="high">
+
+      <header class="site-header" aria-label="サイトヘッダー">
+        <a class="brand" href="#top" aria-label="FUMINOWA DESIGN トップ">
+          <img class="brand__mark" src="img/logo.svg" alt="" width="175" height="150">
+          <span class="brand__name">FUMINOWA<br>DESIGN</span>
+        </a>
+        <a class="header-cta js-inline-cta" href="https://fuminowa-design.com/contact">相談する</a>
+      </header>
+
+      <div class="hero">
+        <div class="hero__copy">
+          <p class="eyebrow">元作業療法士のWebデザイナー</p>
+          <h1 class="hero__title" id="hero-title">
+            <span class="hero__title-line">その想いを、</span>
+            <span class="hero__title-line hero__title-accent">行動に変える<span class="mobile-break"><br></span>LPへ。</span>
+          </h1>
+          <p class="hero__lead">丁寧に聴き、言葉になりきらない魅力まで汲み取る。<br>見る人の気持ちを考え、自然と次の一歩につながるLPをつくります。</p>
+          <div class="hero__actions">
+            <a class="button button--primary js-inline-cta" href="https://fuminowa-design.com/contact">LP制作について相談する</a>
+            <a class="button button--secondary" href="#works">制作実績を見る</a>
+          </div>
+          <div class="availability">現在、ご相談受付中</div>
+        </div>
+
+        <div class="hero__visual" aria-label="緑川史乃のイラスト">
+          <img class="hero__portrait" src="img/fumino-photo.png" alt="飲み物とノートを手にした緑川史乃のイラスト" width="1254" height="1254">
+          <div class="visual-sticker" aria-hidden="true"><span>LP<small>DESIGN</small></span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="content-section strengths" id="strengths" aria-labelledby="strengths-title">
+      <img class="generated-bg" src="img/strength-bg-publish.jpg" alt="" aria-hidden="true" width="1923" height="818" loading="lazy" decoding="async">
+      <div class="section-inner">
+        <p class="section-kicker">My Strength</p>
+        <h2 class="strengths__title reveal" id="strengths-title">
+          <span>聴く。</span>
+          <span>汲み取る。</span>
+          <span>動かす。</span>
+        </h2>
+
+        <div class="strengths__intro reveal">
+          <img class="strengths__avatar" src="img/fumicon.webp" alt="緑川史乃のイラストアイコン" width="1254" height="1254" loading="lazy" decoding="async">
+          <p class="strengths__copy">作業療法士として7年間リハビリの現場に立ち、10,000人を超える患者さんと向き合ってきました。そこで培ったのは、相手の言葉に耳を傾け、その人が本当に必要としていることを考える力です。Webデザインでも、依頼者の想いと読者の迷いを丁寧に整理し、「伝わった先の行動」まで考えたLPを設計します。</p>
+        </div>
+
+        <ol class="strengths__points">
+          <li class="strength-point reveal">
+            <span class="strength-point__num">01 / LISTEN</span>
+            <h3>聴く</h3>
+            <p>まだまとまっていない要望も、対話しながら整理します。</p>
+          </li>
+          <li class="strength-point reveal">
+            <span class="strength-point__num">02 / FIND</span>
+            <h3>汲み取る</h3>
+            <p>事業らしさと、読者が知りたいことを言葉と形にします。</p>
+          </li>
+          <li class="strength-point reveal">
+            <span class="strength-point__num">03 / MOVE</span>
+            <h3>動かす</h3>
+            <p>問い合わせや申し込みまで、自然な情報の流れをつくります。</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="content-section service" id="service" aria-labelledby="service-title">
+      <div class="section-inner">
+        <p class="section-kicker">LP Production</p>
+        <h2 class="section-title reveal" id="service-title">構成から実装まで、<br>LPを一緒につくります。</h2>
+        <p class="section-lead reveal">誰に、何を、どう伝えるかを整理するところから、ライティング提案、デザイン、実装、CTA設計まで対応します。内容や素材がまだ揃っていない段階でも、ヒアリングを通じて方向性を考えます。</p>
+
+        <ol class="service-flow reveal" aria-label="LP制作の流れ">
+          <li>構成</li>
+          <li>言葉</li>
+          <li>デザイン</li>
+          <li>実装</li>
+          <li>行動</li>
+        </ol>
+
+        <ul class="service-list reveal">
+          <li>ターゲット・訴求の整理</li>
+          <li>LP構成・ライティング提案</li>
+          <li>Figmaでのデザイン</li>
+          <li>STUDIOまたはHTML・CSSでの実装</li>
+          <li>レスポンシブ対応</li>
+          <li>CTA設計・導線の最適化</li>
+        </ul>
+
+        <div class="section-actions reveal">
+          <a class="section-cta js-inline-cta" href="https://fuminowa-design.com/contact">LP制作について相談する</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="content-section works" id="works" aria-labelledby="works-title">
+      <img class="generated-bg" src="img/works-bg-publish.jpg" alt="" aria-hidden="true" width="1983" height="793" loading="lazy" decoding="async">
+      <div class="section-inner">
+        <p class="section-kicker">Selected Works</p>
+        <h2 class="section-title reveal" id="works-title">伝え方の違う、<br>4つのLP。</h2>
+        <p class="section-lead reveal">BtoB、医療、教育など、相手も目的も異なるLPを制作しています。読者の不安や期待を整理し、それぞれに合った伝え方と行動までの流れを設計します。</p>
+
+        <div class="works-grid">
+          <article class="work-card reveal">
+            <div class="work-card__image-wrap"><img class="work-card__image" src="img/work-tenpei 2.webp" alt="FC加盟募集ランディングページの制作実績" width="5000" height="3476" loading="lazy" decoding="async"></div>
+            <div class="work-card__body">
+              <p class="work-card__type">BtoB / LANDING PAGE</p>
+              <h3>FC加盟募集LP</h3>
+              <p class="work-card__text">加盟オーナー候補の不安・期待・背景を踏まえ、ビジネスとしての信頼感と将来性が伝わる構成を設計しました。</p>
+              <ul class="work-tags"><li>構成</li><li>ライティング</li><li>デザイン</li><li>実装</li></ul>
+            </div>
+          </article>
+
+          <article class="work-card reveal">
+            <div class="work-card__image-wrap"><img class="work-card__image" src="img/work-logtrack.webp" alt="旅費日当管理サービスのランディングページ制作実績" width="2053" height="1366" loading="lazy" decoding="async"></div>
+            <div class="work-card__body">
+              <p class="work-card__type">BtoB / LANDING PAGE</p>
+              <h3>旅費日当管理サービスLP</h3>
+              <p class="work-card__text">黒字企業の経営者に向け、節税メリットと合法性への不安を整理し、GPSログを根拠として見せる構成にしました。</p>
+              <ul class="work-tags"><li>構成</li><li>デザイン</li></ul>
+            </div>
+          </article>
+
+          <article class="work-card reveal">
+            <div class="work-card__image-wrap"><img class="work-card__image" src="img/work-yomogi.webp" alt="訪問鍼灸院ランディングページの制作実績" width="5000" height="3476" loading="lazy" decoding="async"></div>
+            <div class="work-card__body">
+              <p class="work-card__type">MEDICAL / LANDING PAGE</p>
+              <h3>訪問鍼灸院LP</h3>
+              <p class="work-card__text">在宅療養中の方とご家族に向け、医療職としての知見を活かし、安心感と専門性が伝わる流れを設計しました。</p>
+              <ul class="work-tags"><li>構成</li><li>デザイン</li><li>STUDIO</li><li>基本SEO</li></ul>
+            </div>
+          </article>
+
+          <article class="work-card reveal">
+            <div class="work-card__image-wrap"><img class="work-card__image" src="img/work-sankakuhi.webp" alt="三角比講座ランディングページの制作実績" width="2053" height="1366" loading="lazy" decoding="async"></div>
+            <div class="work-card__body">
+              <p class="work-card__type">EDUCATION / LANDING PAGE</p>
+              <h3>教育系講座LP</h3>
+              <p class="work-card__text">三角比につまずきやすい高専生に向け、「なぜ必要か」と「受講後の変化」を整理しました。</p>
+              <ul class="work-tags"><li>構成</li><li>Canva</li><li>Photoshop</li></ul>
+            </div>
+          </article>
+        </div>
+
+        <div class="section-actions reveal">
+          <a class="section-cta section-cta--outline" href="https://fuminowa-design.com/works">ほかの制作実績を見る</a>
+          <a class="section-cta js-inline-cta" href="https://fuminowa-design.com/contact">自分のLPについて相談する</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="content-section profile" id="profile" aria-labelledby="profile-title">
+      <div class="section-inner profile-layout">
+        <div class="profile-photo-wrap reveal">
+          <img class="profile-photo" src="img/profile.webp" alt="海辺に立つ緑川史乃の写真" width="3024" height="4032" loading="lazy" decoding="async">
+        </div>
+
+        <div class="profile-content">
+          <p class="section-kicker">Profile</p>
+          <h2 class="profile-name reveal" id="profile-title">FUMINO<br>MIDORIKAWA</h2>
+          <p class="profile-role reveal">Web Designer × 元作業療法士</p>
+          <div class="profile-copy reveal">
+            <p>FUMINOWA DESIGNの緑川史乃です。作業療法士として一人ひとり異なる背景や課題に向き合ってきた経験を、Webデザインに活かしています。</p>
+            <p>情報を一方的に詰め込むのではなく、必要な人に、必要なことが、無理なく伝わること。依頼者と読者の間にある距離を、デザインで近づけることを大切にしています。</p>
+          </div>
+          <aside class="career-note reveal">
+            <h3>異業種からWebデザイナーを目指す方へ</h3>
+            <p>異業種で得た経験は、デザインにも活かせます。制作や日々の活動については、SNSでも発信しています。</p>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <section class="content-section social" id="social" aria-labelledby="social-title">
+      <div class="section-inner">
+        <p class="section-kicker">Follow &amp; Connect</p>
+        <h2 class="section-title reveal" id="social-title">デザインのこと、働き方のこと、<br>日々のこと。</h2>
+        <p class="section-lead reveal">制作や日々の活動について、各SNSで発信しています。気になる場所からご覧ください。</p>
+
+        <div class="social-layout">
+          <div class="social-photo-wrap reveal">
+            <img class="social-photo" src="img/plofile-lp-publish.jpg" alt="笑顔で乾杯する緑川史乃の写真" width="1108" height="1477" loading="lazy" decoding="async">
+            <span class="social-photo-note">人柄も、のぞいてみる。</span>
+          </div>
+
+          <nav class="social-grid" aria-label="SNSリンク">
+            <a class="social-card reveal" href="https://note.com/fumino_max">
+              <span class="social-card__name">note</span>
+              <span class="social-card__action">noteを読む</span>
+            </a>
+            <a class="social-card reveal" href="https://x.com/Nobeer_Nolifumi">
+              <span class="social-card__name">X</span>
+              <span class="social-card__action">Xをフォローする</span>
+            </a>
+            <a class="social-card reveal" href="https://www.threads.com/@fumino.23max?hl=ja">
+              <span class="social-card__name">Threads</span>
+              <span class="social-card__action">Threadsを見る</span>
+            </a>
+            <a class="social-card reveal" href="https://www.instagram.com/fumino.23max/">
+              <span class="social-card__name">Instagram</span>
+              <span class="social-card__action">Instagramを見る</span>
+            </a>
+          </nav>
+        </div>
+      </div>
+    </section>
+
+    <section class="content-section final-contact" id="contact" aria-labelledby="contact-title">
+      <img class="generated-bg" src="img/cta-bg-publish.jpg" alt="" aria-hidden="true" width="2048" height="768" loading="lazy" decoding="async">
+      <div class="section-inner final-contact__inner">
+        <img class="final-contact__logo reveal" src="img/logo3.png" alt="FUMINOWA DESIGN" width="288" height="74" loading="lazy" decoding="async">
+        <p class="section-kicker" style="justify-content:center;color:#fff;">Contact</p>
+        <h2 class="section-title reveal" id="contact-title"><span class="final-contact__title-line">想いを聞かせてください。</span><span class="final-contact__title-line">伝わるLPを、一緒につくります。</span></h2>
+        <p class="section-lead reveal">内容や素材がまだまとまっていなくても大丈夫です。誰に何を届けたいのか、対話しながら整理するところから始めます。</p>
+        <div class="availability reveal">現在、ご相談受付中</div>
+        <div class="section-actions reveal">
+          <a class="section-cta final-cta js-inline-cta" href="https://fuminowa-design.com/contact">LP制作について相談する</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>© 2026 FUMINOWA DESIGN</p>
+  </footer>
+
+  <div class="floating-cta is-hidden" data-floating-cta>
+    <a href="https://fuminowa-design.com/contact">LP制作について相談する</a>
+  </div>
+
+  <script>
+    document.documentElement.classList.add('is-ready');
+
+    if ('IntersectionObserver' in window) {
+      document.documentElement.classList.add('has-observer');
+      const revealObserver = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            revealObserver.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.12 });
+
+      document.querySelectorAll('.reveal').forEach((element) => revealObserver.observe(element));
+    }
+
+    const floatingCta = document.querySelector('[data-floating-cta]');
+    const visibleInlineCtas = new Set();
+    const ctaObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) visibleInlineCtas.add(entry.target);
+        else visibleInlineCtas.delete(entry.target);
+      });
+      floatingCta.classList.toggle('is-hidden', visibleInlineCtas.size > 0);
+    }, { threshold: 0.35 });
+
+    document.querySelectorAll('.js-inline-cta').forEach((element) => ctaObserver.observe(element));
+  </script>
+</body>
+</html>
