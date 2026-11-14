@@ -144,6 +144,12 @@ function initContactForm() {
       })
       .then(res => {
         if (res.ok) {
+          // GA4: 送信成功時のみ計測(お問い合わせ / ヒアリングシートを区別)
+          if (typeof gtag === 'function') {
+            gtag('event', 'generate_lead', {
+              form_name: form.classList.contains('hearing-form') ? 'hearing_sheet' : 'inquiry'
+            });
+          }
           form.style.display = 'none';
           const thanks = document.querySelector('.contact-thanks');
           if (thanks) thanks.classList.add('is-visible');
