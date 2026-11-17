@@ -1,0 +1,250 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>FUMINOWA DESIGN ｜ のべ1万人の話を、聴いてきました。次は、あなたの番です。</title>
+<meta name="description" content="FUMINOWA DESIGN（フミノワデザイン）は、LP・ホームページを構成から実装までつくるWebデザイナー 緑川史乃のポートフォリオサイトです。まとまっていない話からでも、一緒に整理して形にします。">
+<link rel="canonical" href="https://fuminowa-design.com/portfolio/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="FUMINOWA DESIGN">
+<meta property="og:locale" content="ja_JP">
+<meta property="og:url" content="https://fuminowa-design.com/portfolio/">
+<meta property="og:title" content="のべ1万人の話を、聴いてきました。次は、あなたの番です。">
+<meta property="og:description" content="LP・ホームページを構成から実装までつくるWebデザイナー、緑川史乃のポートフォリオ。まとまっていない話からでも、一緒に整理して形にします。">
+<meta property="og:image" content="https://fuminowa-design.com/portfolio/ogp.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="点でできた「10,000」の数字と、「のべ1万人の話を、聴いてきました。次は、あなたの番です。」の文字。FUMINOWA DESIGN">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="のべ1万人の話を、聴いてきました。次は、あなたの番です。">
+<meta name="twitter:description" content="LP・ホームページを構成から実装までつくるWebデザイナー、緑川史乃のポートフォリオ。まとまっていない話からでも、一緒に整理して形にします。">
+<meta name="twitter:image" content="https://fuminowa-design.com/portfolio/ogp.png">
+<meta name="twitter:image:alt" content="点でできた「10,000」の数字と、「のべ1万人の話を、聴いてきました。次は、あなたの番です。」の文字。FUMINOWA DESIGN">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="site.css">
+</head>
+<body data-v="c" class="playing">
+<canvas id="stage"></canvas>
+
+<!-- 冒頭ムービー -->
+<div class="movie" aria-hidden="true">
+  <p class="m-count" id="mCount">0</p>
+  <p class="m-line1" id="mLine1">のべ1万人の話を、<br class="sp">聴いてきました。</p>
+  <div class="m-works">
+    <img class="mw" id="mw1" src="img/work-yomogi.jpg" alt="">
+    <img class="mw" id="mw2" src="img/work-tenpei.jpg" alt="">
+    <img class="mw" id="mw3" src="img/work-logtrack.jpg" alt="">
+  </div>
+  <div id="mEnd">
+    <img class="m-logo" id="mLogo" src="img/logo.svg" alt="">
+    <p class="m-line2" id="mLine2">次は、あなたの番です。</p>
+    <p class="m-brand" id="mBrand">FUMINOWA DESIGN</p>
+  </div>
+</div>
+<button class="skip" id="skip" type="button">スキップ</button>
+
+<!-- 1. 最初の画面 -->
+<div class="site" id="site">
+  <header class="head rv">
+    <a class="brand" href="#site"><img src="img/logo-white.png" alt="FUMINOWA DESIGN" width="288" height="74"></a>
+    <nav class="nav" aria-label="ページ内メニュー">
+      <a href="#works">Works</a><a href="#service">Service</a><a href="#flow">Flow</a><a href="#profile">Profile</a>
+      <a class="talk" href="#contact">相談してみる</a>
+    </nav>
+  </header>
+  <main class="hero">
+    <div class="copy">
+      <p class="kicker rv d1">WEB DESIGNER <span>｜ FUMINOWA DESIGN</span></p>
+      <h1 class="rv d2"><span>のべ1万人の話を、<br class="sp">聴いてきました。</span><span>次は、あなたの番です。</span></h1>
+      <p class="lead rv d3">その聴く力で、LP・ホームページを<br>構成から実装までつくるWebデザイナーです。</p>
+      <div class="acts rv d4"><a class="btn" href="#contact">相談してみる</a><a class="more" href="#works">制作実績を見る</a></div>
+    </div>
+  </main>
+</div>
+
+<!-- 2. 数字 -->
+<section class="sec dark nums" id="numbers" aria-label="数字で見るFUMINOWA DESIGN">
+  <div class="wrap grid4">
+    <div class="num io">
+      <p class="n"><small>のべ</small><b data-count="10000">10,000</b><small>人</small></p>
+      <h3>聴いてきた人の数</h3>
+      <p>作業療法士として、ひとりひとりの話を聴いてきました。</p>
+    </div>
+    <div class="num io d1">
+      <p class="n"><b data-count="9">9</b><small>種類</small></p>
+      <h3>つくれるもの</h3>
+      <p>LPからロゴ、動画、紙ものまで対応します。</p>
+    </div>
+    <div class="num io d2">
+      <p class="n"><small>窓口</small><b data-count="1">1</b><small>つ</small></p>
+      <h3>構成から実装まで</h3>
+      <p>構成・文章・デザイン・実装を、1人で通して担当します。</p>
+    </div>
+    <div class="num io d3">
+      <p class="n"><b data-count="24">24</b><small>時間以内</small></p>
+      <h3>お返事の速さ</h3>
+      <p>お問い合わせには、原則24時間以内にお返事します。</p>
+    </div>
+  </div>
+</section>
+
+<!-- 3. 相談前の不安 -->
+<section class="sec paper worries" id="worries">
+  <div class="wrap two">
+    <div class="io">
+      <p class="eyebrow">BEFORE YOU ASK</p>
+      <h2>まとまっていない話ほど、<br>得意です。</h2>
+      <p class="body">「何から話せばいいか分からない」「うまく言葉にできない」。<br>そのままで大丈夫です。お話を伺いながら、一緒に整理するところから始めます。</p>
+    </div>
+    <div class="tidy io">
+      <p class="w w1">原稿や写真がまだそろっていない</p>
+      <p class="w w2">何を頼めばいいのか、はっきりしていない</p>
+      <p class="w w3">自分の商品の良さを、うまく説明できない</p>
+      <p class="after">ひとつでも当てはまる方こそ、ご相談ください。</p>
+    </div>
+  </div>
+</section>
+
+<!-- 4. 制作実績 -->
+<section class="sec white works" id="works">
+  <div class="wrap">
+    <div class="io">
+      <p class="eyebrow">WORKS</p>
+      <h2>こんなものを、つくってきました。</h2>
+    </div>
+    <ul class="kinds io"><li>ホームページ</li><li>LP</li><li>商品画像</li><li>ロゴ</li></ul>
+    <article class="work io">
+      <div class="shot"><img src="img/work-mebuki.jpg" alt="整体院ホームページの画面" loading="lazy"></div>
+      <div class="meta">
+        <p class="no">01</p>
+        <p class="type">ホームページ</p>
+        <h3>整体院</h3>
+        <p>新しく開業する訪問整体院のホームページ。</p>
+        <ul><li>コンセプト設計</li><li>構成</li><li>ライティング</li><li>デザイン</li><li>STUDIO実装</li></ul>
+      </div>
+    </article>
+    <article class="work rev io">
+      <div class="shot"><img src="img/work-yomogi.jpg" alt="訪問鍼灸院LPの画面" loading="lazy"></div>
+      <div class="meta">
+        <p class="no">02</p>
+        <p class="type">LP</p>
+        <h3>訪問鍼灸院</h3>
+        <p>在宅療養中の方とそのご家族に向けたLP。</p>
+        <ul><li>構成・ライティング（一部）</li><li>デザイン</li><li>STUDIO実装</li><li>基本的なSEO設定</li></ul>
+      </div>
+    </article>
+    <div class="cards">
+      <article class="card io">
+        <div class="tile blend"><img src="img/work-tenpei.jpg" alt="FC加盟募集LPの画面" loading="lazy"></div>
+        <p class="no">03</p><p class="type">LP</p>
+        <h3>FC加盟募集</h3>
+        <p>加盟を検討するオーナー候補に向けたLP。</p>
+        <ul><li>ライティング（一部）</li><li>デザイン</li><li>HTML・CSS・JavaScript実装</li></ul>
+      </article>
+      <article class="card io d1">
+        <div class="tile"><img src="img/work-logtrack.jpg" alt="旅費日当管理サービスLPの画面" loading="lazy"></div>
+        <p class="no">04</p><p class="type">LP</p>
+        <h3>旅費日当管理サービス</h3>
+        <p>経営者に向けた、法人向けサービスのLP。</p>
+        <ul><li>デザイン</li><li>HTML実装</li></ul>
+      </article>
+      <article class="card io">
+        <div class="tile"><img src="img/work-socks.jpg" alt="スポーツソックスの商品画像" loading="lazy"></div>
+        <p class="no">05</p><p class="type">商品画像</p>
+        <h3>スポーツソックス</h3>
+        <p>楽天・Amazon・Yahoo!ショッピング向けの商品画像。</p>
+        <ul><li>商品画像の制作</li></ul>
+      </article>
+      <article class="card io d1">
+        <div class="tile"><img src="img/work-asahidake.jpg" alt="ショップロゴを使ったマグカップ" loading="lazy"></div>
+        <p class="no">06</p><p class="type">ロゴ</p>
+        <h3>ショップロゴ</h3>
+        <p>英語表記と山のシルエットを組み合わせたロゴ。</p>
+        <ul><li>ロゴ制作</li></ul>
+      </article>
+    </div>
+    <p class="center io"><a class="more" href="https://fuminowa-design.com/works" target="_blank" rel="noopener">ほかの実績も見る</a></p>
+  </div>
+</section>
+
+<!-- 5. サービス -->
+<section class="sec paper service" id="service">
+  <div class="wrap">
+    <div class="io">
+      <p class="eyebrow">SERVICE</p>
+      <h2>つくれるものは、9種類あります。</h2>
+      <p class="body">必要なものをまとめて頼めるので、見た目と言葉がばらばらになりません。</p>
+    </div>
+    <ul class="nine io">
+      <li><i>01</i>LP</li><li><i>02</i>ホームページ</li><li><i>03</i>SNS画像</li>
+      <li><i>04</i>広告動画</li><li><i>05</i>バナー</li><li><i>06</i>ロゴ・名刺</li>
+      <li><i>07</i>LINE構築</li><li><i>08</i>チラシ・パンフレット</li><li><i>09</i>商品画像</li>
+    </ul>
+    <div class="price io">
+      <p class="eyebrow">料金の目安</p>
+      <dl>
+        <div><dt>LP制作</dt><dd><b>8</b>万円〜</dd></div>
+        <div><dt>ホームページ制作</dt><dd><b>15</b>万円〜</dd></div>
+      </dl>
+      <p class="note">ページの長さや原稿・素材の状況によって変わります。内容を伺ったうえで、個別にお見積りします。</p>
+    </div>
+  </div>
+</section>
+
+<!-- 6. 進め方 -->
+<section class="sec white flow" id="flow">
+  <div class="wrap">
+    <div class="io">
+      <p class="eyebrow">FLOW</p>
+      <h2>聴くところから、公開まで。</h2>
+    </div>
+    <ol class="steps">
+      <li class="io"><i>01</i><h3>お話を伺う</h3><p>目的や届けたい相手を、まとまっていない段階から伺います。</p></li>
+      <li class="io d1"><i>02</i><h3>構成と文章をつくる</h3><p>誰に、何を、どの順番で伝えるかを整理します。</p></li>
+      <li class="io d2"><i>03</i><h3>デザインする</h3><p>最初の画面で方向を決め、ページ全体へ広げます。</p></li>
+      <li class="io d3"><i>04</i><h3>実装して公開する</h3><p>スマートフォンでも読みやすい形に仕上げます。</p></li>
+    </ol>
+  </div>
+</section>
+
+<!-- 7. プロフィール -->
+<section class="sec paper profile" id="profile">
+  <div class="wrap two">
+    <div class="pic io"><img src="img/profile.png" alt="緑川史乃のイラスト" loading="lazy"></div>
+    <div class="io d1">
+      <p class="eyebrow">PROFILE</p>
+      <h2>緑川 史乃 <span>FUMINO MIDORIKAWA</span></h2>
+      <p class="role">Web Designer ／ FUMINOWA DESIGN</p>
+      <p class="body">想いを、伝わる形にするデザインをつくっています。</p>
+      <p class="body">作業療法士として8年目。現在もリハビリの現場で、のべ1万人の方と向き合ってきました。人が動くのは、「分かってもらえた」と感じたとき。その実感を、デザインの土台にしています。</p>
+      <p class="sns"><a href="https://note.com/fumino_max" target="_blank" rel="noopener">note</a><a href="https://x.com/Nobeer_Nolifumi" target="_blank" rel="noopener">X</a><a href="https://www.instagram.com/fumino.23max/" target="_blank" rel="noopener">Instagram</a></p>
+    </div>
+  </div>
+</section>
+
+<!-- 8. お問い合わせ -->
+<section class="sec dark contact" id="contact">
+  <div class="wrap io">
+    <p class="eyebrow">CONTACT</p>
+    <h2>聴くのも、本業です。</h2>
+    <p class="body">ご相談だけでも大丈夫です。内容がまとまっていなくても、そのままお聞かせください。<br>公式LINEへのメッセージには、原則24時間以内にお返事します。</p>
+    <a class="btn big" href="https://line.me/R/ti/p/%40036jhlve" target="_blank" rel="noopener">LINEで相談してみる</a>
+    <p class="alt"><a href="https://fuminowa-design.com/contact" target="_blank" rel="noopener">フォームから相談する</a></p>
+  </div>
+</section>
+
+<footer class="foot">
+  <img src="img/logo-white.png" alt="FUMINOWA DESIGN" width="288" height="74">
+  <button class="replay" id="replay" type="button">冒頭のムービーを見る</button>
+  <small>© 2026 FUMINOWA DESIGN</small>
+</footer>
+
+<a class="float" id="float" href="https://line.me/R/ti/p/%40036jhlve" target="_blank" rel="noopener">LINEで相談してみる</a>
+
+<script src="site.js"></script>
+<script src="ui.js"></script>
+</body>
+</html>
