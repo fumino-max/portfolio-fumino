@@ -7,7 +7,7 @@
   const SEEN_KEY = 'fuminowa_movie_seen';
   let seen = false;
   let played = false;   // 冒頭から実際に再生したか（飛ばした訪問は「見た」に数えない）
-  try { seen = localStorage.getItem(SEEN_KEY) === '1'; } catch (e) {}
+  try { seen = sessionStorage.getItem(SEEN_KEY) === '1'; } catch (e) {}   // 同じタブの中だけ「見た」を覚える（新しく開いたときは、また流す）
   const N = 10000;
   const END = 12.6;          // ムービー約11秒＋最初の画面へ落ち着くまで
   const T_SITE = 11.0;       // ここから最初の画面へ
@@ -305,7 +305,7 @@
     }
     document.body.classList.toggle('playing', t < T_SITE + 0.45);
     const done = t >= END;
-    if (done && played && !document.body.classList.contains('done')) { try { localStorage.setItem(SEEN_KEY, '1'); } catch (e) {} }
+    if (done && played && !document.body.classList.contains('done')) { try { sessionStorage.setItem(SEEN_KEY, '1'); } catch (e) {} }
     document.body.classList.toggle('done', done);
   }
 
