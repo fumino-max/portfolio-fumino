@@ -93,16 +93,23 @@ function initContactTabs() {
   const tabs = document.querySelectorAll('.contact-tab');
   if (!tabs.length) return;
 
-  tabs.forEach(tab => {
-    tab.addEventListener('click', () => {
+  function selectTab(tab) {
       tabs.forEach(t => { t.classList.remove('is-active'); t.setAttribute('aria-selected', 'false'); });
       document.querySelectorAll('.contact-tab-panel').forEach(p => p.classList.remove('is-active'));
       tab.classList.add('is-active');
       tab.setAttribute('aria-selected', 'true');
       const panel = document.getElementById('tab-' + tab.dataset.tab);
       if (panel) panel.classList.add('is-active');
-    });
+  }
+
+  tabs.forEach(tab => {
+    tab.addEventListener('click', () => selectTab(tab));
   });
+
+  if (new URLSearchParams(window.location.search).get('type') === 'hearing') {
+    const hearingTab = document.querySelector('.contact-tab[data-tab="hearing"]');
+    if (hearingTab) selectTab(hearingTab);
+  }
 }
 
 /* ---- Contact Form Validation & Submit ---- */
@@ -134,9 +141,21 @@ function initContactForm() {
         }
       }
 
+      if (form.classList.contains('hearing-form')) {
+        const serviceGroup = form.querySelector('#h-service-label')?.closest('.form-group');
+        if (serviceGroup && !serviceGroup.querySelector('input[name="h_service[]"]:checked')) {
+          serviceGroup.classList.add('has-error');
+          valid = false;
+        } else {
+          serviceGroup?.classList.remove('has-error');
+        }
+      }
+
       if (!valid) return;
 
       const data = new FormData(form);
+      const submitButton = form.querySelector('[type="submit"]');
+      if (submitButton) submitButton.disabled = true;
       fetch(form.action, {
         method: 'POST',
         body: data,
@@ -152,13 +171,21 @@ function initContactForm() {
           }
           form.style.display = 'none';
           const thanks = document.querySelector('.contact-thanks');
-          if (thanks) thanks.classList.add('is-visible');
+          document.querySelector('.contact-tabs')?.setAttribute('hidden', '');
+          document.querySelectorAll('.contact-tab-panel').forEach(panel => panel.setAttribute('hidden', ''));
+          if (thanks) {
+            thanks.classList.add('is-visible');
+            thanks.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          }
         } else {
           alert('送信に失敗しました。お手数ですがSNSよりご連絡ください。');
         }
       })
       .catch(() => {
         alert('通信エラーが発生しました。お手数ですがSNSよりご連絡ください。');
+      })
+      .finally(() => {
+        if (submitButton) submitButton.disabled = false;
       });
     });
 
@@ -166,6 +193,9 @@ function initContactForm() {
       field.addEventListener('input', () => {
         field.closest('.form-group')?.classList.remove('has-error');
       });
+    });
+    form.querySelectorAll('input[name="h_service[]"]').forEach(field => {
+      field.addEventListener('change', () => field.closest('.form-group')?.classList.remove('has-error'));
     });
   });
 }
