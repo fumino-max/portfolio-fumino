@@ -1836,10 +1836,11 @@ ul, ol { list-style: none; }
   .contact-cta__actions { flex-direction: column; width: 100%; }
   .contact-cta__actions .btn { width: 100%; justify-content: center; }
   .diagnosis-hero { padding: 36px 24px; }
+  .diagnosis-hero h1 { font-size: 26px; letter-spacing: 0; }
   .diagnosis-section { padding-block: 48px; }
   .diagnosis-section--tint { margin-inline: -8px; }
   .diagnosis-steps li { grid-template-columns: 1fr; gap: 4px; }
   .diagnosis-page .btn { width: 100%; justify-content: center; text-align: center; }
   .diagnosis-links { align-items: stretch; }
-  .diagnosis-section h2 { font-size: 23px; }
+  .diagnosis-section h2 { font-size: 21px; }
 }
